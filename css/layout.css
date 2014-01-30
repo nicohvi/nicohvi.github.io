@@ -7,15 +7,18 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
+a, a:active, a:visited {
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
 }
 
 body {
 	margin-top: 50px;
   background-color: white;
-  font: 13.34px 'Bitter', Georgia, Serif;
+  font: 13.34px 'Merriweather', sans-serif;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
 #avatar {
@@ -23,5 +26,15 @@ body {
 	display: block;
 	width: 100px;
 	height: 100px;
+}
+
+li {
+	padding: 1%;
+	-webkit-transition: all ease-in-out .5s;
+	margin-left: 0;
+}
+
+li:hover {
+	margin-left: -50px;
 }
 
