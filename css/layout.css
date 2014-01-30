@@ -12,7 +12,16 @@ html, body {
 }
 
 body {
+	margin-top: 50px;
   background-color: white;
-  font: 13.34px 'Bitter';
+  font: 13.34px 'Bitter', Georgia, Serif;
   text-align: center;
 }
+
+#avatar {
+	margin: 0 auto;
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+

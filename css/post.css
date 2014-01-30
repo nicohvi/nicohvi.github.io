@@ -1,0 +1,13 @@
+
+.post {
+	max-width: 950px;
+	margin: 0 auto;
+}
+
+.post p {
+	font-size: 18px;
+	text-align: left;
+	line-height: 1.5em;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
+	margin: 3%;
+}
