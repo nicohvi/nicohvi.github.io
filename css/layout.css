@@ -16,7 +16,7 @@ a, a:active, a:visited {
 body {
 	margin-top: 50px;
   background-color: white;
-  font: 13.34px 'Merriweather', sans-serif;
+  font: 16px 'Merriweather', sans-serif;
   text-align: center;
   -webkit-font-smoothing: antialiased;
 }
@@ -30,11 +30,31 @@ body {
 
 li {
 	padding: 1%;
+}
+
+li div {
+	display: inline-block;
+}
+
+.post-container {
 	-webkit-transition: all ease-in-out .5s;
-	margin-left: 0;
+	margin-left: -9999px;
 }
 
-li:hover {
-	margin-left: -50px;
+.post-tags {
+	padding: 10px;
+	opacity: 0;
+	-webkit-transition: all ease-in-out .5s;
 }
 
+.post-tags.active {
+	opacity:1;
+}
+
+.tag {
+	background: #0074D9;
+	padding: 3px 5px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	border-radius: 3px;
+	color: #fff;
+}
