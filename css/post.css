@@ -16,12 +16,66 @@
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
+.post a {
+	color: #0074D9;
+	font-weight: normal;
+	-webkit-transition: all ease-in-out .2s;
+}
+
+.post a:hover {
+	color: red;
+}
+
 h2 {
 	text-align: center;
 }
 
+.list-image-item {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	opacity: .3;
+	-webkit-transition: all ease-in-out .5s;
+}
+
+.list-image-item.active {
+	opacity: 1;
+}
+
+.list-image-meta {
+	opacity: 0;
+	-webkit-transition: all ease-in-out .5s;
+	max-width: 70%;
+	min-width:70%;
+	padding-left: 100%;
+}
+
+.list-image-meta.active {
+	opacity:1;
+	text-align: left;
+	padding-left: 3%;
+	flex:1;
+}
+
+.list-image-item img{
+	max-width: 30%;
+	min-width:30%;
+	margin: 3%;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,.3);
+}
+
+ul {
+	padding:0;
+	list-style: none;
+}
+
+li {
+	margin: 1% 0;
+}
+
 h3 {
-	margin-top: 10%;
+	margin: 3% 0;
 }
 
 img {
