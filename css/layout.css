@@ -58,3 +58,10 @@ li div {
 	border-radius: 3px;
 	color: #fff;
 }
+
+code {
+	font-family: consolas;
+	font-size: 18px;
+	background: #f1f1f1;
+	padding: 1%;
+}

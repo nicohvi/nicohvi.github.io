@@ -59,6 +59,6 @@ I think I watched the Kickstarter trailer at least 17 times today -  *ahmahgerd*
 
 The action RPG genre is something I'm very interested in (even more so after spending roughly 500 hours combined on *Demon's* and *Dark Souls*) and I found both the visual aspects as well as the gameplay mechanics of HPL highly inspirational.
 
-Anywho, that's the inspiration I got from today's googling, and at least I'm starting to envision what I *want* to create (although I've come no closer to actually being able to do so). Although today was by no means a productive day, I finally got rid of the paint spots on my ceiling today, so I've got that going for me.
+Anywho, that's the inspiration I got from today's googling, and at least I'm starting to envision what I *want* to create (although I've come no closer to actually being able to do so). Although today was by no means a productive day, I finally got rid of the paint spots on my ceiling, so I've got that going for me.
 
 
