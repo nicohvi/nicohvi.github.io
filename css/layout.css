@@ -2,6 +2,10 @@
 	Global resets
 */
 
+html {
+	height: 100%; 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,11 +18,18 @@ a, a:active, a:visited {
 }
 
 body {
-	margin-top: 50px;
   background-color: white;
   font: 16px 'Merriweather', sans-serif;
   text-align: center;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.main-content {
+	flex: 1;
+	padding-top: 50px;
 }
 
 #avatar {
@@ -64,4 +75,13 @@ code {
 	font-size: 18px;
 	background: #f1f1f1;
 	padding: 1%;
+}
+
+footer {
+	padding: 1%;
+	background: #f1f1f1;
+	text-align: center;
+}
+.twitter-follow-button {
+	width: 108px!important;
 }

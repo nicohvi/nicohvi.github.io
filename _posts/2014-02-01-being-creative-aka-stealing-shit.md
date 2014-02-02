@@ -55,10 +55,10 @@ I really enjoy the design of this game, which seems to utilize a fully 3D world 
         </ul>
     </aside>
 </div> 
-I think I watched the Kickstarter trailer at least 17 times today -  *ahmahgerd* it looks amazing. And **dat** soundtrack, which is apparently being made by [Disasterpeace](https://www.disasterpeace.com). This is more of a standard 2D, slightly isometric, take on the action RPG genre - also very interesting.
+I think I watched the Kickstarter trailer at least 17 times today -  *ahmahgerd* it looks amazing. And **dat** soundtrack, which is apparently being made by [Disasterpeace](http://www.disasterpeace.com). This is more of a standard 2D, slightly isometric, take on the action RPG genre - also very interesting.
 
-The action RPG genre is something I'm very interested in (even more so after spending roughly 500 hours combined on *Demon's* and *Dark Souls*) and I found both the visual aspects as well as the gameplay mechanics of HPL highly inspirational.
+Aciton RPGs are something I'm very interested in (even more so after spending roughly 500 hours combined on *Demon's* and *Dark Souls*) and I found both the visual aspects as well as the gameplay mechanics of HPL highly inspirational.
 
-Anywho, that's the inspiration I got from today's googling, and at least I'm starting to envision what I *want* to create (although I've come no closer to actually being able to do so). Although today was by no means a productive day, I finally got rid of the paint spots on my ceiling, so I've got that going for me.
+Anywho, that's the inspiration I got from today's googling, and at least I'm starting to envision what I *want* to create (although I've come no closer to actually being able to do so). So while today was by no means a productive day, I finally got rid of the paint spots on my ceiling, so I've got that going for me.
 
 
