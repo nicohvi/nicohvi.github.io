@@ -47,6 +47,15 @@ li div {
 	display: inline-block;
 }
 
+@media (max-width: 900px) {
+	.post-tags {
+		display: none;
+	}
+	.post-container a:hover {
+		color: red;
+	}
+}
+
 .post-container {
 	-webkit-transition: all ease-in-out .5s;
 	margin-left: -9999px;
