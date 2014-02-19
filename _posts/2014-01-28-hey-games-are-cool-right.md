@@ -12,7 +12,7 @@ log in-systems? Slay (virtual) trolls instead of shaking our heads at XML config
 rather than looking for an interesting article to read while your XSLT compiles? Braving vast cav... you get the point.
 
 ![Troll](/assets/images/posts/troll.jpg)
-<span class="image-text">Troll slaying is an honorable endevaour</span>
+<span class="image-text">Troll slaying is an honorable endevaour.</span>
 
 So, I did what any sane developer does when he's faced with a problem he doesn't know the answer to. After googling for a couple of minutes, and being overwhelmed with information, I decided that it might be smart to take this process step by step. First things first: *which platform do I want to develop for?*
 

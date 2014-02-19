@@ -84,6 +84,13 @@ img {
 	margin: 0 auto;
 }
 
+/* for YouTube videos */
+iframe {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: -10px;
+}
+
 .image-text {
 	display: block;
 	margin: 0 auto;
