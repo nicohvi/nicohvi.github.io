@@ -3,8 +3,11 @@ $(document).ready(function() {
 	var bindPosts = function() {
 		$('.post-container').each(function(index, element) {
 				$(element).on('webkitTransitionEnd', function(event) {
-					if( parseInt($(this).css('margin-left')) > 0 ) { return false }
-					$(this).siblings('.post-tags').addClass('active')
+					showTags(this)
+				})
+
+				$(element).on('transitionend', function(event) {
+					showTags(this)
 				})
 
 				$(element).on('mouseover', function(event) {
@@ -36,6 +39,11 @@ $(document).ready(function() {
 		var mediaQuery = window.matchMedia("(max-width: 900px)")
 		mediaQuery.addListener(removeBindings)
 		removeBindings(mediaQuery)
+	}
+
+	var showTags = function(element) {
+		if( parseInt($(element).css('margin-left')) > 0 ) { return false }
+		$(element).siblings('.post-tags').addClass('active')
 	}
 
 })

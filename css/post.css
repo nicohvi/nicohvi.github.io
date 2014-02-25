@@ -84,6 +84,29 @@ img {
 	margin: 0 auto;
 }
 
+video {
+	max-height: 350px;
+	display: block;
+	margin: 0 auto;
+}
+
+.controls {
+	max-width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.controls button {
+	border: none;
+	background: #333;
+	color: #fff;
+	padding: 8px 5px 7px 14px;
+}
+
+.controls button:hover {
+	cursor: pointer;
+}
+
 /* for YouTube videos */
 iframe {
 	display: block;

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var isPlaying = false;
+
 	$('.list-image-item').each(function(index, element) {
 
 		$(element).on('mouseover', function(event) {
@@ -9,5 +11,20 @@ $(document).ready(function() {
 		})
 
 	})
+
+	$('.controls button').on('click', function(event) {
+		isPlaying ? stopVideo() : beginVideo()
+		isPlaying = !isPlaying		
+	})
+
+	var stopVideo = function() {
+		$('video').get(0).pause()
+		$('.controls button i').removeClass('fa-pause').addClass('fa-play')
+	}
+
+	var beginVideo = function() {
+		$('video').get(0).play()
+		$('.controls button i').removeClass('fa-play').addClass('fa-pause')
+	}
 
 })

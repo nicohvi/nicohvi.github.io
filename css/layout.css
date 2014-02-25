@@ -23,7 +23,7 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   display: flex;
-  min-height: 100%;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -58,6 +58,7 @@ li div {
 
 .post-container {
 	-webkit-transition: all ease-in-out .5s;
+	transition: all ease-in-out .5s;
 	margin-left: -9999px;
 }
 
@@ -65,6 +66,7 @@ li div {
 	padding: 10px;
 	opacity: 0;
 	-webkit-transition: all ease-in-out .5s;
+	transition: all ease-in-out .5s;
 }
 
 .post-tags.active {
@@ -87,7 +89,7 @@ code {
 }
 
 footer {
-	padding: 1%;
+	padding: 1.5rem;
 	background: #f1f1f1;
 	text-align: center;
 }
