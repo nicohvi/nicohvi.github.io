@@ -3,13 +3,16 @@ title: I have no idea what I'm doing
 layout: default
 ---
 
-<h1>I have no idea what I'm doing</h1>
+<h2>I have no idea what I'm doing</h2>
 
 <ul>
   {% for post in site.posts %}
     <li>
       <div class="post-container">
-      	{{ post.date | date: "%-d %B %Y" }}, <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+      	<span class="date">
+          <i class="fa fa-clock-o"></i> {{ post.date | date: "%-d %B %Y" }}
+        </span>
+        - <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
       </div>
 	    <div class="post-tags">
 		  	{% for tag in post.tags %}

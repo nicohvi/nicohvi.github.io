@@ -2,7 +2,7 @@
 .post {
 	max-width: 700px;
 	margin: 0 auto;
-	padding: 3%;
+	padding: 0 3% 3% 3%;
 	text-align: left;
 }
 
@@ -12,8 +12,8 @@
 	line-height: 1.5em;
 	letter-spacing: .01rem;
 	margin: 3% 0;
-	font-weight: 400;
-	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 500;
+	font-family: Georgia;
 }
 
 .post a {
@@ -24,10 +24,6 @@
 
 .post a:hover {
 	color: red;
-}
-
-h2 {
-	text-align: center;
 }
 
 .list-image-item {
@@ -71,7 +67,7 @@ ul {
 }
 
 li {
-	margin: 1% 0;
+	margin: 10px 0;
 }
 
 h3 {
