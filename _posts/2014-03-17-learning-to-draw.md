@@ -55,5 +55,5 @@ sleep with a kebab on my chest.
 
 <section class="footnotes">
 <a name="1"><sup>1</sup></a>An exquisite brand of chewing gum very popular in Norway in the
-mid-ninties
+mid-nineties
 </section>
