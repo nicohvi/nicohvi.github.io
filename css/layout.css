@@ -11,8 +11,11 @@ html {
   padding: 0;
 }
 
+h1 {
+	font-size: 2em;
+}
 
-.title, h2 {
+.title {
 	font-family: 'Open Sans',Verdana;
 	font-size: 50px;
 	letter-spacing: -0.04em;
@@ -98,9 +101,12 @@ li div {
 
 code {
 	font-family: consolas;
-	font-size: 18px;
 	background: #f1f1f1;
 	padding: 1%;
+}
+
+pre code {
+	display: block;
 }
 
 footer {
