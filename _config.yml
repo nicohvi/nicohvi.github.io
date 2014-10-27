@@ -3,3 +3,7 @@ lsi: false
 highlighter: pygments
 encoding: utf-8
 markdown: redcarpet
+
+sass:
+  sass_dir: _sass
+  style: compressed

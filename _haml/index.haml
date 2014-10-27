@@ -1,0 +1,12 @@
+\---
+title: I have no idea what I'm doing
+layout: default
+\---
+
+%ul.posts
+  {% for post in site.posts %}
+  %li.post
+    %a(href="{{post.url}}")
+      {{ post.title }}
+  {% endfor %}
+
