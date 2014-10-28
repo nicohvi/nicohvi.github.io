@@ -1,9 +1,13 @@
 \---
-layout: default
+layout: master
 \---
 
-%article.post
+%section#cover
+  .overlay
+  %h1.title
+
+%article#post
   {{ content }}
 
-%section.meta
-  {{ page.tags | join ', ' }}
+  %section.meta
+    {{ page.tags | join ', ' }}

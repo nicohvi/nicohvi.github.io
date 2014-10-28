@@ -24,7 +24,9 @@ a { text-decoration: none; color: $black; }
   padding-bottom: 30px;
   font-weight: 700;
   text-shadow: 2px 2px 2px rgba(0,0,0,.25);
+  text-align: center;
   margin: 0 auto;
+  display: block;
 }
 
 #home .focus { 
@@ -36,12 +38,13 @@ a { text-decoration: none; color: $black; }
 }
 
 body { 
-  background: $fadedBlue;
   flex-direction: column; 
+  text-rendering: optimizeLegibility;
 }
 
 header {
   border-bottom: 2px solid $gray;
+  background: $fadedBlue;
   padding: 20px 0;
   max-height: 400px;
 }
@@ -59,5 +62,5 @@ header img { height: 300px; margin: 0 auto; display: block; }
   margin: 0 auto;
 }
 
-h1,h2,h3 { text-align: center; }
-
+h1,h2,h3 { text-align: center; font-weight: 700; }
+h1 { font-size: 4em; }
