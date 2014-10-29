@@ -1,14 +1,28 @@
 pre {
-  white-space: pre-line;
-  background: #393939;
+  background: $_black;
   color: #f0f0f0;
   font-size: 16px;
   font-family: 'Cousine'; 
   padding: 15px 30px;
-  margin-bottom: 30px;
   border-radius: 3px;
+  overflow: scroll;
 }
 
-.k   { color: #e87972; }
-.nf  { color: #b9d678; }
-.s   { color: #80accc; }
+code {
+  background: $_black;
+  color: $_white;
+  padding: 3px 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  font-family: 'Cousine';
+}
+
+pre code { padding: 0; }
+
+.k   { color: $_blue;   }
+.kp  { color: $_orange; }
+.nf  { color: $_green;  }
+.n   { color: $_red;    }
+.s   { color: $_blue;   }
+.s1, .s2, .ss  { color: $_green;  }
+.c1  { color: $_gray;   }

@@ -9,14 +9,15 @@
 
     Post.prototype.setHeader = function() {
       this.setCover();
-      return this.setTitle();
+      this.setTitle();
+      return this.setSub();
     };
 
     Post.prototype.setCover = function() {
       var blur, src;
       src = this.data.data('src');
       blur = this.data.data('blur');
-      $('.image').css('background-image', "url('" + src + "')");
+      $('.cover-photo').css('background-image', "url('" + src + "')");
       return $('.blur').css('background-image', "url('" + blur + "')");
     };
 
@@ -24,6 +25,12 @@
       var title;
       title = this.data.data('title');
       return $('.title').text(title);
+    };
+
+    Post.prototype.setSub = function() {
+      var sub;
+      sub = this.data.data('sub');
+      return $('.sub').text(sub);
     };
 
     Post.prototype.blur = function(opacity) {

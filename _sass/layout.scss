@@ -28,7 +28,11 @@ a { text-decoration: none; color: $black; }
 
 body { 
   text-rendering: optimizeLegibility;
+  background: $orange;
 }
+
+b,strong { font-weight: 700; }
+i, em { font-style: italic; }
 
 header {
   border-bottom: 2px solid $gray;
