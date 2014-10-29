@@ -1,15 +1,4 @@
-$blue: #3781ba;
-$navy: #005780;
-$white: #fff;
-$gray: #e8e8e8;
-$black: #454545;
-$orange: #ee876d;
-$green: #8AC06E;
-$fadedBlue: #79A1BF;
-
 html, body {
-  flex: 1;
-  display: flex;
   height: 100%;
   font-family: 'Source Sans Pro';
   color: $black;
@@ -38,7 +27,6 @@ a { text-decoration: none; color: $black; }
 }
 
 body { 
-  flex-direction: column; 
   text-rendering: optimizeLegibility;
 }
 
@@ -57,7 +45,7 @@ header img { height: 300px; margin: 0 auto; display: block; }
 }
 
 .wrapper {
-  width: 700px;
+  width: 100%;
   max-width: 700px;
   margin: 0 auto;
 }

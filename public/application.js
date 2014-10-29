@@ -4,20 +4,30 @@
   Post = (function() {
     function Post() {
       this.data = $('#data');
-      this.setCover();
-      this.setTitle();
+      this.setHeader();
     }
 
+    Post.prototype.setHeader = function() {
+      this.setCover();
+      return this.setTitle();
+    };
+
     Post.prototype.setCover = function() {
-      var src;
+      var blur, src;
       src = this.data.data('src');
-      return $('#cover').css('background-image', "url('" + src + "')");
+      blur = this.data.data('blur');
+      $('.image').css('background-image', "url('" + src + "')");
+      return $('.blur').css('background-image', "url('" + blur + "')");
     };
 
     Post.prototype.setTitle = function() {
       var title;
       title = this.data.data('title');
       return $('.title').text(title);
+    };
+
+    Post.prototype.blur = function(opacity) {
+      return $('.blur').css('opacity', opacity);
     };
 
     return Post;
@@ -35,7 +45,20 @@
       if (options.post) {
         this.post = new Post();
       }
+      this.initHandlers();
     }
+
+    Blog.prototype.initHandlers = function() {
+      return $(document).on('scroll', (function(_this) {
+        return function(event) {
+          var offset;
+          offset = $(window).scrollTop() / 150.0;
+          if (_this.post) {
+            return _this.post.blur(offset);
+          }
+        };
+      })(this));
+    };
 
     return Blog;
 

@@ -2,6 +2,12 @@ class Blog
 
   constructor: (options) ->
     @post = new Post() if options.post
+    @initHandlers()
+
+  initHandlers: ->
+    $(document).on 'scroll', (event) =>
+      offset = $(window).scrollTop() / 150.0
+      @post.blur(offset) if @post
 
 @Blog = Blog
 

@@ -3,11 +3,16 @@ layout: master
 \---
 
 %section#cover
-  .overlay
+  .image
+  .blur
+  .darken
+
+%section.header
   %h1.title
 
-%article#post
-  {{ content }}
+%section.content
+  %article#post
+    {{ content }}
 
-  %section.meta
-    {{ page.tags | join ', ' }}
+    %section.meta
+      {{ page.tags | join ', ' }}

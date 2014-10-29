@@ -2,12 +2,18 @@
 layout: master
 ---
 <section id='cover'>
-  <div class='overlay'></div>
+  <div class='image'></div>
+  <div class='blur'></div>
+  <div class='darken'></div>
+</section>
+<section class='header'>
   <h1 class='title'></h1>
 </section>
-<article id='post'>
-  {{ content }}
-  <section class='meta'>
-    {{ page.tags | join ', ' }}
-  </section>
-</article>
+<section class='content'>
+  <article id='post'>
+    {{ content }}
+    <section class='meta'>
+      {{ page.tags | join ', ' }}
+    </section>
+  </article>
+</section>
