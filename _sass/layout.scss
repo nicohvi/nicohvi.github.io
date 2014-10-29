@@ -29,6 +29,8 @@ a { text-decoration: none; color: $black; }
 body { 
   text-rendering: optimizeLegibility;
   background: $orange;
+  display: flex;
+  justify-content: center;
 }
 
 b,strong { font-weight: 700; }
