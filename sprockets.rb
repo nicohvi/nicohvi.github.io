@@ -6,10 +6,14 @@ require 'byebug'
 def compile_haml(file)
   file_name = "#{File.basename(file, '.haml')}.html"
   html      = File.open(file, 'r') { |file| Haml::Engine.new(file.read).render }
-  File.path(file).include?('layout') ? relative_path = '_layouts/' : relative_path = ''
-  new_path  = "#{Dir.pwd}/#{relative_path}#{file_name}" 
-  
+  relative_path = get_relative(File.path(file))
+  new_path  = "#{Dir.pwd}/#{relative_path}/#{file_name}" 
   File.open(new_path, 'w') { |file| file.write(html) }
+end
+
+def get_relative(path)
+  match = path.match(/layouts|partials/)
+  match ? "_#{match[0]}" : ''
 end
 
 def compile_coffeescript
@@ -23,8 +27,13 @@ def compile_coffeescript
 end
 
 haml_listener = Listen.to('_haml/') do |modified, added, removed|
-  p "#{modified[0]} modified, recompiling haml"
-  compile_haml(modified[0]) 
+  if modified
+    p "#{modified[0]} modified, recompiling haml"
+    compile_haml(modified[0])
+  elsif added
+    p "#{added[0]} added, compile haml" 
+    compile_haml(added[0])
+  end
 end
 
 barista = Listen.to('_coffee/') do |modified, added, removed|
