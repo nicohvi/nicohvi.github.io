@@ -12,5 +12,14 @@ title: I have no idea what I'm doing
     %title {{ page.title }}
   
   %body
-    {{ content }} 
-    
+    %header
+      %section.left
+        %img(src="/public/images/avatar_white.svg")
+        Nicolay Hvidsten
+      %section.right
+        Github
+        Twitter
+    #content
+      {{ content }} 
+
+    %footer

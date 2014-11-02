@@ -11,6 +11,19 @@ title: I have no idea what I'm doing
     <title>{{ page.title }}</title>
   </head>
   <body>
-    {{ content }}
+    <header>
+      <section class='left'>
+        <img src='/public/images/avatar_white.svg'>
+        Nicolay Hvidsten
+      </section>
+      <section class='right'>
+        Github
+        Twitter
+      </section>
+    </header>
+    <div id='content'>
+      {{ content }}
+    </div>
+    <footer></footer>
   </body>
 </html>

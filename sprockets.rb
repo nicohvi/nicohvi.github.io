@@ -18,12 +18,16 @@ end
 
 def compile_coffeescript
   target = "#{Dir.pwd}/public/application.js"
+  javascript = ''
   File.open(target, 'w') { } # delete previously generated javascript
+  Dir.glob('./public/vendor/*.js') do |vendor_js|
+    javascript += File.open(vendor_js, 'r') { |file| file.read }  
+  end
   File.readlines('./_coffee/Manifest').each do |line|
     file = "./_coffee/#{line.gsub('#', '').strip}.coffee"
-    javascript = File.open(file, 'r') { |file| CoffeeScript.compile file.read }
-    File.open(target, 'a') { |file| file.write(javascript) }
+    javascript += File.open(file, 'r') { |file| CoffeeScript.compile file.read }
   end
+  File.open(target, 'a') { |file| file.write(javascript) }
 end
 
 haml_listener = Listen.to('_haml/') do |modified, added, removed|

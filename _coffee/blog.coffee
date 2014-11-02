@@ -2,6 +2,7 @@ class Blog
 
   constructor: (options) ->
     @post = new Post() if options.post
+    @header = new Header()
     @initHandlers()
 
   initHandlers: ->

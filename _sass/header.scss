@@ -1,0 +1,22 @@
+header {
+  background: $black;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  display: flex;
+  box-sizing: border-box;
+  @include transition(all .4s ease-in-out);
+}
+
+header img { height: 28px; margin-right: 25px; }
+header section { flex: 1; display: flex; align-items: center; }
+.right { justify-content: flex-end; }
+
+
+/* Headroom */
+.headroom--unpinned {
+  @include transform(translate3d(0, -42px, 0));
+}
