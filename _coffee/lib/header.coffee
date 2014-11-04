@@ -1,6 +1,9 @@
 class Header
 
-  constructor: ->
+  constructor: (@el) ->
     $('header').headroom()
+
+  setColor: (color) ->
+    @el.css 'background', color
 
 @Header = Header

@@ -2,19 +2,14 @@
 layout: master
 \---
 
--#%section#cover
-  -#.cover-photo
-  -#.blur
-  -#.darken
+%article#post
+  %section.intro
+    .content
+      %h1.title {{ page.title }}
+      .text
+        %p {{ page.intro }}
 
--#%section.header
-  -#.text
-    -#%h1.title
-    -#%h2.sub
+  %section.body
+    .content
+      {{ content }}
 
--#%section.content
-  -#%article#post
-    -#{{ content }}
-
-    -#%section.meta
-      -#{{ page.tags | join ', ' }}

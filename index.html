@@ -1,9 +1,23 @@
 ---
 layout: default
 ---
-<h1>Sup.</h1>
-<p>
-  My name is Nicolay, and I like programming, drawing and
-  writing. Preferably all at once. If you feel like reading
-  some <span class="tag">#knowledgebombs</span>, feel free to scroll on down.
-</p>
+<section class='welcome'>
+  <div class='content'>
+    <h1>Sup.</h1>
+    <p>
+      My name is Nicolay, and I like programming, drawing and
+      writing. Preferably all at once. If you feel like reading
+      some <span class="tag">#knowledgebombs</span>, feel free to scroll on down.
+    </p>
+  </div>
+</section>
+{% for post in site.posts %}
+<section class='post {{ post.color }}'>
+  <div class='content'>
+    <h1>
+      <a href='{{ post.url }}'>{{ post.title }}</a>
+    </h1>
+    <p>{{ post.teaser }}</p>
+  </div>
+</section>
+{% endfor %}

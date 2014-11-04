@@ -1,101 +1,13 @@
-/*#cover {*/
-  /*height: 100vh;*/
-  /*width: 100%;*/
-  /*position: relative;*/
-  /*top: 0;*/
-  /*left: 0;*/
-  /*border-bottom: 2px solid $gray;*/
-  /*z-index: -1;*/
-/*}*/
+#post { min-height: 100vh; font-weight: 100; }
+.red #post { background: $red; }
 
-/*#cover div {*/
-  /*background-repeat: no-repeat;*/
-  /*background-position: center center;*/
-  /*position: fixed;*/
-  /*width: 100%;*/
-  /*height: 100vh;*/
-/*}*/
+.intro { height: 100vh; padding-top: 150px; display: flex; }
+.body { height: 100vh; background: $white; }
+.text { 
+  margin-top: 50px; 
+  padding-top: 50px; 
+  border-top: 1px solid $white; 
+}
 
-/*.header {*/
-  /*position: absolute;*/
-  /*z-index: 1;*/
-  /*top: 0;*/
-  /*width: 100%;*/
-  /*height: 100vh;*/
-  /*display: flex;*/
-  /*align-items: flex-end;*/
-/*}*/
-
-/*.content {*/
-  /*background: #fff;*/
-/*}*/
-
-/*.blur {*/
-  /*opacity: 0;*/
-/*}*/
-
-/*.darken {  */
-  /*background: #000;*/
-  /*opacity: .3;*/
-/*}*/
-
-/*.text {*/
-  /*display: flex;*/
-  /*flex: 1;*/
-  /*flex-direction: column;*/
-  /*margin-bottom: 100px;*/
-  /*text-align: center;*/
-  /*color: $white;*/
-  /*text-shadow: 2px 2px 2px rgba(0,0,0,.25);*/
-/*}*/
-
-/*.title { font-size: 5em; }*/
-
-/*.sub { color: $white; margin-top: 35px; font-size: 3em; }*/
-
-/*#post { */
-  /*padding: 30px;*/
-  /*margin: 0 auto;*/
-  /*max-width: 700px;*/
-  /*font-size: 22px;*/
-  /*font-family: 'Cardo';*/
-  /*line-height: 1.5;*/
-  /*letter-spacing: 0.01rem;*/
-/*}*/
-
-/*#post p { margin: 15px 0; }*/
-/*#post a { text-decoration: underline; }*/
-
-/*#data { display: none; }*/
-
-/*.left {*/
-  /*float: left;*/
-  /*margin-right: 30px;*/
-  /*width: 50%;*/
-/*}*/
-
-/*.full { margin-bottom: 30px; }*/
-
-/*.image { display: flex; flex-direction: column; }*/
-
-/*.legend {*/
-  /*font-size: 18px;*/
-  /*color: $gray;*/
-  /*font-style: italic;*/
-  /*text-align: center;*/
-  /*flex:1;*/
-  /*display: block;*/
-  /*margin-top: 10px;*/
-/*}*/
-
-/*img { max-width: 100%; }*/
-
-/*.full img { align-self: center; }*/
-
-/*h2 { */
-  /*font-family: 'Source Sans Pro';*/
-  /*font-weight: 300;*/
-  /*font-size: 1.8em; */
-  /*color: #999; */
-/*}*/
+.title { text-align: center; font-size: 8em; }
 

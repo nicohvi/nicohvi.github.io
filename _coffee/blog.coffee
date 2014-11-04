@@ -1,14 +1,8 @@
 class Blog
-
+   
   constructor: (options) ->
-    @post = new Post() if options.post
-    @header = new Header()
-    @initHandlers()
-
-  initHandlers: ->
-    $(document).on 'scroll', (event) =>
-      offset = $(window).scrollTop() / 150.0
-      @post.blur(offset) if @post
+    @post = new Post($('#post')) if options.post?
+    @header = new Header $('header')
 
 @Blog = Blog
 

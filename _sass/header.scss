@@ -1,22 +1,25 @@
 header {
-  background: $black;
-  padding: 10px 20px;
+  background: $navy;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 42px;
+  height: 52px;
   display: flex;
   box-sizing: border-box;
   @include transition(all .4s ease-in-out);
 }
 
-header img { height: 28px; margin-right: 25px; }
+.red header { background: $crimson; }
+
+header img { height: 28px; width: 28px; margin-right: 25px; }
 header section { flex: 1; display: flex; align-items: center; }
 .right { justify-content: flex-end; }
+
+header .content { justify-content: center; flex-direction: row; }
 
 
 /* Headroom */
 .headroom--unpinned {
-  @include transform(translate3d(0, -42px, 0));
+  @include transform(translate3d(0, -52px, 0));
 }

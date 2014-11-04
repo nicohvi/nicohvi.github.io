@@ -8,18 +8,22 @@ title: I have no idea what I'm doing
     %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
     %link(rel="stylesheet" href="/public/application.css")
     %script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
-    %script(src="/public/application.js")
+    %script(src="/public/application.min.js")
     %title {{ page.title }}
   
-  %body
+  %body(class="{{ page.color }}")
     %header
-      %section.left
-        %img(src="/public/images/avatar_white.svg")
-        Nicolay Hvidsten
-      %section.right
-        Github
-        Twitter
-    #content
+      .content
+        %section.left
+          %a(href="/")
+            %img(src="/public/images/avatar_white.svg")
+          Nicolay Hvidsten
+        %section.right
+          %a.github(href="http://github.com/nicohvi")
+            %img(src="/public/images/github.svg")
+          %a.twitter(href="http://twitter.com/nicohvi")
+            %img(src="/public/images/twitter.svg")
+    #main
       {{ content }} 
 
     %footer

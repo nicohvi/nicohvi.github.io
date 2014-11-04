@@ -1,4 +1,9 @@
 @media (max-width: 700px) {
-  header img { height: 100px; }
-  #home { font-size: 3em; }
+  h1 { font-size: 4em; }
+  header { height: 120px; font-size: 1.5em; }
+  header img { height: 82px; } 
+  /* Headroom */
+  .headroom--unpinned {
+    @include transform(translate3d(0, -120px, 0));
+  }
 }

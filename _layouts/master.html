@@ -7,21 +7,29 @@ title: I have no idea what I'm doing
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <link href='/public/application.css' rel='stylesheet'>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
-    <script src='/public/application.js'></script>
+    <script src='/public/application.min.js'></script>
     <title>{{ page.title }}</title>
   </head>
-  <body>
+  <body class='{{ page.color }}'>
     <header>
-      <section class='left'>
-        <img src='/public/images/avatar_white.svg'>
-        Nicolay Hvidsten
-      </section>
-      <section class='right'>
-        Github
-        Twitter
-      </section>
+      <div class='content'>
+        <section class='left'>
+          <a href='/'>
+            <img src='/public/images/avatar_white.svg'>
+          </a>
+          Nicolay Hvidsten
+        </section>
+        <section class='right'>
+          <a class='github' href='http://github.com/nicohvi'>
+            <img src='/public/images/github.svg'>
+          </a>
+          <a class='twitter' href='http://twitter.com/nicohvi'>
+            <img src='/public/images/twitter.svg'>
+          </a>
+        </section>
+      </div>
     </header>
-    <div id='content'>
+    <div id='main'>
       {{ content }}
     </div>
     <footer></footer>

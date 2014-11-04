@@ -48,40 +48,9 @@
   var Post;
 
   Post = (function() {
-    function Post() {
-      this.data = $('#data');
-      this.setHeader();
+    function Post(el) {
+      this.el = el;
     }
-
-    Post.prototype.setHeader = function() {
-      this.setCover();
-      this.setTitle();
-      return this.setSub();
-    };
-
-    Post.prototype.setCover = function() {
-      var blur, src;
-      src = this.data.data('src');
-      blur = this.data.data('blur');
-      $('.cover-photo').css('background-image', "url('" + src + "')");
-      return $('.blur').css('background-image', "url('" + blur + "')");
-    };
-
-    Post.prototype.setTitle = function() {
-      var title;
-      title = this.data.data('title');
-      return $('.title').text(title);
-    };
-
-    Post.prototype.setSub = function() {
-      var sub;
-      sub = this.data.data('sub');
-      return $('.sub').text(sub);
-    };
-
-    Post.prototype.blur = function(opacity) {
-      return $('.blur').css('opacity', opacity);
-    };
 
     return Post;
 
@@ -94,9 +63,14 @@
   var Header;
 
   Header = (function() {
-    function Header() {
+    function Header(el) {
+      this.el = el;
       $('header').headroom();
     }
+
+    Header.prototype.setColor = function(color) {
+      return this.el.css('background', color);
+    };
 
     return Header;
 
@@ -110,24 +84,11 @@
 
   Blog = (function() {
     function Blog(options) {
-      if (options.post) {
-        this.post = new Post();
+      if (options.post != null) {
+        this.post = new Post($('#post'));
       }
-      this.header = new Header();
-      this.initHandlers();
+      this.header = new Header($('header'));
     }
-
-    Blog.prototype.initHandlers = function() {
-      return $(document).on('scroll', (function(_this) {
-        return function(event) {
-          var offset;
-          offset = $(window).scrollTop() / 150.0;
-          if (_this.post) {
-            return _this.post.blur(offset);
-          }
-        };
-      })(this));
-    };
 
     return Blog;
 

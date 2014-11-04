@@ -1,35 +1,51 @@
+section, div { box-sizing: border-box; }
+
 html, body {
   height: 100%;
   font-family: 'Source Sans Pro';
-  color: $lightGray;
+  color: $white;
 }
-a { text-decoration: none; color: $black; }
+
+a { text-decoration: none; color: $white; }
 
 body { 
   text-rendering: optimizeLegibility;
-  background: $blue;
   display: flex;
   flex-direction: column;
 }
+
+p { font-size: 22px; }
 
 b,strong { font-weight: 700; }
 i, em { font-style: italic; }
 
-#content { 
+#main { min-height: 100vh; }
+
+#main .welcome, #main .post { 
+  height: 100vh; 
+  padding: 0 70px; 
   display: flex;
-  flex: 1; 
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 70px;
-  margin: 0 auto;
-  max-width: 850px;
 }
 
+.welcome { background: $blue; }
+.post    { background: $red;  }
+
+.welcome .tag { color: $blue; }
+.post .tag    { color: $red;  }
+
 .tag {
-  background: $lightGray;
-  color: $blue;
+  background: $white;
   border-radius: 3px;
   padding: 3px 8px;
+}
+
+.content { 
+  max-width: 850px; 
+  margin: 0 auto; 
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  flex: 1;
 }
 
 p, h1 { text-align: left; line-height: 1.5; }
