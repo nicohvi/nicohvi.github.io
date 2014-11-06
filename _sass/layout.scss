@@ -48,7 +48,6 @@ i, em { font-style: italic; }
   flex: 1;
 }
 
-
 p, h1,h2 { text-align: left; line-height: 1.5; }
 
 
@@ -62,6 +61,4 @@ h2 {
 h1 { font-size: 6em; font-weight: 700; }
 p { font-size: 22px; }
 
-.me {
-  background: $yellow;
-}
+.post img { width: 50vh; margin: 0 auto; }

@@ -3,10 +3,11 @@ layout: post
 title: DIY Sprockets
 teaser: Writing blog posts in jekyll using coffeescript, sass and haml. Much like a boss would.
 intro: "
-Creating a static website through Jekyll can be a blast. It can also be a pain to configure correctly, especially if you want to use the tools you know and love, such as preprocessors and so on. In this blog post I'll show how you can use sass, coffeescript and haml alongside jekyll, and feel like a pimp while doing so.
+Creating a static website through Jekyll can be a blast. It can also be a pain to configure correctly, especially if you want to use the <a href=''>tools you know and love</a>. In this blog post I'll show how you can use sass, coffeescript and haml alongside jekyll - like the man upstairs intended.
 <p>
-Luckily jekyll supports sass and coffeescript out of the box (the former integration is much better than the latter, though), and there are <a href=''>plugins</a> that solve some of these problems. However, if you're publishing to Gihub Pages (which alot of us are), then the plugins are really not that much help. Sure, there are <a href=''>workarounds</a>, but why not solve it ourselves? That's way more <a href=''>badass</a>."
+Luckily jekyll supports sass and coffeescript out of the box (the former integration is better than the latter, though), and there are <a href=''>plugins</a> that solve some of these problems. However, if you're publishing to Gihub Pages (which alot of us are), then the plugins can be rather cumbersome. Sure, there are <a href=''>workarounds</a>, but why not solve it ourselves? That's way more <a href=''>badass</a>."
 color: red
+image: wrench.svg
 ---
 
 ## Sass
@@ -123,8 +124,8 @@ end
 
 That's *literally* all you need to use coffeescript, sass and haml in your workflow - but this really is just the **bare minimum**. 
 
-I mean, sass is all fine and dandy, but concerning coffeescript and haml we haven't even considered things like error handling, automatic compilation, the option to decide which files are compiled in what order (which is kinda crucial in cruel world of 'method undefined' in javascript'). 
+I mean, sass is all fine and dandy, but concerning coffeescript and haml we haven't even considered things like error handling, automatic compilation, minification and the option to decide which files are compiled in what order (which is kinda crucial in cruel world of 'method undefined' in javascript). 
 
-I'll go over every one of these concerns in the next blog post, and show you how you can automatically compile haml and coffeescript whenever a file changes. I'll also cover how you can have your own haml partials, and how you should format your files to avoid pissing off the liquid formatter.
+I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts in separate haml partials, and how you should format your files to avoid pissing off the liquid formatter.
 
 Until then, [do like a dog and pretend you're a table]().
