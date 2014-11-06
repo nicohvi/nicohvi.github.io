@@ -21,7 +21,7 @@ i, em { font-style: italic; }
 
 #main { min-height: 100vh; }
 
-#main .welcome, #main .post { 
+#main .welcome, #main .post , #main .me{ 
   height: 100vh; 
   padding: 0 70px; 
   display: flex;
@@ -48,7 +48,20 @@ i, em { font-style: italic; }
   flex: 1;
 }
 
-p, h1 { text-align: left; line-height: 1.5; }
+
+p, h1,h2 { text-align: left; line-height: 1.5; }
+
+
+h2 { 
+  font-size: 4em; 
+  font-weight: 100; 
+  font-family: 'Source Sans Pro'; 
+  margin: 15px 0;
+}
 
 h1 { font-size: 6em; font-weight: 700; }
 p { font-size: 22px; }
+
+.me {
+  background: $yellow;
+}

@@ -4,6 +4,8 @@ require 'coffee-script'
 require 'byebug'
 require 'uglifier'
 
+@root = Dir.pwd
+
 def compile_haml(file)
   file_name = "#{File.basename(file, '.haml')}.html"
   begin
@@ -15,15 +17,21 @@ def compile_haml(file)
   relative_path = get_relative(File.path(file))
   new_path  = "#{Dir.pwd}/#{relative_path}/#{file_name}" 
   File.open(new_path, 'w') { |file| file.write(html) }
+
+  p "Wrote #{new_path}."
 end
 
 def get_relative(path)
-  match = path.match(/layouts|partials/)
-  match ? "_#{match[0]}" : ''
+  match = path.match(/layouts|me/)
+  if match 
+    match[0] == 'layouts' ? "_#{match[0]}" : match[0]
+  else
+    ''
+  end
 end
 
 def compile_coffeescript
-  target = "#{Dir.pwd}/public/application.js"
+  target = "#{@root}/public/application.js"
   javascript = ''
   File.open(target, 'w') { } # delete previously generated javascript
   Dir.glob('./public/vendor/*.js') do |vendor_js|
