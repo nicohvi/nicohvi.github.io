@@ -60,7 +60,7 @@ As I said initially, jekyll *does* support coffeescript out of the box, but unfo
 
 So, how do we go about doing this? 
 
-First off, we should create the file that will serve as our script (I call it `sprockets.rb` because it kinda works like [sprockets](https://github.com/sstephenson/sprockets), well - kinda not), and include the methods we'll need.
+Using a ruby script of course! First off, we should create the file that will serve as our script (I call it `sprockets.rb` because it kinda works like [sprockets](https://github.com/sstephenson/sprockets), well - kinda not), and include the methods we'll need.
 
 ```ruby
 # sprockets.rb 
@@ -91,13 +91,13 @@ end
 
 ```
 
-Now, if we inspect our `application.js` file, we'll see all the contents of our coffeescript files neatly placed after one another. Huzzah! This could be easily extracted into a raketask or simply run from the command line using `ruby sprockets.rb`.
+Now, if we inspect our `application.js` file, we'll see all the contents of our coffeescript files neatly placed after one another. Huzzah! This could be easily extracted into a rake task or simply run from the command line using `ruby sprockets.rb`.
 
 ## Haml
 
-Now that we've got our scripting sorted out, it's time to focus on not typing HTML - because what could be worse than that? So let's take a peek into our `compile_haml` method!
+Now that we've got our coffeescript on, it's time to focus on not typing HTML - because what could be worse than that? So let's take a peek into our `compile_haml` method!
 
-This method operates slightly different from the coffeescript compilation one since we don't need to concatinate or finished HTML -  it's a 1:1 relationship. So, instead, we take the haml file as a parameter<sup>1</sup>, find out what the resulting HTML file should be called<sup>2</sup>, pass the haml file to the haml compilator<sup>3</sup>, find out the path of the file and simply create it (or overwrite an existing file).<sup>4</sup>
+This method operates slightly different from the coffeescript compilation one since we don't need to concatinate our finished HTML -  it's a 1:1 relationship. So, instead, we take the haml file as a parameter<sup>1</sup>, find out what the resulting HTML file should be called<sup>2</sup>, pass the haml file to the haml compilator<sup>3</sup>, find out the path of the file and simply create it (or overwrite an existing file).<sup>4</sup>
 
 ```ruby
 def compile_haml(file) # 1
@@ -108,7 +108,9 @@ def compile_haml(file) # 1
 end
 ```
 
-Here we just assume that all the HTML files generated through haml should live in `views/`, but that's solely for the purpose of this demonstration - you can choose any destination you want! It should also be noted that [File.basename](http://www.ruby-doc.org/core-2.1.4/File.html#method-c-basename) simply retreives the last component of the given filename (in this case \<name\>.haml), and can optionally replace it with the latter argument (.html).
+Here we just assume that all the HTML files generated through haml should live in `views/`, but that's solely for the purpose of this demonstration - you can choose any destination you want! 
+
+For reference, [File.basename](http://www.ruby-doc.org/core-2.1.4/File.html#method-c-basename) simply retreives the last component of the given filename (in this case \<name\>.haml), and can optionally replace it with the latter argument (.html).
 
 There are many ways you could use this method (like for instance a rake task), but for the purposes of this demo we simply invoke it like so at the bottom of our script:
 
@@ -124,10 +126,12 @@ end
 
 That's *literally* all you need to use coffeescript, sass and haml in your workflow - but this really is just the **bare minimum**. 
 
-I mean, sass is all fine and dandy, but concerning coffeescript and haml we haven't even considered things like error handling, automatic compilation, minification and the option to decide which files are compiled in what order (which is kinda crucial in cruel world of 'method undefined' in javascript). 
+I mean, the sass part is pretty much complete: it offers concatnation and minification, but both cofeescript and haml require more work to be truly useful. I mean, we haven't even considered things like error handling, automatic compilation, minification, compilation order (which is kinda crucial in cruel world of `method undefined` in javascript) and the inclusion of vendor scripts.
 
-I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts into separate haml partials, and how you should format your files to avoid pissing off the liquid formatter. 
+I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll cover how you can go about splitting up layouts into separate haml partials, and how you should format your files to avoid pissing off the liquid formatter. 
 
-For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success!
+For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success! 
+
+If you want to look at the complete script from this introduction, check out [this working gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4).
 
 Until then, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).

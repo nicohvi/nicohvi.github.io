@@ -8,4 +8,4 @@ sass:
   sass_dir: _sass
   style: compressed
 
-exclude: sprockets.rb
+exclude: ['sprockets.rb', 'sprockets_demo.rb']
