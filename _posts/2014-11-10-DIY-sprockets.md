@@ -126,6 +126,8 @@ That's *literally* all you need to use coffeescript, sass and haml in your workf
 
 I mean, sass is all fine and dandy, but concerning coffeescript and haml we haven't even considered things like error handling, automatic compilation, minification and the option to decide which files are compiled in what order (which is kinda crucial in cruel world of 'method undefined' in javascript). 
 
-I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts into separate haml partials, and how you should format your files to avoid pissing off the liquid formatter.
+I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts into separate haml partials, and how you should format your files to avoid pissing off the liquid formatter. 
+
+For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success!
 
 Until then, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
