@@ -132,6 +132,8 @@ I'll go over every one of these concerns in detail in the next blog post, and sh
 
 For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success! 
 
+--- 
+
 If you want to look at the complete script from this introduction, check out [this working gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4).
 
-Until then, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
+Until next time, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
