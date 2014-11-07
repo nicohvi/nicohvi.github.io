@@ -3,9 +3,9 @@ layout: post
 title: DIY Sprockets
 teaser: Writing blog posts in jekyll using coffeescript, sass and haml. Much like a boss would.
 intro: "
-Creating a static website through Jekyll can be a blast. It can also be a pain to configure correctly, especially if you want to use the <a href=''>tools you know and love</a>. In this blog post I'll show how you can use sass, coffeescript and haml alongside jekyll - like the man upstairs intended.
+Creating a static website through Jekyll can be a blast. It can also be a pain to configure correctly, especially if you want to use the <a href='http://haml.info/'>tools you know and love</a>. In this blog post I'll show how you can use sass, coffeescript and haml alongside jekyll - like the man upstairs intended.
 <p>
-Luckily jekyll supports sass and coffeescript out of the box (the former integration is better than the latter, though), and there are <a href=''>plugins</a> that solve some of these problems. However, if you're publishing to Gihub Pages (which alot of us are), then the plugins can be rather cumbersome. Sure, there are <a href=''>workarounds</a>, but why not solve it ourselves? That's way more <a href=''>badass</a>."
+Luckily jekyll supports sass and coffeescript out of the box (the former integration is better than the latter, though), and there are <a href='http://jekyllrb.com/docs/plugins/'>plugins</a> that solve some of these problems. However, if you're publishing to Gihub Pages (which alot of us are), then the plugins can be rather cumbersome. Sure, there are <a href='https://github.com/ixti/jekyll-assets'>workarounds</a>, but why not solve it ourselves? That's way more <a href='http://www.abload.de/img/mac1oqssv.gif'>badass</a>."
 color: red
 image: wrench.svg
 ---
@@ -33,7 +33,7 @@ body { font-family: $professional; }
 
 ```
 
-This way, all the files I add to the `_scss` directory are made available to the sass files in your application. Since I want to ultimately have *one* css file after the precompilation is done, I simply add the various sass files concerned with different areas of my posts in `_sass` and include them in `public/application.scss` (which then, in turn, becomes `public/application.css` once jekyll serves it up.
+This way, all the files I add to the `_scss` directory are made available to the sass files in your application. Since I want to ultimately have *one* css file after the precompilation is done, I simply add the various sass files concerned with different areas of my posts in `_sass` and include them in `public/application.scss` which, in turn, becomes `public/application.css` once jekyll serves it up
 
 Another nice feature in this integration is that Jekyll allows you to send parameters to the sass compiler - such as `compress`. Here's an example of what *my* `_sass` directory contains at time of writing:
 
@@ -52,11 +52,11 @@ _sass
 
 To see the result, simply [click here](/public/application.css)! Though, unless you're CSS-rainman or fuckin' [Tank](http://matrix.wikia.com/wiki/Tank) you won't get much out of it.
 
-So that's really all you need to do to get sass playing along with jekyll, but now get to the interesting bits: coffeescirpt and haml!
+So that's really all you need to do to get sass playing along with jekyll, but now get to the interesting bits: coffeescript and haml!
 
 ## The interesting bits
 
-As I said initially, jekyll *does* support coffeescript out of the box, but unfortunately there's no `_coffee` configuration option. This means that if you want to compile and concatenate your coffeescript into a single file (which isn't really that uncommon), then you're shit out of luck. Certainly you could add something like [RequireJS]() and *require* all coffeescript modules from a single file in your `public` folder, but then we're messing about with an additional tool which we don't really need.
+As I said initially, jekyll *does* support coffeescript out of the box, but unfortunately there's no `_coffee` configuration option. This means that if you want to compile and concatenate your coffeescript into a single file (which isn't really that uncommon), then you're shit out of luck. Certainly you could add something like [RequireJS](http://requirejs.org/) and *require* all coffeescript modules from a single file in your `public` folder, but then we're messing about with an additional tool which we don't really need.
 
 So, how do we go about doing this? 
 
@@ -74,7 +74,7 @@ end
 
 ```
 
-Since we started off the section talking about coffeescript, let's tackle that method first! First off, we should define the target<sup>1</sup> file where all our compiled javascript should go. Then we should find all coffeescript files in our directory of choice<sup>2</sup> and pass them to a [coffeescript compiler]()<sup>3</sup>. Finally, we should write the compiled javascript to our target file<sup>4</sup>.
+Since we started off the section talking about coffeescript, let's tackle that method first! First off, we should define the target<sup>1</sup> file where all our compiled javascript should go. Then we should find all coffeescript files in our directory of choice<sup>2</sup> and pass them to a [coffeescript compiler](https://github.com/josh/ruby-coffee-script)<sup>3</sup>. Finally, we should write the compiled javascript to our target file<sup>4</sup>.
 
 ```ruby
 # @root, @coffee = Dir.pwd, "#{@root}/_coffee"
@@ -108,7 +108,7 @@ def compile_haml(file) # 1
 end
 ```
 
-Here we just assume that all the HTML files generated through haml should live in `views/`, but that's solely for the purpose of this demonstration - you can choose any destination you want! It should also be noted that [File.basename]() simply retreives the last component of the given filename (in this case \<name\>.haml), and can optionally replace it with the latter argument (.html).
+Here we just assume that all the HTML files generated through haml should live in `views/`, but that's solely for the purpose of this demonstration - you can choose any destination you want! It should also be noted that [File.basename](http://www.ruby-doc.org/core-2.1.4/File.html#method-c-basename) simply retreives the last component of the given filename (in this case \<name\>.haml), and can optionally replace it with the latter argument (.html).
 
 There are many ways you could use this method (like for instance a rake task), but for the purposes of this demo we simply invoke it like so at the bottom of our script:
 
@@ -126,6 +126,6 @@ That's *literally* all you need to use coffeescript, sass and haml in your workf
 
 I mean, sass is all fine and dandy, but concerning coffeescript and haml we haven't even considered things like error handling, automatic compilation, minification and the option to decide which files are compiled in what order (which is kinda crucial in cruel world of 'method undefined' in javascript). 
 
-I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts in separate haml partials, and how you should format your files to avoid pissing off the liquid formatter.
+I'll go over every one of these concerns in detail in the next blog post, and show you some clever gems you can use to make it all happen automagically. Additionally I'll also cover how you can go about splitting up layouts into separate haml partials, and how you should format your files to avoid pissing off the liquid formatter.
 
-Until then, [do like a dog and pretend you're a table]().
+Until then, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
