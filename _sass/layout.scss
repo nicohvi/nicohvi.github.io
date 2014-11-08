@@ -68,6 +68,8 @@ p { font-size: 22px; }
   @include transition(.4s all ease); 
 }
 
+.welcome a { text-decoration: underline; }
+
 .notice {
   position: absolute;
   top: 50%;
