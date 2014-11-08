@@ -22,7 +22,7 @@ class Image
       @el.attr 'src', "#{@imagePath}/#{newImage}.svg"
       @el.removeClass('fade')
       @throttle = false
-    setTimeout callback, 400
+    setTimeout callback, 500
 
   showMessage: ->
     clearTimeout()

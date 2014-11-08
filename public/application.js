@@ -359,7 +359,7 @@
           return _this.throttle = false;
         };
       })(this);
-      return setTimeout(callback, 400);
+      return setTimeout(callback, 500);
     };
 
     Image.prototype.showMessage = function() {
