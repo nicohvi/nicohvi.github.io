@@ -61,4 +61,23 @@ h2 {
 h1 { font-size: 6em; font-weight: 700; }
 p { font-size: 22px; }
 
-.post img { width: 50vh; margin: 0 auto; }
+.welcome img, .post img { 
+  width: 50vh; 
+  margin: 0 auto;
+  max-height: 50vh;
+  @include transition(.4s all ease); 
+}
+
+.notice {
+  position: absolute;
+  top: 50%;
+  background: rgba(0, 0, 0, .3);
+  padding: 15px 20px;
+  @include transition(.3s all ease);
+  opacity: 0;
+}
+
+.notice img { margin-left: 10px; height: 28px; width: 28px; }
+
+.fade { opacity: 0; }
+

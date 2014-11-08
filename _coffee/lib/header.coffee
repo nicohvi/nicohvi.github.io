@@ -5,5 +5,8 @@ class Header
 
   setColor: (color) ->
     @el.css 'background', color
+  
+  hide: ->
+    @el.addClass 'headroom--unpinned'
 
 @Header = Header
