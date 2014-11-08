@@ -1,11 +1,15 @@
 class Header
 
   constructor: (@el) ->
-    $('header').headroom()
+    @el.headroom()
+    @tipsy()
+
+  tipsy: ->
+    @el.find('a img').tipsy(gravity: 'n', fade: true)
 
   setColor: (color) ->
     @el.css 'background', color
-  
+
   hide: ->
     @el.addClass 'headroom--unpinned'
 
