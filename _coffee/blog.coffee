@@ -18,7 +18,7 @@ class Blog
       @changeColor $(main).data('color')
    
    changeColor: (color) ->
-    $('body').removeClass().addClass(color)
+    $('body').removeClass().addClass(color) unless $('body').hasClass(color)
 
 @Blog = Blog
 

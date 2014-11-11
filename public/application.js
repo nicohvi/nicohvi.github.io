@@ -446,7 +446,9 @@
     };
 
     Blog.prototype.changeColor = function(color) {
-      return $('body').removeClass().addClass(color);
+      if (!$('body').hasClass(color)) {
+        return $('body').removeClass().addClass(color);
+      }
     };
 
     return Blog;
