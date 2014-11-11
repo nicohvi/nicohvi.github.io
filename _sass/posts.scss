@@ -1,6 +1,9 @@
 #post { min-height: 100vh; font-weight: 100; }
+
 .red #post    { background: $red; }
 .navy #post   { background: $coolBlue; }
+.yellow #post { background: $yellow; }
+
 .intro { 
   padding: 50px 0;
   display: flex; 
@@ -10,7 +13,7 @@
 .intro img { max-height: 50vh; width: 100%; }
 
 .body { 
-  background: $white; 
+  background: $offWhite; 
   color: $black; 
   font-family: 'PT serif';
   padding: 50px 0;
