@@ -5,7 +5,7 @@ class Header
     @tipsy()
 
   tipsy: ->
-    @el.find('a img').tipsy(gravity: 'n', fade: true)
+    @el.find('a').tipsy(gravity: 'n', fade: true)
 
   setColor: (color) ->
     @el.css 'background', color

@@ -18,14 +18,11 @@ title: I have no idea what I'm doing
     %header
       .content
         %section.left
-          %a(href="/")
-            %img{ src:"/public/images/avatar_white.svg", title: 'Home' }
+          %a.home{ href: '/', title: 'Home' }
           Nicolay Hvidsten
         %section.right
-          %a.github{ href: "http://github.com/nicohvi"}
-            %img{ src: "/public/images/github.svg", title: 'Code' }
-          %a.twitter{ href: "http://twitter.com/nicotypes" }
-            %img{ src:"/public/images/twitter.svg", title: 'Thoughts' }
+          %a.github{ href: "http://github.com/nicohvi", title: 'Code' }
+          %a.twitter{ href: "http://twitter.com/nicotypes", title: 'Thoughts' }
     #main
       {{ content }} 
 

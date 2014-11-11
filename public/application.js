@@ -328,7 +328,7 @@
   Image = (function() {
     function Image(el) {
       this.el = el;
-      this.images = ['pikachu', 'giant', 'dhh'];
+      this.images = ['pikachu', 'giant', 'dhh', 'posts/listen'];
       this.imagePath = '/public/images/';
       this.counter = 0;
       this.notice = $('.notice');
@@ -390,7 +390,7 @@
     }
 
     Header.prototype.tipsy = function() {
-      return this.el.find('a img').tipsy({
+      return this.el.find('a').tipsy({
         gravity: 'n',
         fade: true
       });
@@ -424,16 +424,22 @@
       }
       this.header = new Header($('header'));
       this.initHandler();
+      if (!this.post) {
+        this.colorChanger();
+      }
     }
 
     Blog.prototype.initHandler = function() {
-      $(document).on('click', '.shuffle', (function(_this) {
+      return $(document).on('click', '.shuffle', (function(_this) {
         return function(e) {
           e.preventDefault();
           _this.image.shuffle();
           return _this.header.hide();
         };
       })(this));
+    };
+
+    Blog.prototype.colorChanger = function() {
       return $(document).on('scroll', (function(_this) {
         return function(event) {
           var main;

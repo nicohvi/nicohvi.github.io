@@ -5,13 +5,15 @@ class Blog
     @image = new Image($('.main-image')) if options.image?
     @header = new Header $('header')
     @initHandler()
+    @colorChanger() unless @post
 
   initHandler: ->
     $(document).on 'click', '.shuffle', (e) =>
       e.preventDefault()
       @image.shuffle()
       @header.hide()
-    
+
+  colorChanger: ->
     $(document).on 'scroll', (event) =>
       main = _.min $('#main section'), (post) =>
         Math.abs(post.getBoundingClientRect().top)
