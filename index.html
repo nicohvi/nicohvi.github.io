@@ -14,7 +14,7 @@ layout: default
   </div>
 </section>
 {% for post in site.posts %}
-<section class='post {{ post.color }}'>
+<section class='post {{ post.color }}' data-color='{{ post.color}}'>
   <div class='content'>
     <img src='/public/images/posts/{{ post.image }}'>
     <h1>
@@ -24,4 +24,4 @@ layout: default
   </div>
 </section>
 {% endfor %}
-<section class='notice fade'></section>
+<div class='notice fade'></div>

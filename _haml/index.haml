@@ -14,7 +14,7 @@ layout: default
       you feel like <a href="#" class="shuffle">checking out some drawings</a>?
 
 \{% for post in site.posts %}
-%section(class="post {{ post.color }}")
+%section{class: "post {{ post.color }}", data: { color: "{{ post.color}}" } }
   .content
     %img(src="/public/images/posts/{{ post.image }}")
     %h1 
@@ -24,5 +24,5 @@ layout: default
 
 \{% endfor %}
 
-%section.notice.fade
+.notice.fade
 

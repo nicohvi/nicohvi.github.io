@@ -11,6 +11,14 @@ class Blog
       e.preventDefault()
       @image.shuffle()
       @header.hide()
+    
+    $(document).on 'scroll', (event) =>
+      main = _.min $('#main section'), (post) =>
+        Math.abs(post.getBoundingClientRect().top)
+      @changeColor $(main).data('color')
+   
+   changeColor: (color) ->
+    $('body').removeClass().addClass(color)
 
 @Blog = Blog
 

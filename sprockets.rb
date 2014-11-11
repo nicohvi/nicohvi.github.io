@@ -4,7 +4,9 @@ require 'coffee-script'
 require 'byebug'
 require 'uglifier'
 
-@root = Dir.pwd
+@root   = Dir.pwd
+@haml   = "#{@root}/_haml"
+@coffee = "#{@root}/_coffee"
 
 def compile_haml(file)
   file_name = "#{File.basename(file, '.haml')}.html"
@@ -31,31 +33,29 @@ def get_relative(path)
 end
 
 def compile_coffeescript
-  target = "#{@root}/public/application.js"
-  javascript = ''
-  File.open(target, 'w') { } # delete previously generated javascript
+  target, javascript = "#{@root}/public/application.js", ''
   Dir.glob('./public/vendor/*.js') do |vendor_js|
     javascript += File.open(vendor_js, 'r') { |file| file.read }  
   end
-  File.readlines('./_coffee/Manifest').each do |line|
+  File.readlines("#{@coffee}/Manifest").each do |line|
     begin
-      file = "./_coffee/#{line.gsub('#', '').strip}.coffee"
+      file = "#{@coffee}/#{line.gsub('#', '').strip}.coffee"
       javascript += File.open(file, 'r') { |file| CoffeeScript.compile file.read }
     rescue ExecJS::RuntimeError => error
       p error
       return
     end
   end
-  File.open(target, 'a') { |file| file.write(javascript) }
+  File.open(target, 'w') { |file| file.write(javascript) }
 end
 
 def minify_coffeescript
-  File.open('./public/application.min.js', 'w') { |file|
+  File.open("#{@root}/public/application.min.js", 'w') { |file|
     file.write Uglifier.compile(File.read('./public/application.js'))
   }
 end
 
-haml_listener = Listen.to('_haml/') do |modified, added, removed|
+haml_listener = Listen.to(@haml) do |modified, added, removed|
   if modified
     p "#{modified[0]} modified, recompiling haml"
     compile_haml(modified[0])
@@ -65,8 +65,8 @@ haml_listener = Listen.to('_haml/') do |modified, added, removed|
   end
 end
 
-barista = Listen.to('_coffee/') do |modified, added, removed|
-  p "#{modified[0]} modified, recompiling coffeescript"
+barista = Listen.to(@coffee) do |modified, added, removed|
+  p "recompiling coffeescript"
   compile_coffeescript
   p "coffeescript compiled, lets minify that shit"
   minify_coffeescript

@@ -427,13 +427,26 @@
     }
 
     Blog.prototype.initHandler = function() {
-      return $(document).on('click', '.shuffle', (function(_this) {
+      $(document).on('click', '.shuffle', (function(_this) {
         return function(e) {
           e.preventDefault();
           _this.image.shuffle();
           return _this.header.hide();
         };
       })(this));
+      return $(document).on('scroll', (function(_this) {
+        return function(event) {
+          var main;
+          main = _.min($('#main section'), function(post) {
+            return Math.abs(post.getBoundingClientRect().top);
+          });
+          return _this.changeColor($(main).data('color'));
+        };
+      })(this));
+    };
+
+    Blog.prototype.changeColor = function(color) {
+      return $('body').removeClass().addClass(color);
     };
 
     return Blog;

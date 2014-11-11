@@ -27,11 +27,11 @@ i, em { font-style: italic; }
   display: flex;
 }
 
-.welcome { background: $blue; }
-.post    { background: $red;  }
+.welcome     { background: $blue; }
+.post.red    { background: $red;  }
+.post.yellow { background: $yellow; }
 
 .welcome .tag { color: $blue; }
-.post .tag    { color: $red;  }
 
 .tag {
   background: $white;
