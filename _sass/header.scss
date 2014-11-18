@@ -41,6 +41,18 @@ header a:after {
   height: 25px;
 }
 
+.goodreads:after {
+  background: url('/public/images/book.svg') center center no-repeat;
+  background-size: contain;
+  height: 25px;
+}
+
+.imdb:after {
+  background: url('/public/images/movie.svg') center center no-repeat;
+  background-size: contain;
+  height: 25px;
+}
+
 /* Headroom */
 .headroom--unpinned {
   @include transform(translate3d(0, -52px, 0));
