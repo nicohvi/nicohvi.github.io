@@ -13,6 +13,10 @@ class Blog
       @image.shuffle()
       @header.hide()
 
+    $(document).on 'keyup', (event) ->
+      if event.which == 72 # h
+        window.location = '/'
+
   colorChanger: ->
     $(document).on 'scroll', (event) =>
       main = _.min $('#main section'), (post) =>

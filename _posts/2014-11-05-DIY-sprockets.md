@@ -8,6 +8,7 @@ Creating a static website through Jekyll can be a blast. It can also be a pain t
 Luckily jekyll supports sass and coffeescript out of the box (the former integration is better than the latter, though), and there are <a href='http://jekyllrb.com/docs/plugins/'>plugins</a> that solve some of these problems. However, if you're publishing to Gihub Pages (which alot of us are), then the plugins can be rather cumbersome. Sure, there are <a href='https://github.com/ixti/jekyll-assets'>workarounds</a>, but why not solve it ourselves? That's way more <a href='http://www.abload.de/img/mac1oqssv.gif'>badass</a>."
 color: red
 image: wrench.svg
+tags: code ruby
 ---
 
 ## Sass
@@ -132,8 +133,12 @@ I'll go over every one of these concerns in detail in the next blog post, and sh
 
 For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success! 
 
---- 
-
 If you want to look at the complete script from this introduction, check out [this working gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4).
 
 Until next time, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
+
+<div id="notes">
+  <hr>
+</div>
+
+1 - [Complete gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4)

@@ -313,7 +313,22 @@
   Post = (function() {
     function Post(el) {
       this.el = el;
+      this.initBindings();
     }
+
+    Post.prototype.initBindings = function() {
+      return $(document).on('keyup', function(event) {
+        if (event.which === 78) {
+          return $('html, body').animate({
+            scrollTop: $("#notes").offset().top
+          }, 1000);
+        } else if (event.which === 84) {
+          return $('html, body').animate({
+            scrollTop: $("#post").offset().top
+          }, 1000);
+        }
+      });
+    };
 
     return Post;
 
@@ -430,13 +445,18 @@
     }
 
     Blog.prototype.initHandler = function() {
-      return $(document).on('click', '.shuffle', (function(_this) {
+      $(document).on('click', '.shuffle', (function(_this) {
         return function(e) {
           e.preventDefault();
           _this.image.shuffle();
           return _this.header.hide();
         };
       })(this));
+      return $(document).on('keyup', function(event) {
+        if (event.which === 72) {
+          return window.location = '/';
+        }
+      });
     };
 
     Blog.prototype.colorChanger = function() {

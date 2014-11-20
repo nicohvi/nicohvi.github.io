@@ -61,6 +61,8 @@ h2 {
 h1 { font-size: 6em; font-weight: 700; }
 p { font-size: 22px; }
 
+hr { background: $red; width: 70%; margin: 30px auto; height: 2px;}
+
 .welcome img, .post img { 
   margin: 0 auto;
   height: 50vh;
