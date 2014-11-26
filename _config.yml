@@ -3,6 +3,8 @@ lsi: false
 highlighter: pygments
 encoding: utf-8
 markdown: redcarpet
+redcarpet:
+  extensions: ["hard_wrap"]
 
 sass:
   sass_dir: _sass

@@ -19,8 +19,9 @@ class Blog
 
   colorChanger: ->
     $(document).on 'scroll', (event) =>
-      main = _.min $('#main section'), (post) =>
-        Math.abs(post.getBoundingClientRect().top)
+      main = _.min $('#main .welcome, #main .post'), (post) =>
+        console.log Math.abs(post.getBoundingClientRect().bottom) 
+        Math.abs(post.getBoundingClientRect().top) 
       @changeColor $(main).data('color')
    
    changeColor: (color) ->

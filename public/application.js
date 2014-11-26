@@ -463,7 +463,8 @@
       return $(document).on('scroll', (function(_this) {
         return function(event) {
           var main;
-          main = _.min($('#main section'), function(post) {
+          main = _.min($('#main .welcome, #main .post'), function(post) {
+            console.log(Math.abs(post.getBoundingClientRect().bottom));
             return Math.abs(post.getBoundingClientRect().top);
           });
           return _this.changeColor($(main).data('color'));
