@@ -3,6 +3,7 @@
 .red #post    { background: $red; }
 .navy #post   { background: $coolBlue; }
 .yellow #post { background: $yellow; }
+.green #post  { background: $green; }
 
 .intro { 
   padding: 50px 0;
@@ -13,13 +14,13 @@
 .intro img { max-height: 50vh; width: 100%; }
 
 .body { 
-  background: $offWhite; 
+  background: $white;
   color: $black; 
   font-family: 'PT serif';
   padding: 50px 0;
 }
 
-#post a { text-decoration: underline; }
+.body a { text-decoration: underline; }
 
 .text { 
   margin-top: 50px; 
@@ -28,14 +29,21 @@
   display: flex;
 }
 
+.quote { text-align: left; margin: 30px; font-size: 22px; line-height: 1.5;}
+
 .text p+p { margin: 0 0 0 15px; }
 
 .body a { color: $black; }
 
 .title { text-align: center; font-size: 8em; }
 
-sup { vertical-align: super; font-size: 0.5em; }
-
+.body .footnote { 
+    color: $red; 
+    text-decoration: none;
+    margin-left: 5px; 
+    vertical-align: super; 
+    font-size: 0.5em; 
+}
 .post section { display: flex; align-items: center; }
 .post h1 { display: inline-block; }
 
@@ -50,3 +58,8 @@ sup { vertical-align: super; font-size: 0.5em; }
 
 .post.red .tag { background: $crimson; }
 .post.yellow .tag { background: $maroon; }
+.post.green .tag  { background: $forest; }
+
+ol { padding: 15px 30px; color: $black; font-size: 22px;}
+ol:last-of-type { padding: 0 80px; color: $grayest; font-size: 16px;}
+.body ol a { color: $grayest; }

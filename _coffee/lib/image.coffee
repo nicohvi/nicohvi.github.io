@@ -1,7 +1,7 @@
 class Image
 
   constructor: (@el) ->
-    @images = ['pikachu', 'giant', 'dhh', 'posts/listen']
+    @images = ['pikachu', 'giant', 'dhh', 'posts/listen', 'posts/frp']
     @imagePath = '/public/images/'
     @counter = 0
     @notice = $('.notice')

@@ -133,7 +133,7 @@ I'll go over every one of these concerns in detail in the next blog post, and sh
 
 For now though, simply run your script once your code is complete, watch it all compile (as long as there are no syntax errors mind you) and push that shit to Github - success! 
 
-If you want to look at the complete script from this introduction, check out [this working gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4).
+If you want you can take a look at the script in all its finished glory here<sup id="fnref-1"><a href="fn-1" class="footnote">1</a></sup>.
 
 Until next time, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
 
@@ -141,4 +141,6 @@ Until next time, [do like a dog and pretend you're a table](http://i.imgur.com/f
   <hr>
 </div>
 
-1 - [Complete gist](https://gist.github.com/nicohvi/ede1afbfb964d80723e4)
+<ol>
+  <li id="fn-1"> <a href="https://gist.github.com/nicohvi/ede1afbfb964d80723e4">Gist</a> for the finished script. <a href="#fnref-1">↩</a></li>
+</ol>

@@ -1,6 +1,5 @@
 pre {
-  background: $_black;
-  color: #f0f0f0;
+  background: $offWhite;
   font-size: 16px;
   font-family: 'Cousine'; 
   padding: 15px 30px;
@@ -11,8 +10,8 @@ pre {
 }
 
 code {
-  background: $_black;
-  color: $_white;
+  background: $offWhite;
+  color: $_black;
   padding: 3px 10px;
   font-size: 16px;
   border-radius: 3px;
@@ -23,10 +22,9 @@ pre code { padding: 0; }
 
 .k   { color: $_blue;   }
 .kp  { color: $_orange; }
-.nf  { color: $_red;  }
-.n   { color: $white;    }
+.nf, .o, .mi  { color: $_red;  }
 .s, .vi   { color: $_blue;   }
-.s1, .s2, .ss  { color: $_green;  }
-.si  { color: $_orange; }
-.c1  { color: $_gray;   }
-.no  { color: $_yellow; }
+.s1, .s2, .ss { color: $_green;  }
+.si, .no { color: $_orange; }
+.c1  { color: $_gray; background: $white;   }
+.nb { color: $_purple; }

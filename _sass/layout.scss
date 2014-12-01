@@ -31,6 +31,7 @@ i, em { font-style: italic; }
 .post.red    { background: $red;  }
 .post.yellow { background: $yellow; }
 .post.navy   { background: $coolBlue; }
+.post.green  { background: $green; }
 
 .welcome .tag { color: $blue; }
 
@@ -60,8 +61,9 @@ h2 {
 
 h1 { font-size: 6em; font-weight: 700; }
 p { font-size: 22px; }
+sup { color: $red; }
 
-hr { background: $red; width: 70%; margin: 30px auto; height: 2px;}
+hr { background: $grayest; width: 30%; margin: 50px auto; height: 2px;}
 
 .welcome img, .post img { 
   margin: 0 auto;
@@ -84,4 +86,4 @@ hr { background: $red; width: 70%; margin: 30px auto; height: 2px;}
 .notice img { margin-left: 10px; height: 28px; width: 28px; }
 
 .fade { opacity: 0; }
-
+li { text-align: left; }

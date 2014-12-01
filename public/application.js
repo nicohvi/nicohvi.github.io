@@ -343,7 +343,7 @@
   Image = (function() {
     function Image(el) {
       this.el = el;
-      this.images = ['pikachu', 'giant', 'dhh', 'posts/listen'];
+      this.images = ['pikachu', 'giant', 'dhh', 'posts/listen', 'posts/frp'];
       this.imagePath = '/public/images/';
       this.counter = 0;
       this.notice = $('.notice');
