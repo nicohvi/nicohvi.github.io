@@ -69,6 +69,7 @@ hr { background: $grayest; width: 30%; margin: 50px auto; height: 2px;}
   margin: 0 auto;
   height: 50vh;
   max-height: 50vh;
+  max-width: 100%;
   @include transition(.4s all ease); 
 }
 
