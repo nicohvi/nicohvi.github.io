@@ -16,7 +16,9 @@ header {
 .green header  { background: $forest; }
 
 header img { height: 28px; width: 28px; margin-right: 25px; }
+
 header section { flex: 1; display: flex; align-items: center; }
+
 .right { justify-content: flex-end; }
 
 header .content { justify-content: center; flex-direction: row; }

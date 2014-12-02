@@ -1,11 +1,12 @@
 ---
 ---
 
-@import 'reset';
 @import 'bourbon/bourbon';
+@import 'variables';
 @import 'fonts';
 @import 'colors';
 @import 'layout';
+@import 'splash';
 @import 'header';
 @import 'posts';
 @import 'code';

@@ -1,12 +1,9 @@
-section, div { box-sizing: border-box; }
 
 html, body {
   height: 100%;
-  font-family: 'Source Sans Pro';
+  font-family: $sans;
   color: $white;
 }
-
-a { text-decoration: none; color: $white; }
 
 body { 
   text-rendering: optimizeLegibility;
@@ -14,10 +11,9 @@ body {
   flex-direction: column;
 }
 
-p { font-size: 22px; }
+body, section, div { box-sizing: border-box; }
 
-b,strong { font-weight: 700; }
-i, em { font-style: italic; }
+a { text-decoration: none; color: $black; }
 
 #main { min-height: 100vh; }
 
@@ -25,20 +21,6 @@ i, em { font-style: italic; }
   height: 100vh; 
   padding: 0 70px; 
   display: flex;
-}
-
-.welcome     { background: $blue; }
-.post.red    { background: $red;  }
-.post.yellow { background: $yellow; }
-.post.navy   { background: $coolBlue; }
-.post.green  { background: $green; }
-
-.welcome .tag { color: $blue; }
-
-.tag {
-  background: $white;
-  border-radius: 3px;
-  padding: 3px 8px;
 }
 
 .content { 
@@ -50,41 +32,22 @@ i, em { font-style: italic; }
   flex: 1;
 }
 
-p, h1,h2 { text-align: left; line-height: 1.5; }
+h1,h2 { text-align: left; line-height: 1.2; }
 
 h2 { 
-  font-size: 4em; 
-  font-weight: 100; 
-  font-family: 'Source Sans Pro'; 
-  margin: 15px 0;
+  font-size: $subtitle; 
+  font-weight: $light; 
+  font-family: $sans;
+  margin: 30px 0;
 }
 
-h1 { font-size: 6em; font-weight: 700; }
-p { font-size: 22px; }
-sup { color: $red; }
+h1 { font-size: $title; margin: 0; }
+
+p { font-size: $copy; margin: 0; line-height: 1.6; }
 
 hr { background: $grayest; width: 30%; margin: 50px auto; height: 2px;}
 
-.welcome img, .post img { 
-  margin: 0 auto;
-  height: 50vh;
-  max-height: 50vh;
-  max-width: 100%;
-  @include transition(.4s all ease); 
-}
+li { text-align: left; margin-top: 5px;}
+li:first-of-type { margin: 0; }
 
-.welcome a { text-decoration: underline; }
-
-.notice {
-  position: absolute;
-  top: 50%;
-  background: rgba(0, 0, 0, .3);
-  padding: 15px 20px;
-  @include transition(.3s all ease);
-  opacity: 0;
-}
-
-.notice img { margin-left: 10px; height: 28px; width: 28px; }
-
-.fade { opacity: 0; }
-li { text-align: left; }
+ol { padding: 0; margin: 30px 0; font-size: $copy; } 

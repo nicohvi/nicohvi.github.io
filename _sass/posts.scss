@@ -1,4 +1,4 @@
-#post { min-height: 100vh; font-weight: 100; }
+#post { min-height: 100vh; font-weight: $light; }
 
 .red #post    { background: $red; }
 .navy #post   { background: $coolBlue; }
@@ -21,45 +21,30 @@
 }
 
 .body a { text-decoration: underline; }
+.body p + p { margin-top: 30px; }
 
-.text { 
+.intro .text { 
   margin-top: 50px; 
   padding-top: 50px; 
   border-top: 1px solid $white; 
   display: flex;
 }
+.intro a { color: $white; text-decoration: underline; }
 
-.quote { text-align: left; margin: 30px; font-size: 22px; line-height: 1.5;}
+.text p:last-of-type { margin-left: 25px; }
 
-.text p+p { margin: 0 0 0 15px; }
+.title { text-align: center; font-size: $hero; }
 
-.body a { color: $black; }
-
-.title { text-align: center; font-size: 8em; }
-
-.body .footnote { 
-    color: $red; 
-    text-decoration: none;
-    margin-left: 5px; 
-    vertical-align: super; 
-    font-size: 0.5em; 
-}
-.post section { display: flex; align-items: center; }
-.post h1 { display: inline-block; }
-
-.post .tag {
-  align-self: flex-end;
-  margin: 30px 5px 30px 0;
+a.footnote { 
+  color: $red; 
+  text-decoration: none;
+  font-size: $small;
+  font-weight: $bold;
 }
 
-.post .tag:first-of-type {
-  margin-left: 5px;
-}
+.highlight { margin-top: 30px; }
+.highlight + p { margin-top: 30px; }
 
-.post.red .tag { background: $crimson; }
-.post.yellow .tag { background: $maroon; }
-.post.green .tag  { background: $forest; }
-
-ol { padding: 15px 30px; color: $black; font-size: 22px;}
-ol:last-of-type { padding: 0 80px; color: $grayest; font-size: 16px;}
-.body ol a { color: $grayest; }
+.footnotes { color: $grayest; padding: 0 80px; font-size: $small; }
+.footnotes a { color: $grayest; }
+.footnotes a:last-of-type { margin-left: 10px; }

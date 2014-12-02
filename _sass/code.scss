@@ -1,30 +1,30 @@
 pre {
   background: $offWhite;
-  font-size: 16px;
-  font-family: 'Cousine'; 
   padding: 15px 30px;
-  margin: 30px 0;
+  margin: 0;
   border-radius: 3px;
-  /*overflow: scroll;*/
   text-align: left;
 }
 
 code {
   background: $offWhite;
+  line-height: 2;
   color: $_black;
   padding: 3px 10px;
-  font-size: 16px;
+  font-size: $small;
+  font-family: $code;
   border-radius: 3px;
-  font-family: 'Cousine';
 }
 
 pre code { padding: 0; }
 
+// Syntax highlighting
+.c1  { color: $_gray; background: $white;   }
+.nb  { color: $_purple; }
 .k   { color: $_blue;   }
 .kp  { color: $_orange; }
-.nf, .o, .mi  { color: $_red;  }
-.s, .vi   { color: $_blue;   }
-.s1, .s2, .ss { color: $_green;  }
 .si, .no { color: $_orange; }
-.c1  { color: $_gray; background: $white;   }
-.nb { color: $_purple; }
+.s, .vi  { color: $_blue;   }
+.nf, .o, .mi  { color: $_red;  }
+.s1, .s2, .ss { color: $_green;  }
+
