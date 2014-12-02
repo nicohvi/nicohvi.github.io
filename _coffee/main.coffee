@@ -24,6 +24,7 @@ messageStream = newImageStream
   .filter(checkEqual)
 
 scrolls = $(document).asEventStream('scroll')
+  .filter -> $('.welcome').length > 0
   .map -> _.min posts, (post) -> Math.abs(post.getBoundingClientRect().top)
   .map (mainPost) -> $(mainPost).data 'color'
 

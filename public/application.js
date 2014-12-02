@@ -3477,7 +3477,9 @@
 
   messageStream = newImageStream.slidingWindow(3, 3).filter(checkEqual);
 
-  scrolls = $(document).asEventStream('scroll').map(function() {
+  scrolls = $(document).asEventStream('scroll').filter(function() {
+    return $('.welcome').length > 0;
+  }).map(function() {
     return _.min(posts, function(post) {
       return Math.abs(post.getBoundingClientRect().top);
     });
