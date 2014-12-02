@@ -137,10 +137,8 @@ If you want you can take a look at the script in all its finished glory here<sup
 
 Until next time, [do like a dog and pretend you're a table](http://i.imgur.com/fprOm49.gifv).
 
-<div id="notes">
-  <hr>
-</div>
+---
 
-<ol>
+<ol class="footnotes">
   <li id="fn-1"> <a href="https://gist.github.com/nicohvi/ede1afbfb964d80723e4">Gist</a> for the finished script. <a href="#fnref-1">↩</a></li>
 </ol>
