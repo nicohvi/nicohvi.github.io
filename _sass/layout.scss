@@ -9,8 +9,8 @@ html, body {
 
 body { 
   text-rendering: optimizeLegibility;
-  display: flex;
-  flex-direction: column;
+  @include display(flex);
+  @include flex-direction(column);
 }
 
 body, section, div { box-sizing: border-box; }
@@ -22,16 +22,16 @@ a { text-decoration: none; color: $black; }
 #main .welcome, #main .post , #main .me{ 
   height: 100vh; 
   padding: 0 70px; 
-  display: flex;
+  @include display(flex);
 }
 
 .content { 
   max-width: 850px; 
   margin: 0 auto; 
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  flex: 1;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include display(flex);
+  @include flex(1);
 }
 
 h1,h2 { text-align: left; line-height: 1.2; }
