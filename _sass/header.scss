@@ -5,7 +5,7 @@ header {
   left: 0;
   right: 0;
   height: 52px;
-  display: flex;
+  @include display(flex);
   box-sizing: border-box;
   @include transition(all .4s ease-in-out);
 }
@@ -17,11 +17,15 @@ header {
 
 header img { height: 28px; width: 28px; margin-right: 25px; }
 
-header section { flex: 1; display: flex; align-items: center; }
+header section { 
+  @include flex(1); 
+  @include display(flex);
+  @include align-items(center); 
+}
 
-.right { justify-content: flex-end; }
+.right { @include justify-content(flex-end); }
 
-header .content { justify-content: center; flex-direction: row; }
+header .content { @include justify-content(center); @include display(flex); @include flex-direction(row); @include flex(1);}
 
 header a:after {
   display: block;
