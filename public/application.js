@@ -3504,4 +3504,8 @@
     return $('body').removeClass().addClass(color);
   });
 
+  if ($('#podcast').length > 0) {
+    new Audio('/public/audio/bikeshed-1.mp3').play();
+  }
+
 }).call(this);

@@ -45,3 +45,7 @@ newImageStream
 
 scrolls.onValue (color) ->
   $('body').removeClass().addClass(color)
+
+# audio
+if $('#podcast').length > 0
+  new Audio('/public/audio/bikeshed-1.mp3').play()
