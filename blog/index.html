@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section>
+  <h1>Blog</h1>
+  <p>
+    I sometimes have interesting thoughts, and at these increasingly
+    rare occasions I wonder what they will look like once written down.
+    This is the result of these moments.
+  </p>
+  <hr>
+  <ul class='posts'>
+    {% for post in site.posts %}
+    <li>
+      <a href='{{ post.url }}'>
+        <h2>{{ post.title }}</h2>
+        <p class='date'>{{ post.date | date: "%A %-d. %B %Y" }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

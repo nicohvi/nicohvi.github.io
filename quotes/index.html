@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<section>
+  <h1>Quotes</h1>
+  <p>
+    These are things I've read or heard that made an instant,
+    and lasting, impact on the way I think. Surprisingly,
+    most of them are from songs.
+  </p>
+  <hr>
+  <ul>
+    {% for quote in site.data.quotes %}
+    <li class='quote'>
+      <p>"{{ quote.quote }}"</p>
+      <span>- {{ quote.author }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

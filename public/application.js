@@ -3447,65 +3447,9 @@
 
 }).call(this);
 (function() {
-  var checkEqual, image, images, messageStream, newImageStream, notice, posts, scrolls, shuffleClicks;
-
-  $('header').headroom().find('a').tipsy({
+  $('header').find('.top a').tipsy({
     gravity: 'n',
     fade: true
   });
-
-  images = ['pikachu', 'giant', 'dhh', 'posts/listen', 'posts/frp'];
-
-  notice = $('.notice');
-
-  image = $('.main-image');
-
-  posts = $('#main .welcome, #main .post');
-
-  checkEqual = function(values) {
-    var _ref;
-    return (values[0] === (_ref = values[1]) && _ref === values[2]);
-  };
-
-  shuffleClicks = $('.shuffle').asEventStream('click').doAction(function(event) {
-    return event.preventDefault();
-  });
-
-  newImageStream = shuffleClicks.debounceImmediate(1000).map(function() {
-    return _.sample(images);
-  });
-
-  messageStream = newImageStream.slidingWindow(3, 3).filter(checkEqual);
-
-  scrolls = $(document).asEventStream('scroll').filter(function() {
-    return $('.welcome').length > 0;
-  }).map(function() {
-    return _.min(posts, function(post) {
-      return Math.abs(post.getBoundingClientRect().top);
-    });
-  }).map(function(mainPost) {
-    return $(mainPost).data('color');
-  });
-
-  messageStream.doAction(function() {
-    notice.text('Same image 3 times in a row, that must be really annoying for you');
-    return notice.css('opacity', 1);
-  }).delay(3000).onValue(function() {
-    return notice.css('opacity', 0);
-  });
-
-  newImageStream.doAction(function() {
-    return image.css('opacity', 0);
-  }).delay(500).onValue(function(newImage) {
-    return image.attr('src', "/public/images/" + newImage + ".svg").css('opacity', 1);
-  });
-
-  scrolls.onValue(function(color) {
-    return $('body').removeClass().addClass(color);
-  });
-
-  if ($('#podcast').length > 0) {
-    new Audio('/public/audio/bikeshed-1.mp3').play();
-  }
 
 }).call(this);

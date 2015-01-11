@@ -13,18 +13,29 @@ title: I have no idea what I'm doing
     %script(src="/public/analytics.js")
     %title {{ page.title }}
   
-  %body(class="{{ page.color }}")
+  %body
     %header
-      .content
-        %section.left
-          %a.home{href: '/', title: 'Home' }
-          Nicolay Hvidsten
-        %section.right
-          %a.github{href: "http://github.com/nicohvi", title: 'Code' }
-          %a.twitter{href: "http://twitter.com/idrawbears", title: 'Thoughts' }
-          %a.goodreads{href: "https://www.goodreads.com/review/list/7071875-nicolay-hvidsten?shelf=favourites", title: 'Books' }
-          %a.imdb{href: "http://www.imdb.com/search/title?my_ratings=restrict&sort=my_ratings&title_type=feature&view=simple", title: 'Movies' }
-    #main
+      %section.top
+        %a(href="/")
+          %img(src="/public/images/avatar.svg")
+          %span Nicolay Hvidsten
+        %a.twitter{href: "http://twitter.com/nicohvi", title: 'Thoughts'}
+          %img(src="/public/images/twitter.svg")
+        %a{href: "http://github.com/nicohvi", title: "Code"} 
+          %img(src="/public/images/github.svg")
+
+      %nav
+        %ul
+          \{% assign url = page.url|remove:'index.html' %}
+          \{% for link in site.navigation %}
+          %li
+            \{% if url contains link.url %}
+            %a{href: "{{link.url}}", class: "active"} {{ link.text }}
+            \{% else %}
+            %a(href="{{link.url}}") {{ link.text }}
+            \{% endif %}
+          \{% endfor %}
+    %main
       {{ content }} 
 
     %footer

@@ -2,15 +2,23 @@
 layout: master
 \---
 
-%article#post
-  %section.intro
-    .content
-      %img(src="/public/images/posts/{{ page.image }}")
-      %h1.title {{ page.title }}
-      .text
-        %p {{ page.intro }}
-
+%article
+  %section.header
+    %h1.post-title {{ page.title }}
+    %p.date {{ page.date | date: "%A %d. %B %Y" }}
+  
   %section.body
-    .content
-      {{ content }}
+    {{ content }}
+
+-#%article#post
+  -#%section.intro
+    -#.content
+      -#%img(src="/public/images/posts/{{ page.image }}")
+      -#%h1.title {{ page.title }}
+      -#.text
+        -#%p {{ page.intro }}
+
+  -#%section.body
+    -#.content
+      -#{{ content }}
 

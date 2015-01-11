@@ -1,66 +1,57 @@
-header {
-  background: $navy;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 52px;
-  @include display(flex);
-  box-sizing: border-box;
-  @include transition(all .4s ease-in-out);
+header { 
+  max-width: 50rem; 
+  margin: 30px auto 0 auto;
 }
 
-.red header    { background: $crimson; }
-.navy header   { background: $black; }
-.yellow header { background: $maroon; }
-.green header  { background: $forest; }
+header a { text-decoration: none; }
 
-header img { height: 28px; width: 28px; margin-right: 25px; }
-
-header section { 
-  @include flex(1); 
-  @include display(flex);
-  @include align-items(center); 
+.top a:first-of-type {
+  float: none;
 }
 
-.right { @include justify-content(flex-end); }
+.top { margin: 15px 0; }
 
-header .content { @include justify-content(center); @include display(flex); @include flex-direction(row); @include flex(1);}
-
-header a:after {
-  display: block;
-  content: ' ';
-  width: 28px;
-  height: 28px;
-  background: url('/public/images/avatar_white.svg') center center no-repeat;
-  background-size: contain;
-  padding-right: 25px;
+.top a { 
+  @include display(inline-flex);
+  @include align-items(center);
+  float: right;
 }
 
-.github:after {
-  background: url('/public/images/github.svg') center center no-repeat;
-  background-size: contain;
-}
-
-.twitter:after {
-  background: url('/public/images/twitter.svg') center center no-repeat;
-  background-size: contain;
+header img { 
+  width: 25px;
   height: 25px;
 }
 
-.goodreads:after {
-  background: url('/public/images/book.svg') center center no-repeat;
-  background-size: contain;
-  height: 25px;
+.twitter { margin-left: 15px; }
+
+header span { margin-left: 15px; }
+
+nav { border-top: 1px solid $shadow;  } 
+
+header ul { margin-bottom: 15px; }
+
+header li:first-of-type { margin-left: 0; }
+
+header li { 
+  display: inline-block; 
+  margin-left: 15px;
+  margin-top: -1px;
 }
 
-.imdb:after {
-  background: url('/public/images/movie.svg') center center no-repeat;
-  background-size: contain;
-  height: 25px;
+header li a { 
+  display: inline-block;
+  border-top: 1px solid $shadow;
+  padding: 10px 0; 
+  opacity: .9;
+  @include transition(all .4s ease);
 }
 
-/* Headroom */
-.headroom--unpinned {
-  @include transform(translate3d(0, -52px, 0));
+header li a:hover {
+  color: $blue;
 }
+
+nav .active { 
+  opacity: 1; 
+  border-top: 1px solid $blue; 
+}
+

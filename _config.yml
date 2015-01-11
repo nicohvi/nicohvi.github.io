@@ -1,13 +1,26 @@
 safe: true
 lsi: false
-highlighter: pygments
+permalink: /blog/:year/:month/:day/:title
 encoding: utf-8
-markdown: redcarpet
-redcarpet:
-  extensions: ["hard_wrap"]
+markdown: kramdown
+kramdown:
+  input: GFM
+  use_coderay: true
+
+navigation:
+  - text: Blog
+    url:  /blog/
+  - text: Portfolio
+    url: /portfolio/
+  - text: Culture
+    url: /culture/
+  - text: Philosophy
+    url: /philosophy/
+  - text: Quotes
+    url: /quotes/
 
 sass:
   sass_dir: _sass
   style: compressed
 
-exclude: ['sprockets.rb', 'sprockets_demo.rb']
+exclude: ['sprockets.rb']

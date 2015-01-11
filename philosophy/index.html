@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<section>
+  <h1>Philosophy</h1>
+  <p>
+    These are things I've read that have made me smile, think,
+    and most importantly question the values I take for granted.
+  </p>
+  <hr>
+  <ul>
+    {% for item in site.data.philosophy %}
+    <li>
+      <a href='{{ item.link }}'>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.desc }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

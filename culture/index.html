@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<section>
+  <h1>Culture</h1>
+  <p>
+    There are few things that I appreciate more than a
+    mind expanding experience after, for instance, reading
+    a particularily well-written book, watching a good
+    movie, listening to an inspirational and energetic song or
+    playing a great game.
+  </p>
+  <p>
+    This is a list of things that have provided me
+    with these experiences.
+  </p>
+  <hr>
+  <ul class='cultural-items'>
+    {% for item in site.data.culture %}
+    <li>
+      <a href='{{ item.link }}'>
+        <h2>{{ item.title }}</h2>
+      </a>
+      {{ item.desc | markdownify }}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

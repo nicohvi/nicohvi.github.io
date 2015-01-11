@@ -1,55 +1,93 @@
+* { box-sizing: border-box; }
 
 html, body {
   height: 100%;
-  font-family: $sans;
-  color: $white;
+  font-family: $serif;
+  color: $black;
+  background: $white;
+  line-height: 1.5;
   padding: 0;
   margin: 0;
 }
 
 body { 
   text-rendering: optimizeLegibility;
-  @include display(flex);
-  @include flex-direction(column);
+  font-size: $copy;
+  padding: 30px;
+  min-width: 400px;
 }
 
-body, section, div { box-sizing: border-box; }
-
-a { text-decoration: none; color: $black; }
-
-#main { min-height: 100vh; }
-
-#main .welcome, #main .post , #main .me{ 
-  height: 100vh; 
-  padding: 0 70px; 
-  @include display(flex);
+main {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.content { 
-  max-width: 850px; 
-  margin: 0 auto; 
-  @include flex-direction(column);
-  @include justify-content(center);
-  @include display(flex);
-  @include flex(1);
+footer { 
+  margin: 0 auto 30px auto; 
+  min-height: 1px;
 }
 
-h1,h2 { text-align: left; line-height: 1.2; }
+main section { 
+  margin: 0 auto;
+  width: 66.667%; 
+}
 
-h2 { 
-  font-size: $subtitle; 
-  font-weight: $light; 
-  font-family: $sans;
+figure { 
   margin: 30px 0;
+  padding: 0;
 }
 
-h1 { font-size: $title; margin: 0; }
+figure img { 
+  max-width: 100%; 
+  border: 5px solid $white;
+  box-shadow: 0 1px 10px $shadow;
+}
 
-p { font-size: $copy; margin: 0; line-height: 1.6; }
+hr {
+  width: 25%;
+  height: 2px;
+  background: $shadow;
+  border: 0;
+}
 
-hr { background: $grayest; width: 30%; margin: 50px auto; height: 2px;}
+/* ---- font styles ---- */
 
-li { text-align: left; margin-top: 5px;}
-li:first-of-type { margin: 0; }
+h1 {
+  text-align: center;
+  margin: 30px 0 30px 0;
+  font-size: 3em;
+}
 
-ol { padding: 0; margin: 30px 0; font-size: $copy; } 
+h2 { font-family: $sans; } 
+
+p { margin: 30px 0; }
+
+p a { 
+  text-decoration: underline; 
+}
+
+a { color: $black; text-decoration: none; }
+
+/* ---- list styles ---- */
+
+ul { 
+  list-style: none;  
+  padding-left: 0;
+  margin: 0;
+}
+
+main ul { margin: 30px 0; }
+main ul li { margin-bottom: 30px; }
+main ul li:last-of-type { margin-bottom: 0; }
+main ul h2 { margin: 15px 0; }
+
+li p:first-of-type { margin: 0; }
+
+.quote > p { display: inline-block; }
+.quote > span { 
+  font-family: $quote; 
+  text-transform: uppercase; 
+  font-size: $small;
+}
+
+

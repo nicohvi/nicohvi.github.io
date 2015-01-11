@@ -1,0 +1,21 @@
+\---
+layout: default
+\---
+
+%section
+  %h1 Blog
+
+  %p 
+    I sometimes have interesting thoughts, and at these increasingly
+    rare occasions I wonder what they will look like once written down.
+    This is the result of these moments.
+
+  %hr
+  
+  %ul.posts
+    \{% for post in site.posts %}
+    %li
+      %a(href="{{ post.url }}")
+        %h2 {{ post.title }}
+        %p.date {{ post.date | date: "%A %-d. %B %Y" }}
+    \{% endfor %}
