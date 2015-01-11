@@ -23,7 +23,7 @@ To see an example of what the processed file looks like, [click here](/public/ap
 
 Well, that was easy enough. Unfortunately, using things like [coffeescript](http://coffeescript.org) and [haml](http://haml.info), which in my opinon makes web development *a lot* more enjoyable[^1], requires a bit more work.
 
-Jekyll does support coffeescript out of the box as well, but not nearly as well as sass. For instance, there's no way to concatenate several files during compilation, which is sort of a deal-breaker. There simply isn't any support for haml (though there are [plugins](https://github.com/samvincent/jekyll-haml) available github pages don't allow them, so we'll pretend they don't exist).
+Jekyll does support coffeescript out of the box as well, but not nearly as well as sass. For instance, there's no way to concatenate several files during compilation, which is sort of a deal breaker. There simply isn't any support for haml (though there are [plugins](https://github.com/samvincent/jekyll-haml) available github pages don't allow them, so we'll pretend they don't exist).
 
 To remedy this problem we'll use our insane ruby skills.
 
