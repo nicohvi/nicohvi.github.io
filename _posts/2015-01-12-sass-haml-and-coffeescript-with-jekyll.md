@@ -13,7 +13,7 @@ Luckily for elitist jerks such as ourselves there's a way to use these tools wit
 
 ---
 
-[Sass](https://sass-lang.org) is the easiest, since Jekyll already supports it out of the box. Simply specify the location of your **.scss** files in your configuration, add your **.scss** files to the specified directory and add a couple of triple dashes at the top of the file you want the resulting css to end up (like **public/application.scss** for instance).
+[Sass](https://sass-lang.org) is the easiest, since Jekyll already supports it out of the box. Simply specify the location of your **.scss** files in your configuration, add your **.scss** files to the specified directory and add a couple of triple dashes at the top of the file you want the resulting css to end up in (like **public/application.scss** for instance).
 
 {% gist bc6f53bb674a2f6471e1 %}
 
@@ -23,7 +23,7 @@ To see an example of what the processed file looks like, [click here](/public/ap
 
 Well, that was easy enough. Unfortunately, using things like [coffeescript](http://coffeescript.org) and [haml](http://haml.info), which in my opinon makes web development *a lot* more enjoyable[^1], requires a bit more work.
 
-Jekyll does support coffeescript out of the box as well, but not nearly as well as sass. For instance, there's no way to concatenate several files during compilation, which is sort of a deal breaker. There simply isn't any support for haml (though there are [plugins](https://github.com/samvincent/jekyll-haml) available github pages don't allow them, so we'll pretend they don't exist).
+Jekyll does support coffeescript out of the box as well, but not nearly as well as sass. For instance, there's no way to concatenate several files during compilation, which is sort of a deal breaker. There simply isn't any support for haml (there are [plugins](https://github.com/samvincent/jekyll-haml) available owever, but github pages don't allow them, so we'll pretend they don't exist).
 
 To remedy this problem we'll use our insane ruby skills.
 
@@ -40,9 +40,9 @@ We can easily do the same thing for haml.
 
 {% gist a8c36f1b9fd023cfaf65 %}
 
-A nice thing about these two methods is that they also log any errors to console, so that you know where you nested something illegally in haml.[^2]
+A nice thing about these two methods is that they also log any errors to the console, so that you know when you've nested something illegally in haml.[^2]
 
-I've also defined a `get_relative_path` method which specifies where your haml files are. It's also very conventient to strip out the leading underscore from your layout files.
+I've also defined a `get_relative_path` method which specifies where your haml files are. This is a convenient place to strip out the leading underscore from your layout files.
 
 ---
 
@@ -59,4 +59,4 @@ You never have to write HTML again - huzzah!
 
 ---
 [^1]: Javascript ain't too bad, but coffeescript is like javascript's cool cousin who smokes and has girlfriends.
-[^2]: That is to say, everywhere.
+[^2]: i.e. all the time.
