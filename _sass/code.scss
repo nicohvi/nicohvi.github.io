@@ -12,19 +12,8 @@ code {
   color: $_black;
   padding: 3px 10px;
   font-size: $small;
-  font-family: $code;
   border-radius: 3px;
 }
 
 pre code { padding: 0; }
-
-// Syntax highlighting
-.c1  { color: $_gray; background: $white;   }
-.nb  { color: $_purple; }
-.k   { color: $_blue;   }
-.kp  { color: $_orange; }
-.si, .no { color: $_orange; }
-.s, .vi  { color: $_blue;   }
-.nf, .o, .mi  { color: $_red;  }
-.s1, .s2, .ss { color: $_green;  }
 
