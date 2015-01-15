@@ -1,0 +1,16 @@
+\---
+layout: default
+\---
+
+%section
+  %h1 Resume
+
+  %p
+    This is the synthesized version of my education and work, 
+    please pick the one suitable for your need.
+
+  %hr
+
+  %article#resume
+    \{% capture my_include %}{%include resume.md%}{% endcapture %}
+    \{{ my_include | markdownify }}
