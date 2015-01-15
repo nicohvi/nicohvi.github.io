@@ -3,13 +3,17 @@ header, hr { width: 100%; }
 
 header { @include display(flex); }
 
-header p:first-of-type { @include flex(1); }
+header span:first-of-type { @include flex(1); }
 
-header p:last-of-type { 
+header span:last-of-type { 
   @include align-self(flex-end);
   text-transform: uppercase;
   font-size: $small;
 } 
+
+a + span { display: block; }
+
+a { color: $black; }
 
 main { @include display(flex); }
 

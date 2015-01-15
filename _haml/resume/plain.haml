@@ -10,7 +10,7 @@ layout: resume
 
 %main
   %section
-    %h3 Me
+    %h3#me Me
     
     %p 
       My name is Nicolay, and I'm a programmer. I didn't fully
@@ -29,14 +29,14 @@ layout: resume
       science graduate program at the University of California,
       San Diego where I graduated with a GPA of 3.902.
 
-    %h3 Contact
+    %h3#contact Contact
 
     %ul
       %li Email: <a href="mailto:nicohvi@gmail.com">nicohvi@gmail.com</a>
       %li Web:  <a href="http://nhh.co">nhh.co</a>
-      %li Github: <a href="https://github.com/nicohvi">nicohvi</a>
+      %li Github: nicohvi
 
-    %h3 Employment
+    %h3#employment Employment
     
     %ul
       %li Technology consultant, BEKK Consulting, 2013- present
@@ -45,7 +45,7 @@ layout: resume
 
   %section
 
-    %h3 Education 
+    %h3#education Education 
     
     %ul
       %li 
@@ -58,7 +58,7 @@ layout: resume
         University of California, San Diego
         August 2011 - June 2012
 
-    %h3 Skills
+    %h3#skills Skills
 
     %p
       Front-end development (javascript/coffeescript, sass/less),
@@ -68,23 +68,23 @@ layout: resume
       programming, kanban, git, TDD)
 
 
-    %h3 Side Projects
+    %h3#projects Side Projects
 
     %ul
       %li 
-        <b>Ballot</b> <a href="https://ballot.cc">ballot.cc</a>
+        %a(href="https://ballot.cc") Ballot
         %span   
           Ballot is a website for creating and voting on polls 
           which can be shared with others.
       
       %li
-        <b>Stump</b> <a href="https://github.com/stump">nhh.co/stump</a>
+        %a(href="https://Github.com/nicohvi/stump") Stump
         %span   
           Stump is a minimal logging wrapper for rack-based 
           web applications.
       
       %li 
-        <b>Moviepicker</b> <a href="http://filmpicker.herokuapp.com">nhh.co/moviepicker</a>
+        %a(href="http://filmpicker.herokuapp.com") Moviepicker
         %span 
           Moviepicker is a small website which suggests 
           movies for you based on the rotten tomatoes API 
