@@ -1,7 +1,15 @@
+body {
+  padding: 30px 120px;
+}
 
 header, hr { width: 100%; }
 
-header { @include display(flex); }
+hr { margin: 30px 0; }
+
+header { 
+  margin-top: 30px;
+  @include display(flex); 
+}
 
 header span:first-of-type { @include flex(1); }
 
@@ -24,7 +32,7 @@ section {
 
 #me + p + p { text-indent: 30px; }
 
-section:first-of-type { margin-right: 30px; }
+section:first-of-type { margin-right: 60px; }
 
 p,ul { margin: 0; }
 
@@ -34,3 +42,4 @@ ul li:last-of-type { margin-bottom: 0; }
 #contact + ul li { margin: 0; }
 
 h3 { margin: 15px 0; }
+#me, #education { margin: 0 0 15px 0; }
