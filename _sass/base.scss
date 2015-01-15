@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+
+html, body {
+  min-height: 100%;
+  color: $black;
+  background: $white;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+body { 
+  text-rendering: optimizeLegibility;
+  font-size: $copy;
+  padding: 30px;
+  min-width: 400px;
+}
+
+ul { 
+  list-style: none;  
+  padding-left: 0;
+  margin: 0;
+}

@@ -1,34 +1,32 @@
-#resume {
-  
-  header, hr { width: 100%; }
 
-  header { @include display(flex); }
+header, hr { width: 100%; }
 
-  header p:first-of-type { @include flex(1); }
+header { @include display(flex); }
 
-  header p:last-of-type { 
-    @include align-self(flex-end);
-    text-transform: uppercase;
-  } 
+header p:first-of-type { @include flex(1); }
 
-  main { @include display(flex); }
+header p:last-of-type { 
+  @include align-self(flex-end);
+  text-transform: uppercase;
+  font-size: $small;
+} 
 
-  section { 
-    margin: 0; 
-    @include flex(1); 
-  }
+main { @include display(flex); }
 
-  #me + p + p { text-indent: 30px; }
-
-  section:first-of-type { margin-right: 30px; }
-
-  p,ul { margin: 0; }
-
-  ul li { margin-bottom: 15px; }
-  ul li:last-of-type { margin-bottom: 0; }
-
-  #contact + ul li { margin: 0; }
- 
-  h3 { margin: 15px 0; }
-
+section { 
+  margin: 0; 
+  @include flex(1); 
 }
+
+#me + p + p { text-indent: 30px; }
+
+section:first-of-type { margin-right: 30px; }
+
+p,ul { margin: 0; }
+
+ul li { margin-bottom: 15px; }
+ul li:last-of-type { margin-bottom: 0; }
+
+#contact + ul li { margin: 0; }
+
+h3 { margin: 15px 0; }
