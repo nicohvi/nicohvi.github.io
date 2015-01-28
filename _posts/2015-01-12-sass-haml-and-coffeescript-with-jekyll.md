@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sass, haml and coffeescript with Jekyll
+title: Sass, haml, and coffeescript with Jekyll
 ---
 
 Having a static website is a pretty sweet gig.
