@@ -3,9 +3,9 @@ lsi: false
 permalink: /blog/:year/:month/:day/:title
 encoding: utf-8
 markdown: kramdown
+highlighter: pygments
 kramdown:
   input: GFM
-  use_coderay: true
   hard_wrap: true
 
 navigation:
