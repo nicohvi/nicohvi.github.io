@@ -9,7 +9,7 @@ Ever felt the need to test what *actually* happens when Bob clicks your amazing 
 
 Using [capybara](https://github.com/jnicklas/capybara), that's how.
 
-There's one problem though, Capybara requires a driver to perform javascript and one of the most popular ones ([capybara-webkit](https://github.com/thoughtbot/capybara-webkit)) is almost impossible to install on a Windows system. Luckily for you I have just spent my last two days in Google-purgatory in order to get this working and I have compiled this guide for you. But we're getting ahead of ourselves, I mean - first of all - what *is* Capybara, and why should you care?
+There's one problem though, Capybara requires a driver to launch the necessary processes and one of the most popular ones ([capybara-webkit](https://github.com/thoughtbot/capybara-webkit)) is almost impossible to install on a Windows system. Luckily for you I have just spent my last two days in Google-purgatory in order to get this working and I have compiled this guide for you. But we're getting ahead of ourselves, I mean - first of all - what *is* Capybara, and why should you care?
 
 Capybara is a ruby gem which simulates a real user interacting with your web application. It accomplishes this by creating a browser process based on the driver you use (it can use [selenium](http://seleniumhq.org) to talk to Firefox for instance), and then manipulate the DOM rendered by the browser. You can also perform headless testing by using a driver which only creates a rendering engine process rather than a browser process, like [Poltergeist](https://github.com/teampoltergeist/poltergeist).
 
