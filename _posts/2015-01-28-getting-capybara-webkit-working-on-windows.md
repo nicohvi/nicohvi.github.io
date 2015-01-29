@@ -55,7 +55,7 @@ In order to use native C/C++ extensions (which is necessary to install gems like
 
 So, what exactly is [Qt](http://qt.io), and why on earth do we need to install it? 
 
-Well, Qt is a programming environment for developing cross-platform applications (think [Xamarin](http://xamarin.com)), and it provides tools for creating a [MinGW](http://mingw.org) toolchain which is required for creating native Windows applications without depending on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit](https://webkit.org) browser engine, which capybara-webkit uses to power its rendering engine.
+Qt is a programming environment for developing cross-platform applications (think [Xamarin](http://xamarin.com)), and it provides tools for creating a [MinGW](http://mingw.org) toolchain which is required for creating native Windows applications without depending on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit](https://webkit.org) browser engine, which capybara-webkit uses to power its rendering engine.
 
 So, how do you install it? Excellent question.
 
@@ -65,7 +65,7 @@ The important distinction between this specific version of Qt and the one linked
 
 Anyways, once you have installed the *correct* version of Qt feel free to fistpump in the air before continuing, you just saved yourself two days of hell.
 
-Well, you're not quite done with Qt yet.
+Although you're not quite done with Qt yet.
 
 In order to compile the native extensions for capybara-webkit correctly you need to set some flags for the `qmake` tool, which is provided by our Qt installation in order to generate the necessary Makefiles we need for our compilation process. Luckily some wizard figured out the correct flags you need to set:
 
