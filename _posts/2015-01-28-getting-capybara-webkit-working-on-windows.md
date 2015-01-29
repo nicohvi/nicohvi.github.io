@@ -9,13 +9,15 @@ Ever felt the need to test what *actually* happens when Bob clicks your amazing 
 
 Using [capybara](https://github.com/jnicklas/capybara), that's how.
 
-Capybara is a ruby gem which simulates a real user interacting wtih your web application. It accomplishes this by creating a browser process based on the driver you use (it can use [selenium](http://seleniumhq.org) to talk to Firefox for instance), and then manipulate the DOM rendered by the browser. You can also perform headless testing by using a driver which only creates a rendering engine process rather than a browser process, like [Poltergeist](https://github.com/teampoltergeist/poltergeist).
+There's one problem though, Capybara requires a driver to perform javascript and one of the most popular ones ([capybara-webkit](https://github.com/thoughtbot/capybara-webkit)) is almost impossible to install on a Windows system. Luckily for you I have just spent my last two days in Google-purgatory in order to get this working and I have compiled this guide for you. But we're getting ahead of ourselves, I mean - first of all - what *is* Capybara, and why should you care?
 
-A good case for using headless testing is that they are **much faster** (since a rendering engine process is smaller than a browser process), so that's what I'm fond of using. I don't think there's much difference between the aforementioned Poltergeist and [capybara-webkit](https://github.com/thoughtbot/capybara-webkit/), but I was recently required to set up a project using the latter so that's the one I'll discuss.[^1]
+Capybara is a ruby gem which simulates a real user interacting with your web application. It accomplishes this by creating a browser process based on the driver you use (it can use [selenium](http://seleniumhq.org) to talk to Firefox for instance), and then manipulate the DOM rendered by the browser. You can also perform headless testing by using a driver which only creates a rendering engine process rather than a browser process, like [Poltergeist](https://github.com/teampoltergeist/poltergeist).
+
+A good case for using headless testing is that they are **much faster** (since a rendering engine process is smaller than a browser process), so that's what I'm fond of using. I don't think there's much difference between the aforementioned Poltergeist and capybara-webkit, but I was recently required to set up a project using the latter so that's the one I'll discuss.[^1]
 
 It's pretty straightforward to set up on OS X and Linux - in fact there's a nifty [guide](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit) for you to follow. "Hey, there's a section about Windows in there as well!" you might say out loud, thinking that I'm an idiot who's writing a blog post about something that's already been covered in the wiki. Well, my past two days of misery beg to differ.
 
-In order to not forego any necessary steps, we're going to take this step by step:
+In order to ensure that I'm not forgetting anything important we're going to take this step by step:
 
 1. Install Ruby and the Ruby Devkit
 
@@ -33,27 +35,31 @@ Now, if some of those words seemed weird to you - don't worry about it, I'll get
 
 ### Sidenote
 
-In addition to being stuck with Windows, which is a pretty shitty platform for developing ruby in the first place, I was also stuck behind a rather agressive proxy - which made pulling the repositories I needed from github a rather taxing experience. I did, however, discover a neat ninja trick.
+In addition to being stuck with Windows, which is a pretty shitty platform for ruby development in the first place, I was also stuck behind a rather aggressive proxy - which made pulling the repositories I needed from github a rather taxing experience. I did, however, discover a neat ninja trick by the name of `GIT_SSL_NO_VERIFY`.
 
-    GIT_SSL_NO_VERIFY
+Those magic words saved my soul. 
 
-Those magic words saved my soul. Since my proxy settings blocked every port number from here to the moon expect 80 and 443 (HTTP and HTTPS respectively) I had to get creative. I in no way suggest you use this environment setting unless you *absolutely* need it, but if you're stuck behind a firewall/proxy it works like a charm. 
+Since my proxy settings blocked every port number from here to the moon except 80 and 443 (HTTP and HTTPS respectively) I had to get creative. 
 
-This way I was able to pull the code from github using the `https` URL (`https://github.com/thoughtbot/capybara-webkit`). Okay, let's get back to business.
+This environment variable simply, as you may already have guessed, skips the SSL certificate validation for repositories you pull using HTTPS. This in essence means that while I think I'm pulling a repository from github I might, in fact, be pulling it from codeplex *shudder*. I don't really suggest you use this environment setting unless you *absolutely* need it - with great power comes great whatever.
+
+Anyway, using this trick I was able to pull the code I needed from github using the `https` URL (`https://github.com/thoughtbot/capybara-webkit`). Okay, let's get back to business.
 
 ## Installing ruby and the devkit
 
-As stated earlier windows and ruby [are not best buds](https://sites.google.com/site/railsdevelopmentindia/windows-vs-osx-vs-ubuntu-for-ruby-on-rails-development), but sometimes you have to work with what you've got. For X-like systems there are many ways of installing ruby (homebrew, rbenv, rvm et. al.), but lukcily there's also a straightforward way for windows called the [rubyinstaller](http://rubyinstaller.org). This is just like any other windows setup binary, so I just download the correct one and you're good to go. I'm using Windows 7 64-bit, so I downloaded the 64-bit binary. 
+As stated earlier Windows and ruby [are not best buds](https://sites.google.com/site/railsdevelopmentindia/windows-vs-osx-vs-ubuntu-for-ruby-on-rails-development), but sometimes you have to work with what you've got. For X-like systems there are many ways of installing ruby (homebrew, rbenv, rvm et al.), but luckily there's also a straightforward way for Windows called the [rubyinstaller](http://rubyinstaller.org). It works just like any other setup binary, so just download the correct one and you're good to go. I'm using Windows 7 64-bit, so I downloaded the 64-bit binary. 
 
-In order to use native C/C++ extensions (which is necessary to install gems like [puma](http://puma.io)[^2] and, surprise, capybara-webkit) you also need to install the [ruby devkit](rubyinstaller.org/add-ons/devkit/). Please follow the [tutorial](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) provided by the DevKit wiki step by step, it's really easy to follow. Once you're done you're ready for the real challenge, installing Qt.
+In order to use native C/C++ extensions (which is necessary to install gems like [puma](http://puma.io)[^2] and, surprise, capybara-webkit) you also need to install the [ruby devkit](rubyinstaller.org/add-ons/devkit/). Please follow the [tutorial](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) provided by the DevKit wiki step by step. Once you're done you're ready for the real challenge, installing Qt.
 
 ## Here be dragons
 
-So, what exactly is [Qt](http://qt.io), and why on earth do we need to install it? Well, Qt is a programming environment for developing cross-platform applications (think [Xamarin](http://xamarin.com)), and it provides tools for creating a [MinGW](http://mingw.org) toolchain which is required for creating native Windows applications without depnding on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit](https://webkit.org) browser engine, which capybara-webkit uses to power its rendering engine.
+So, what exactly is [Qt](http://qt.io), and why on earth do we need to install it? 
+
+Well, Qt is a programming environment for developing cross-platform applications (think [Xamarin](http://xamarin.com)), and it provides tools for creating a [MinGW](http://mingw.org) toolchain which is required for creating native Windows applications without depending on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit](https://webkit.org) browser engine, which capybara-webkit uses to power its rendering engine.
 
 So, how do you install it? Excellent question.
 
-Unfortunately, the wiki from the capybara-webkit repository is rather obtuse at this point and simply links to the official Qt downloads page which will not give you the correct version.[^3] It took me two days of frustration and contless efforts of google fu before I eventually combined several StackOverflow answers into something that worked for me. [This is the Qt version you're looking for](http://sourceforge.net/projects/qtx64/files/qt-x64/4.8.5/mingw-4.8/qt-4.8.5-x64-mingw481r1.exe/download).[^4]
+Unfortunately, the wiki from the capybara-webkit repository is rather obtuse at this point and simply links to the official Qt downloads page which will not give you the correct version.[^3] It took me two days of frustration and countless efforts of google fu before I eventually combined several StackOverflow answers into something that worked for me. [This is the Qt version you're looking for](http://sourceforge.net/projects/qtx64/files/qt-x64/4.8.5/mingw-4.8/qt-4.8.5-x64-mingw481r1.exe/download).[^4]
 
 The important distinction between this specific version of Qt and the one linked to on the official download page is that the former is compiled using MinGW (important) and the latter isn't. This tripped me up for a couple of days.
 
@@ -66,7 +72,7 @@ In order to compile the native extensions for capybara-webkit correctly you need
 {% highlight bash %}
 # In QT_INSTALL_DIR\4.8.5\mkspecs\win32-g++\qmake.conf)
 # Ex: C:\Qt\4.8.5\mkspecs\win32-g++\qmake.conf
-# Add the follwing after the line beginning with QMAKE_IDC
+# Add the following after the line beginning with QMAKE_IDC
 QMAKE_RCC = $$[QT_INSTALL_BINS]$${DIR_SEPARATOR}rcc$${EXE_SUFFIX}
 QMAKE_LFLAGS = -static-libgcc -static-libstdc++
 {% endhighlight %}
@@ -97,11 +103,11 @@ Once this is done you're finally ready to compile capybara-webkit!
 
 ## Actually doing what you set out to do
 
-First off, clone the capybara-webkit repository (if you haven't already done so), and cd into it within the *same session* that you ran the batch job (this is important). Run `bundle install` to install all the gem's dependencies, and once this is done you're ready to peform the compilation by running `bundle exec rake build`.
+First off, clone the capybara-webkit repository (if you haven't already done so), and cd into it within the *same session* that you ran the batch job (this is important). Run `bundle install` to install all the gem's dependencies, and once this is done you're ready to perform the compilation by running `bundle exec rake build`.
 
 This is the part where, if you have the wrong Qt version installed, you'll see obscure error messages like `./build/SetUnknownUrlMode.o: bad reloc address 0x0 in section .pdata` and subsequently stare at your screen dreaming of killing someone.
 
-If you should encounter some errors in this step it's probably due to either incorrect settings in your `qmake.conf` file (did you remember to set the flags?) or an incorrect Qt version (maybe you installed the Vistual Studio edition instead of the MinGW edition). Just check the step concerned with Qt and you should be good to go.
+If you should encounter some errors in this step it's probably due to either incorrect settings in your `qmake.conf` file (did you remember to set the flags?) or an incorrect Qt version (maybe you installed the Visual Studio edition instead of the MinGW edition). Just check the step concerned with Qt and you should be good to go.
 
 And that's it.
 
