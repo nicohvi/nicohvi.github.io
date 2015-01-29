@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby, capybara-webkit, and Windows 
+title: capybara-webkit and Windows 
 ---
 
 **Disclaimer**: This guide assumes you're using Ruby 2.1.3, capybara-webkit 1.3 and Windows 7 64-bit. For other versions there might be slight differences in the approach, though this guide should hopefully work.
@@ -41,7 +41,7 @@ Those magic words saved my soul.
 
 Since my proxy settings blocked every port number from here to the moon except 80 and 443 (HTTP and HTTPS respectively) I had to get creative. 
 
-This environment variable simply, as you may already have guessed, skips the SSL certificate validation for repositories you pull using HTTPS. This in essence means that while I think I'm pulling a repository from github I might, in fact, be pulling it from codeplex *shudder*. I don't really suggest you use this environment setting unless you *absolutely* need it - with great power comes great whatever.
+This environment variable simply, as you may already have guessed, skips the SSL certificate validation for repositories you pull using HTTPS. This in essence means that while I think I'm pulling a repository from github I might, in fact, be pulling it from codeplex \**shudder*\*. I don't really suggest you use this environment setting unless you *absolutely* need it - with great power comes great whatever.
 
 Anyway, using this trick I was able to pull the code I needed from github using the `https` URL (`https://github.com/thoughtbot/capybara-webkit`). Okay, let's get back to business.
 
