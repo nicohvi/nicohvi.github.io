@@ -1,17 +1,19 @@
 ---
 layout: post
-title: Ruby 2.1, capybara-webkit 1.3, and Windows 7
+title: Ruby, capybara-webkit, and Windows 
 ---
+
+**Disclaimer**: This guide assumes you're using Ruby 2.1.3, capybara-webkit 1.3 and Windows 7 64-bit. For other versions there might be slight differences in the approach, though this guide should hopefully work.
 
 Ever felt the need to test what *actually* happens when Bob clicks your amazing button? Does it properly render the marquee text? Was your effort to hijack Bob's bank session successful? How can you know?
 
-Using [capybara](), that's how.
+Using [capybara](https://github.com/jnicklas/capybara), that's how.
 
-Capybara is a ruby gem which simulates a real user interacting wtih your web application. It accomplishes this by creating a browser process based on the driver you use (it can use [selenium]() to talk to Firefox for instance), and then manipulate the DOM rendered by the browser. You can also perform headless testing by using a driver which only creates a rendering engine process rather than a browser process, like [Poltergeist]().
+Capybara is a ruby gem which simulates a real user interacting wtih your web application. It accomplishes this by creating a browser process based on the driver you use (it can use [selenium](http://seleniumhq.org) to talk to Firefox for instance), and then manipulate the DOM rendered by the browser. You can also perform headless testing by using a driver which only creates a rendering engine process rather than a browser process, like [Poltergeist](https://github.com/teampoltergeist/poltergeist).
 
-A good case for using headless testing is that they are **much faster** (since a rendering engine process is smaller than a browser process), so that's what I'm fond of using. I don't think there's much difference between the aforementioned Poltergeist and [capybara-webkit](), but I was recently required to set up a project using the latter so that's the one I'll discuss.[^1]
+A good case for using headless testing is that they are **much faster** (since a rendering engine process is smaller than a browser process), so that's what I'm fond of using. I don't think there's much difference between the aforementioned Poltergeist and [capybara-webkit](https://github.com/thoughtbot/capybara-webkit/), but I was recently required to set up a project using the latter so that's the one I'll discuss.[^1]
 
-It's pretty straightforward to set up on OS X and Linux - in fact there's a nifty [guide]() for you to follow. "Hey, there's a section about Windows in there as well!" you might say out loud, thinking that I'm an idiot who's writing a blog post about something that's already been covered in the wiki. Well, my past two days of misery beg to differ.
+It's pretty straightforward to set up on OS X and Linux - in fact there's a nifty [guide](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit) for you to follow. "Hey, there's a section about Windows in there as well!" you might say out loud, thinking that I'm an idiot who's writing a blog post about something that's already been covered in the wiki. Well, my past two days of misery beg to differ.
 
 In order to not forego any necessary steps, we're going to take this step by step:
 
@@ -31,7 +33,7 @@ Now, if some of those words seemed weird to you - don't worry about it, I'll get
 
 ### Sidenote
 
-In addition to be stuck with Windows, which is a pretty shitty platform for developing ruby in the first place, I was also stuck behind a rather agressive proxy - which made pulling the repositories I needed from github a rather taxing experience. I did, however, discoverd a neat ninja trick.
+In addition to being stuck with Windows, which is a pretty shitty platform for developing ruby in the first place, I was also stuck behind a rather agressive proxy - which made pulling the repositories I needed from github a rather taxing experience. I did, however, discover a neat ninja trick.
 
     GIT_SSL_NO_VERIFY
 
@@ -41,13 +43,13 @@ This way I was able to pull the code from github using the `https` URL (`https:/
 
 ## Installing ruby and the devkit
 
-As stated earlier windows and ruby [are not best buds](), but sometimes you have to work with what you've got. For X-like systems there are many ways of installing ruby (homebrew, rbenv, rvm et. al.), but lukcily there's also a straightforward way for windows called the [rubyinstaller](). This is just like any other windows setup binary, so I just download the correct one and you're good to go. I'm using Windows 7 64-bit, so I downloaded the 64-bit binary. 
+As stated earlier windows and ruby [are not best buds](https://sites.google.com/site/railsdevelopmentindia/windows-vs-osx-vs-ubuntu-for-ruby-on-rails-development), but sometimes you have to work with what you've got. For X-like systems there are many ways of installing ruby (homebrew, rbenv, rvm et. al.), but lukcily there's also a straightforward way for windows called the [rubyinstaller](http://rubyinstaller.org). This is just like any other windows setup binary, so I just download the correct one and you're good to go. I'm using Windows 7 64-bit, so I downloaded the 64-bit binary. 
 
-In order to use native C/C++ extensions (which is necessary to install gems like [puma]()[^2] and, surprise, capybara-webkit) you also need to install the [ruby devkit](). Please follow the [tutorial]() provided by the DevKit wiki step by step, it's really easy to follow. Once you're done you're ready for the real challenge, installing Qt.
+In order to use native C/C++ extensions (which is necessary to install gems like [puma](http://puma.io)[^2] and, surprise, capybara-webkit) you also need to install the [ruby devkit](rubyinstaller.org/add-ons/devkit/). Please follow the [tutorial](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit) provided by the DevKit wiki step by step, it's really easy to follow. Once you're done you're ready for the real challenge, installing Qt.
 
 ## Here be dragons
 
-So, what exactly is [Qt](), and why on earth do we need to install it? Well, Qt is a programming environment for developing cross-platform applications (think [Xamarin]()), and it provides tools for creating a [MinGW]() toolchain which is required for creating native Windows applications without depnding on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit]() browser engine, which capybara-webkit uses to power its rendering engine.
+So, what exactly is [Qt](http://qt.io), and why on earth do we need to install it? Well, Qt is a programming environment for developing cross-platform applications (think [Xamarin](http://xamarin.com)), and it provides tools for creating a [MinGW](http://mingw.org) toolchain which is required for creating native Windows applications without depnding on 3rd-party DLLs. Having Qt installed allows us to compile Qt's implementation of [webkit](https://webkit.org) browser engine, which capybara-webkit uses to power its rendering engine.
 
 So, how do you install it? Excellent question.
 
