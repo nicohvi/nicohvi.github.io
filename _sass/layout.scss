@@ -40,7 +40,7 @@ h1 {
   font-size: 3em;
 }
 
-h2 + p { margin-top: 0; word-break: break-all; }
+h2 + p { margin-top: 0; word-break: break-word; }
 
 p { margin: 30px 0; }
 
