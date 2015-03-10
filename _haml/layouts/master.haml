@@ -1,7 +1,3 @@
-\---
-title: I have no idea what I'm doing
-\---
-
 !!!
 %html
   %head
@@ -10,11 +6,11 @@ title: I have no idea what I'm doing
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
     %link(rel="stylesheet" href="/public/application.css")
     %script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
-    %script(src="/public/analytics.js")
+    \{% include analytics.html %}
     %script(src="//use.typekit.net/lnx3dis.js")
     %script
       try{Typekit.load();}catch(e){}
-    %title {{ page.title }}
+    %title {% if page.title %} {{ page.title }} | {% endif %} {{ site.title }} 
   
   %body
     %header
