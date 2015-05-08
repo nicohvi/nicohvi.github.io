@@ -1,6 +1,6 @@
 .header { text-align: center; }
 
-.posts h2 { margin: 0; }
+.posts h2 { margin: 0; line-height: 1.5; }
 
 .post-title { 
   text-align: center; 
@@ -29,3 +29,9 @@
 .footnotes { margin: 30px 0 ;}
 .footnotes li { margin-bottom: 15px; }
 .footnotes li:last-of-type { margin-bottom: 0 }
+
+.body img { 
+  max-width: 100%; 
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
+}

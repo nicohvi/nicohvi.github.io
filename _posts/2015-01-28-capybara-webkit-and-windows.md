@@ -1,6 +1,6 @@
 ---
 layout: post
-title: capybara-webkit and Windows 
+title: capybara-webkit and windows 
 ---
 
 **Disclaimer**: This guide assumes you're using Ruby 2.1.3, capybara-webkit 1.3 and Windows 7 64-bit. For other versions there might be slight differences in the approach, though this guide should hopefully work.

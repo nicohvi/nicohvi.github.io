@@ -1,22 +1,16 @@
 pre {
-  background: $offWhite;
-  padding: 15px 30px;
-  margin: 0;
-  border-radius: 3px;
-  text-align: left;
   overflow-x: auto;
 }
 
-code {
-  background: $offWhite;
-  line-height: 2;
-  color: $_black;
-  padding: 3px 10px;
-  font-size: $small;
+pre, code {
+  padding: .15em .25em;
+  font-size: 14px;
   border-radius: 3px;
+  border: 1px solid #ddd;
+  border-bottom:1px solid #ccc; 
 }
 
-pre code { padding: 0; }
+pre code { border: 0; }
 
-.c { color: $_green; }
+.c { color: $_green; }
 
