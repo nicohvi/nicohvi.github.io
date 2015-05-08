@@ -50,7 +50,7 @@ The first test case (denoted by the `it` function call) makes a HTTP GET call to
 and ensures that the recieved status code is 200 OK, which of course isn't the case yet. Let's
 fix that.
 
-{% gist e4540243f7f9d9679619 server.js %}
+{% gist 536cff0d6760958779db server.js %}
 
 As you can see the root route simply returns a static file called `index.html`.
 
@@ -66,7 +66,7 @@ socket.io connections and validating the responses from the server.
 In good TDD fashion ([if that's your cup of tea]()) we write our tests before
 we implement the feature. 
 
-{% gist 212065cc32bd5616e4b8 server-api.test.js %}
+{% gist 536cff0d6760958779db server-api.test.js %}
 
 To properly use embrace the power of mocha we nest this second `describe` closure
 within the previously defined one, so that the `before` hook of the parent closure
@@ -80,9 +80,17 @@ able to run in any given order is a bad idea.
 This new test will fail if we run mocha again (or, times out to be specific), so let's 
 do something about that.
 
-{% gist 212065cc32bd5616e4b8 server.js %}
+{% gist 536cff0d6760958779db server.js %}
 
-All the realtime server does is broadcast the name of the newly joined user to all connected sockets (within the **realtime** namespace[^1]), as well as the number of connected users[^2].
+All the realtime server does is broadcast the name of the newly joined user to all connected 
+sockets (within the **realtime** namespace[^1]), as well as the number of connected users[^2].
+Running the tests again, they both pass - hurray!
+
+![test-2](/public/images/posts/test2.png)
+
+These realtime tests might seem a little bit more hairy, but all we're doing is ensuring
+that the `'new-user'` event is emitted from the server *twice*, and that the payload is
+as expected (the first client's name before the second).
 
 ---
 [^1]: Namespacing is a powerful tool exposed by socket.io. You can read more about it [here]().
