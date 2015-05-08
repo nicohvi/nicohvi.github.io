@@ -4,29 +4,36 @@ title: Testing socket.io using mocha and EcmaScript 2015
 published: false
 ---
 
-[socket.io]() is really cool. It holds your hand through the setup of 
+**Disclaimer**: If all you want is to take a look at the final setup,
+the TLDR is [here]().
+
+[socket.io](http://socket.io) is really cool. It holds your hand through the setup of 
 real-time applications, and falls back to older protocols should it be 
 needed. Some people have claimed that it's no longer relevant since 
-websockets have become standard fare for [most browsers](), but I 
-still think socket.io has a place in any stack given its excellent 
+websockets have become standard fare for [most browsers](http://caniuse.com/#feat=websockets), 
+but I still think socket.io has a place in any stack given its excellent 
 documentation and ease of use.
 
 One area that can seem a bit hairy though, is *testing* your socket.io 
 application. Things can quickly get out of hand when you need to listen 
 for events asynchronously and then subsequently test the replies from 
 the servers (which might not come in the order you expect). This blog 
-post will show you how you can get yourself setup for writing [useful]() 
-tests for your real-time application, using the new EcmaScript 6 syntax 
+post will show you how you can get yourself setup for writing 
+tests for your real-time application, using the new EcmaScript 2015 syntax 
 (because, hey, it's the future).
 
 [mocha]() is a test framework that executes on a javascript runtime, so 
-we can run it either using node/[iojs](iojs.org) or in your browser. I 
+we can run it either using node/[iojs](http://iojs.org) or in your browser. I 
 like staying in the terminal, so for these tests will use the **iojs** 
-runtime to run our tests (I'm using iojs because it has better EcmaScript 6 
+runtime to run our tests (I'm using iojs because it has better EcmaScript 2015 
 support - if you haven't heard of it before, I recommend taking a minute to 
 take a gander at [this](https://iojs.org/en/faq.html)).
 
-Like [rspec](), mocha has a DSL for writing your tests. `describe` groups your 
+To run the examples in this blog post you need to enable arrow functions, which
+ATOW are not yet fully enabled in iojs. You can enable them by adding the 
+`--hamrmony_allow_arrow_functions` flag when running your tests.[^1]
+
+Like [rspec](http://rspec.info), mocha has a DSL for writing your tests. `describe` groups your 
 test cases together, `it` specifies a particular test case, and `before` and 
 `after` hooks can (and will) be used to do necessary setup/teardown. 
 
@@ -38,7 +45,7 @@ First we define a set of constants we'll be using throughout our test suite,
 then we define a simple `describe` closure to include our dummy test which
 simply ensures that our root route returns 200 OK.
 
-To setup our http server we'll use [express]() as our application/routing layer, 
+To setup our http server we'll use [express](http://expressjs.com) as our application/routing layer, 
 and wrap the default http server exposed by iojs with our own custom `listen` and
 `close` methods so we can pass in a custom port (as seen in the example above). By
 allowing a custom port to be passed into the listen interface we can run our actual
@@ -50,7 +57,7 @@ The first test case (denoted by the `it` function call) makes a HTTP GET call to
 and ensures that the recieved status code is 200 OK, which of course isn't the case yet. Let's
 fix that.
 
-{% gist 536cff0d6760958779db server.js %}
+{% gist e4540243f7f9d9679619 server.js %}
 
 As you can see the root route simply returns a static file called `index.html`.
 
@@ -63,10 +70,10 @@ socket.io connections and validating the responses from the server.
 
 ---
 
-In good TDD fashion ([if that's your cup of tea]()) we write our tests before
-we implement the feature. 
+In good TDD fashion ([if that's your cup of tea](https://medium.com/written-in-code/tdd-whatever-that-means-8b3932ddddd6) 
+we write our tests before we implement the feature. 
 
-{% gist 536cff0d6760958779db server-api.test.js %}
+{% gist 536cff0d6760957889db server-api.test.js %}
 
 To properly use embrace the power of mocha we nest this second `describe` closure
 within the previously defined one, so that the `before` hook of the parent closure
@@ -80,18 +87,49 @@ able to run in any given order is a bad idea.
 This new test will fail if we run mocha again (or, times out to be specific), so let's 
 do something about that.
 
-{% gist 536cff0d6760958779db server.js %}
+{% gist 536cff0d6760957889db server.js %}
 
 All the realtime server does is broadcast the name of the newly joined user to all connected 
-sockets (within the **realtime** namespace[^1]), as well as the number of connected users[^2].
+sockets (within the **realtime** namespace[^2]), as well as the number of connected users[^3].
 Running the tests again, they both pass - hurray!
 
 ![test-2](/public/images/posts/test2.png)
 
 These realtime tests might seem a little bit more hairy, but all we're doing is ensuring
-that the `'new-user'` event is emitted from the server *twice*, and that the payload is
-as expected (the first client's name before the second).
+that the `new-user` event is emitted from the server *twice*, and that the payload is
+as expected (the first client's name before the second). Since things are working as expected,
+let's wrap things up by adding another test to ensure that messages from clients are
+broadcast to all other clients.
+
+Again, we write our test.
+
+{% gist d3566d3356e9664a9470 server-api.test.js %}
+
+We connect several clients using the `socket.io-client` package (`client` is already connected in the `before`
+hook, in case you had forgotten) and once they have connected we register their name on the server.
+Our initial client then listens for the last `new-user` event (shwn the number of users equals 3),
+and emits a message to the server it wants to be broadcast using the `say` event.
+
+We then listen for the `say` event from the server, and ensures that all clients receive the event, 
+and that the payload is as expected.
+
+Now for the actual implementation.
+ 
+{% gist d3566d3356e9664a9470 server.js %}
+
+And we're green again!
+
+![test-3](/public/images/posts/test3.png)
+
+Would you look at that, we've successfully setup a dummy project using socket.io (1.3.5), iojs, and mocha!
+And we wrote it all using delicious EcmaScript 2015 syntax, dayyyum.
+To take things a step further you might want to automate the testing or maybe define some build scripts 
+([gulp](http://gulpjs.com) is great for that sort of thing!). To see what that might look like, you can 
+check out this [GitHub repository](https://github.com/nicohvi).
 
 ---
-[^1]: Namespacing is a powerful tool exposed by socket.io. You can read more about it [here]().
-[^2]: If you're wondering what that `_` is doing there, I'm using [lodash]() to count the number of objects within a hash, because I think it's a good idea to have a hashmap of the clients rather than an array since the lookup time is linear.
+[^1]: To see a complete working setup see this [repository](https://github.com/nicohvi).
+[^2]: Namespacing is a powerful tool exposed by socket.io. You can read more about it [here](http://socket.io/docs/rooms-and-namespaces/).
+[^3]: If you're wondering what that `_` is doing there, I'm using [lodash](http://lodash.com) to count 
+      the number of clients since they are stored in a hash, which has a faster lookup time than an array 
+      (not that it really matters for this small example).
