@@ -12,12 +12,14 @@
   color: $gray;
 }
 
-.gist + p > em { 
-  display: block;
-  margin: -15px 0;
+img +em, .gist + p > em {
   color: $gray; 
-  font-size: $small; 
   text-align: center;
+  display: block;
+}
+
+.gist + p > em { 
+  margin: -15px 0;
 }
 
 .footnote { 
@@ -34,4 +36,5 @@
   max-width: 100%; 
   border: 1px solid #ddd;
   border-bottom: 1px solid #ccc;
+  border-radius: 5px;
 }

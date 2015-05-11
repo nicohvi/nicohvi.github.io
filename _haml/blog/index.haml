@@ -14,12 +14,12 @@ title: Blog
   %hr
   
   %ul.posts
-    \{% for post in site.posts %}
+    \{% for post in site.posts %}{% if post.draft == false %}
     %li
       %a(href="{{ post.url }}")
         %h2 {{ post.title }}
         %p.date {{ post.date | date: "%A %-d. %B %Y" }}
-    \{% endfor %}
+    \{% endif %}{% endfor %}
 
   %hr
 

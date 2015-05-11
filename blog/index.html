@@ -11,14 +11,14 @@ title: Blog
   </p>
   <hr>
   <ul class='posts'>
-    {% for post in site.posts %}
+    {% for post in site.posts %}{% if post.draft == false %}
     <li>
       <a href='{{ post.url }}'>
         <h2>{{ post.title }}</h2>
         <p class='date'>{{ post.date | date: "%A %-d. %B %Y" }}</p>
       </a>
     </li>
-    {% endfor %}
+    {% endif %}{% endfor %}
   </ul>
   <hr>
   <section>

@@ -3,9 +3,9 @@ pre {
 }
 
 pre, code {
-  padding: .15em .25em;
+  padding: 0 .5em;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid #ddd;
   border-bottom:1px solid #ccc; 
 }
@@ -13,4 +13,6 @@ pre, code {
 pre code { border: 0; }
 
 .c { color: $_green; }
+
+code { display: inline-block; }
 
