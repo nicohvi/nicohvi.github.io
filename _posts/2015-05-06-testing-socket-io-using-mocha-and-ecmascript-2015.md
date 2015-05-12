@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Testing socket.io using mocha and EcmaScript 2015
+title: Testing socket.io using mocha and EcmaScript 2015 syntax
 draft: false
 ---
 
