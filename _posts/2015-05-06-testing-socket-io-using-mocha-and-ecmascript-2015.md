@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Testing socket.io using mocha and EcmaScript 2015
+draft: false
 ---
 
 **Disclaimer**: If all you want is to take a look at the final setup,
