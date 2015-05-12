@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Testing socket.io using mocha and EcmaScript 2015
-draft: true
 ---
 
 **Disclaimer**: If all you want is to take a look at the final setup,
@@ -33,7 +32,7 @@ To run the examples in this blog post you need to enable arrow functions, which
 ATOW are not yet fully enabled in iojs. You can enable them by adding the 
 `--harmony_allow_arrow_functions` flag when running your tests.[^1]
 
-Like [rspec](http://rspec.info), mocha has a DSL for writing your tests. `describe` groups your 
+Like [rspec](http://rspec.info), mocha has an API for writing your tests. `describe` groups your 
 test cases together, `it` specifies a particular test case, and `before` and 
 `after` hooks can (and will) be used to do necessary setup/teardown.[^2]
 
@@ -70,7 +69,7 @@ socket.io connections and validating the responses from the server.
 
 ---
 
-In good TDD fashion ([if that's your cup of tea](https://medium.com/written-in-code/tdd-whatever-that-means-8b3932ddddd6) 
+In good TDD fashion ([if that's your cup of tea](https://medium.com/written-in-code/tdd-whatever-that-means-8b3932ddddd6))
 we write our tests before we implement the feature. 
 
 {% gist 536cff0d6760957889db server-api.test.js %}
@@ -132,7 +131,7 @@ check out this [GitHub repository](https://github.com/nicohvi/mocha-socket.io).
 [^1]: To see how the flags are applied, please see the `package.json` file of this 
       [repository](https://github.com/nicohvi/socket-io).
 
-[^2]: For a nice and succinct summary of the mocha DSL, please see this lovely 
+[^2]: For a nice and succinct summary of the mocha API, please see this lovely 
       [gist](https://gist.github.com/samwize/8877226).
 
 [^3]: Namespacing is a powerful tool exposed by socket.io. You can read more 
