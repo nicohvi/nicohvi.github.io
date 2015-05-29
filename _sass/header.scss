@@ -26,8 +26,6 @@ header img {
 
 header span { margin-left: 15px; }
 
-nav { border-top: 1px solid $shadow;  } 
-
 header ul { margin-bottom: 15px; }
 
 header li:first-of-type { margin-left: 0; }
@@ -40,7 +38,7 @@ header li {
 
 header li a { 
   display: inline-block;
-  border-top: 1px solid $shadow;
+  border-top: 1px solid $white;
   padding: 10px 0; 
   opacity: .9;
   @include transition(all .4s ease);
