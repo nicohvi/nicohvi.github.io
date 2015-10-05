@@ -13,13 +13,11 @@ navigation:
   - text: Blog
     url:  /blog/
   - text: Portfolio
-    url: /portfolio/
-  - text: Culture
-    url: /culture/
-  - text: Philosophy
-    url: /philosophy/
+    url:  /portfolio/
+  - text: Library
+    url:  /library/
   - text: Quotes
-    url: /quotes/
+    url:  /quotes/
 
 sass:
   sass_dir: _sass
