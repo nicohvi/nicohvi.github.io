@@ -14,9 +14,9 @@ title: Library
 
   %ul
     \{% for item in site.data.library %}
-    %li 
+    %li.book
       %a(href="{{ item.link }}")
         %h2 {{ item.title }}
-        %p {{ item.desc }}
+      %p {{ item.desc }}
     \{% endfor %}
  
