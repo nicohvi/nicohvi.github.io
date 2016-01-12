@@ -1,5 +1,7 @@
-safe: true
-lsi: false
+gems:
+  - jekyll-gist
+  - pygments.rb
+
 title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
 encoding: utf-8
@@ -24,3 +26,4 @@ sass:
   style: compressed
 
 exclude: ['sprockets.rb']
+

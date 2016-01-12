@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'jekyll'
-gem 'listen'
+gem 'jekyll-gist'
 gem 'byebug'
-gem 'coffee-script'
-gem 'uglifier'
+gem 'pygments.rb'
