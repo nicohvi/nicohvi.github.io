@@ -5,7 +5,7 @@ title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
 encoding: utf-8
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge 
 kramdown:
   input: GFM
   hard_wrap: false
