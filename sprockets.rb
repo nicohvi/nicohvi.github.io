@@ -1,11 +1,9 @@
 require 'listen'
 require 'haml'
-require 'coffee-script'
-require 'uglifier'
 
-@root   = Dir.pwd
-@haml   = "#{@root}/_haml"
-@coffee = "#{@root}/_coffee"
+root   = Dir.pwd
+haml   = "#{root}/_haml"
+js     = "#{root}/public/js"
 
 def compile_haml(file)
   file_name = "#{File.basename(file, '.haml')}.html"
@@ -15,6 +13,7 @@ def compile_haml(file)
     p error
     return
   end
+
   relative_path = get_relative(File.path(file))
   new_path  = "#{Dir.pwd}/#{relative_path}/#{file_name}" 
   File.open(new_path, 'w') { |file| file.write(html) }
@@ -31,30 +30,30 @@ def get_relative(path)
   end
 end
 
-def compile_coffeescript
-  target, javascript = "#{@root}/public/application.js", ''
-  Dir.glob('./public/vendor/*.js') do |vendor_js|
-    javascript += File.open(vendor_js, 'r') { |file| file.read }  
-  end
-  File.readlines("#{@coffee}/Manifest").each do |line|
-    begin
-      file = "#{@coffee}/#{line.gsub('#', '').strip}.coffee"
-      javascript += File.open(file, 'r') { |file| CoffeeScript.compile file.read }
-    rescue ExecJS::RuntimeError => error
-      p error
-      return
-    end
-  end
-  File.open(target, 'w') { |file| file.write(javascript) }
-end
+#def compile_coffeescript
+  #target, javascript = "#{@root}/public/application.js", ''
+  #Dir.glob('./public/vendor/*.js') do |vendor_js|
+    #javascript += File.open(vendor_js, 'r') { |file| file.read }  
+  #end
+  #File.readlines("#{@coffee}/Manifest").each do |line|
+    #begin
+      #file = "#{@coffee}/#{line.gsub('#', '').strip}.coffee"
+      #javascript += File.open(file, 'r') { |file| CoffeeScript.compile file.read }
+    #rescue ExecJS::RuntimeError => error
+      #p error
+      #return
+    #end
+  #end
+  #File.open(target, 'w') { |file| file.write(javascript) }
+#end
 
-def minify_coffeescript
-  File.open("#{@root}/public/application.min.js", 'w') { |file|
-    file.write Uglifier.compile(File.read('./public/application.js'))
-  }
-end
+#def minify_coffeescript
+  #File.open("#{@root}/public/application.min.js", 'w') { |file|
+    #file.write Uglifier.compile(File.read('./public/application.js'))
+  #}
+#end
 
-haml_listener = Listen.to(@haml) do |modified, added, removed|
+haml_listener = Listen.to(haml) do |modified, added, removed|
   if modified
     p "#{modified[0]} modified, recompiling haml"
     compile_haml(modified[0])
@@ -64,13 +63,13 @@ haml_listener = Listen.to(@haml) do |modified, added, removed|
   end
 end
 
-barista = Listen.to(@coffee) do |modified, added, removed|
-  p "recompiling coffeescript"
-  compile_coffeescript
-  p "coffeescript compiled, lets minify that shit"
-  minify_coffeescript
-end
+#barista = Listen.to(@coffee) do |modified, added, removed|
+  #p "recompiling coffeescript"
+  #compile_coffeescript
+  #p "coffeescript compiled, lets minify that shit"
+  #minify_coffeescript
+#end
 
 haml_listener.start
-barista.start
+#barista.start
 sleep

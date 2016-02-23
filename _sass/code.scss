@@ -1,20 +1,26 @@
+@import 'colors';
+@import 'fonts';
+
 pre {
   overflow-x: auto;
+  line-height: 1.25;
 }
 
-pre, code {
-  padding: 0 .5em;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  border-bottom:1px solid #ccc; 
+code { 
+  background: $yellow; 
+  font-size: 16px;
+  padding: 2px 5px 4px 5px;
 }
 
-pre code { border: 0; }
+pre code {
+  background: $white;
+  padding: 0;
+  @include code();
+}
 
-.c1 { color: $_gray;    }
-.k  { color: $_maroon;  }
-.s  { color: $_blue;    }
- 
-code { display: inline-block; }
-
+.c1 { color: $_gray; }
+.k  { color: $_purple; }
+.nf, .kt, .kr { color: $_blue; }
+.s, .s1  { color: $_green; }
+.mi, .nx + .nx { color: $_red; }
+.o  { color: $_yellow; }

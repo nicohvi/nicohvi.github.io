@@ -1,0 +1,55 @@
+@import 'colors';
+
+@font-face {
+  font-family: 'Source sans';
+  src: url('fonts/SSP/SSP.woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Source sans';
+  src: url('fonts/SSP/SSP_italic.woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Source sans';
+  src: url('fonts/SSP/SSP_bold.woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Source sans';
+  src: url('fonts/SSP/SSP_bold_italic.woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@mixin copy () {
+  color: $black;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  font-family: 'Source sans', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+@mixin title () {
+  color: $black;
+  font-family: 'Source sans', sans-serif;
+  font-weight: normal;
+  font-size: 69px;
+  line-height: 1; 
+  text-align: center;
+}
+
+@mixin quote () {
+  color: $black;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+@mixin code () {
+  font-size: 14px;
+}

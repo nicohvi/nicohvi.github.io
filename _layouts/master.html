@@ -1,32 +1,19 @@
 <!DOCTYPE html>
+{% assign random = site.time | date: "%s%N" | modulo: site.data.lols.size %}
 <html>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta content='Nicolay Hvidsten, Programming Ruby' name='Nicolay Hvidsten'>
     <meta content='Nicolay Hvidsten, ruby, rails, programming' name='robots'>
     <link href='/public/application.css' rel='stylesheet'>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
     {% include analytics.html %}
-    <script src='//use.typekit.net/lnx3dis.js'></script>
-    <script>
-      try{Typekit.load();}catch(e){}
-    </script>
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <title>{%if page.title %} {{ page.title }} {% else %} {{site.data.lols[random].text }} {% endif %}</title>
   </head>
   <body>
     <header>
-      <section class='top'>
-        <a href='/'>
-          <img src='/public/images/avatar.svg'>
-          <span>Nicolay Hvidsten</span>
-        </a>
-        <a class='twitter' href='http://twitter.com/nicohvi' title='Thoughts'>
-          <img src='/public/images/twitter.svg'>
-        </a>
-        <a href='http://github.com/nicohvi' title='Code'>
-          <img src='/public/images/github.svg'>
-        </a>
-      </section>
+      <a href='/'>
+        <img src='/public/images/avatar.svg'>
+      </a>
       <nav>
         <ul>
           {% assign url = page.url|remove:'index.html' %}
@@ -45,7 +32,6 @@
     <main>
       {{ content }}
     </main>
-    <footer></footer>
-    <script src='/public/application.min.js'></script>
+    <script src='/public/bundle.js'></script>
   </body>
 </html>

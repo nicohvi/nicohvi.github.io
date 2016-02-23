@@ -1,0 +1,6 @@
+@import 'fonts';
+
+.quote p { display: inline-block; }
+.quote span { @include quote(); }
+
+

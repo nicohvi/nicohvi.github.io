@@ -1,47 +1,27 @@
+@import 'colors';
+@import 'mixins';
+
 header { 
-  max-width: 50rem; 
-  margin: 30px auto 0 auto;
+  width: 50rem; 
+  margin: 0 auto; 
+
+  @extend .flex-center;
+
+  nav, a { @extend .inline-flex-center; }
 }
 
-header a { text-decoration: none; }
+header ul { margin-left: 50px; }
 
-.top a:first-of-type {
-  float: none;
-}
-
-.top { margin: 15px 0; }
-
-.top a { 
-  @include display(inline-flex);
-  @include align-items(center);
-  float: right;
-}
-
-header img { 
-  width: 25px;
-  height: 25px;
-}
-
-.twitter { margin-left: 15px; }
-
-header span { margin-left: 15px; }
-
-header ul { margin-bottom: 15px; }
-
-header li:first-of-type { margin-left: 0; }
+header img { width: 30px; }
 
 header li { 
-  display: inline-block; 
   margin-left: 15px;
-  margin-top: -1px;
-}
-
-header li a { 
   display: inline-block;
-  border-top: 1px solid $white;
   padding: 10px 0; 
   opacity: .9;
-  @include transition(all .4s ease);
+  transition: all .4s ease;
+
+  &:first-of-type { margin-left: 0; }
 }
 
 header li a:hover {
@@ -50,6 +30,6 @@ header li a:hover {
 
 nav .active { 
   opacity: 1; 
-  border-top: 1px solid $blue; 
+  color: $blue;
 }
 

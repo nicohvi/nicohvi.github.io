@@ -1,30 +1,16 @@
 $blue:      #3A96DB;
 $black:     #3d464d;
+$faded_black: rgba(0, 0, 0, .3);
 $white:     #fff;
-$offWhite:  #f7f7f7;
-$gray:      #8D8E91;
-$shadow:    #ddd;
-$red:       #dd4b39;
-$crimson:   #64201c;
-$navy:      #00678E;
-$yellow:    #ffb700;
-$sky:       #eff2f5;
-$border:    #d0d0d0;
-$grayer:    #292f33;
-$grayest:   #9BA0A5;
-$coolBlue:  #076391;
-$maroon:    #75581B;
-$green:     #628D74;
-$forest:    #3C6D50;
+$gray:      #8d8e91;
+$lightGray: #ddd;
+$yellow:    #ffff00;
 
-/* code */
-$_red:    #e87972;
-$_green:  #91AD86;
-$_blue:   #183691;
-$_black:  #393939;
-$_white:  #f0f0f0; 
-$_gray:   #969896;
-$_orange: #CC9D49;
-$_yellow: #ffd17f;
-$_purple: #d2a4cf;
-$_maroon: #a71d5d;
+
+// Code
+$_gray:     #b1b2b5;
+$_blue:     #78a8d0;
+$_purple:   #d2a4cf;
+$_red:      #e87972;
+$_green:    #91ad86;
+$_yellow:   #dead29;

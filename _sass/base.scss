@@ -1,19 +1,14 @@
+@import 'colors';
+@import 'fonts';
+
 * { box-sizing: border-box; }
 
-html, body {
-  min-height: 100%;
-  color: $black;
+body {
   background: $white;
-  line-height: 1.75;
-  padding: 0;
   margin: 0;
-}
-
-body { 
-  text-rendering: optimizeLegibility;
-  font-size: $copy;
   padding: 30px;
   min-width: 400px;
+  @include copy();
 }
 
 ul { 
@@ -23,3 +18,5 @@ ul {
 }
 
 ol { padding: 0 15px; }
+
+a { text-decoration: none; color: $black; }

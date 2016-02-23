@@ -1,6 +1,5 @@
 gems:
   - jekyll-gist
-  - pygments.rb
 
 title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
@@ -25,5 +24,5 @@ sass:
   sass_dir: _sass
   style: compressed
 
-exclude: ['sprockets.rb']
+exclude: ['sprockets.rb', 'node_modules']
 

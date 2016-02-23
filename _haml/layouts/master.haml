@@ -1,28 +1,18 @@
 !!!
+{% assign random = site.time | date: "%s%N" | modulo: site.data.lols.size %}
 %html
   %head
     %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
     %meta(name="Nicolay Hvidsten" content="Nicolay Hvidsten, Programming Ruby")
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
     %link(rel="stylesheet" href="/public/application.css")
-    %script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
     \{% include analytics.html %}
-    %script(src="//use.typekit.net/lnx3dis.js")
-    %script
-      try{Typekit.load();}catch(e){}
-    %title {% if page.title %} {{ page.title }} | {% endif %} {{ site.title }} 
+    %title {%if page.title %} {{ page.title }} {% else %} {{site.data.lols[random].text }} {% endif %}
   
   %body
     %header
-      %section.top
-        %a(href="/")
-          %img(src="/public/images/avatar.svg")
-          %span Nicolay Hvidsten
-        %a.twitter{href: "http://twitter.com/nicohvi", title: 'Thoughts'}
-          %img(src="/public/images/twitter.svg")
-        %a{href: "http://github.com/nicohvi", title: "Code"} 
-          %img(src="/public/images/github.svg")
-
+      %a(href="/")
+        %img(src="/public/images/avatar.svg")
       %nav
         %ul
           \{% assign url = page.url|remove:'index.html' %}
@@ -37,7 +27,5 @@
     %main
       {{ content }} 
 
-    %footer
+    %script(src="/public/bundle.js")
       
-    
-    %script(src="/public/application.min.js")
