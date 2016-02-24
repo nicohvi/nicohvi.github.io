@@ -70,7 +70,7 @@ ridiculous russian doll situation.
 
 ![fine](/public/images/posts/fine.png)
 
-Running `npm install browserify` will increase your precious project size by 12MB (distributed
+Running `npm install browserify` will increase our precious project size by 12MB (distributed
 on it's **119** russian doll dependencies (henceforth referred to as *RDDs*). In contrast, 
 the first Pokemon game was 512KB[^3]. 
 
