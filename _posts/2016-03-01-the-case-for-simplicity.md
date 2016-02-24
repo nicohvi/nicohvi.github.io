@@ -25,6 +25,8 @@ a mansion when all you need is an outhouse.
 
 So, what do?
 
+## Define the scope
+
 Well, first off let's define **exactly what it is we actually want**. If you're like 
 me and have fallen in love with fancy ecmascript 6 features (I refuse to use the 2015 notation because *ugh*)
 like [arrow functions](http://exploringjs.com/es6/ch_arrow-functions.html) or 
@@ -53,6 +55,8 @@ I've got plenty of experience with [browserify](https://browserify.org) so I'll 
 even though some people will probably say "omg wait webpack or cthulhu is much better". Fuck you. 
 
 For live transpilation/concatenation the obvious option is [watchify](https://github.com/substack/watchify).
+
+## Actually installing the dependencies
 
 So we need to install three external dependencies, that can't be too much, right? Right?
 
@@ -120,7 +124,7 @@ from the HTML.
 It might require 64 Pokemon, but now I can write all the
 ecmascript 6 code I want without having to define a single gulp task - **victory!**
 
----
+## In summary
 
 It's night impossible to write modular javascript using ecmascript 6 
 features without having *some* external dependencies, and that's fine
