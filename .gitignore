@@ -5,3 +5,4 @@ _site/*
 github_token
 **/node_modules/**
 .sass-cache/*
+.byebug_history
