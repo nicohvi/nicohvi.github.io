@@ -71,18 +71,20 @@ ridiculous russian doll situation.
 ![fine](/public/images/posts/fine.png)
 
 Running `npm install browserify` will increase our precious project size by 12MB (distributed
-on it's **119** russian doll dependencies (henceforth referred to as *RDDs*). In contrast, 
+on it's **119** russian doll dependencies). In contrast, 
 the first Pokemon game was 512KB[^3]. 
 
 You know what, I'll use that as a reference point from now on. 
 So, browserify comes in at 24 Pokemon.
 
-Interstingly [babelify](https://github.com/babel/babelify)[^4] almost exactly the same size at 11MB / 22 Pokemon, so with both of them
+Interstingly [babelify](https://github.com/babel/babelify)[^4] is almost exactly the same size at 11MB / 22 Pokemon, so with both of them
 installed our `node_modules` folder sits at 46 Pokemon total. 
 
 Finally we install watchify which comes in at a whopping 41 Pokemon. Now this large size is due
 to the fact that it actually has browserify as one of its dependencies, so it luckly only
-increases our project size by 9MB. I mean 18 Pokemon.
+increases our project size by 9MB. 
+
+I mean 18 Pokemon.
 
 So in total we have installed 32MB/64 Pokemon distributed on **212** external dependencies.
 And that's *without* a build system.
