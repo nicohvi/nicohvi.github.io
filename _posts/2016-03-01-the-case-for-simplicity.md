@@ -6,7 +6,8 @@ date: 2016-02-01 +0100
 ---
 
 Something that truly annoys me is the world of front-end build systems.
-Whether you're using `gulp`, `grunt`, `webpack`, `fly`, `broccoli` or `cthulhu` (one of those is a fake
+
+Whether you're using gulp, grunt, webpack, fly, broccoli or cthulhu (one of those is a fake
 btw, though I bet cthulhu.js is right around the corner[^1]) there's nothing
 quite like learning a new DSL in order to add some files together which
 will be obsolete before you finish reading this sentence.
@@ -19,75 +20,71 @@ Now I don't mean to say there's anything inherently *bad* about front-end
 build systems, it's just that many times they're completely uncecessary. Why build
 a mansion when all you need is an outhouse.
 
+![outhouse](/public/images/posts/outhouse.jpg)
+*It can even be a fancy outhouse with angel wings.*
+
 So, what do?
 
-If you're an elitist jerk like myself you enjoy simplicity, and in the land of 
-`npm install` this is rather hard to come by. Especially if you want some of the
-fancy features like [arrow functions](http://exploringjs.com/es6/ch_arrow-functions.html) or [module import/export statements](http://exploringjs.com/es6/ch_modules.html) from
-Ecmascript 6 (I refuse to use the 2015 notation, because *ugh*).
+Well, first off let's define **exactly what it is we actually want**. If you're like 
+me and have fallen in love with fancy ecmascript 6 features (I refuse to use the 2015 notation because *ugh*)
+like [arrow functions](http://exploringjs.com/es6/ch_arrow-functions.html) or 
+[modules](http://exploringjs.com/es6/ch_modules.html) you're gonna need to transpile those bad boys.
 
-Recently I faced the problem of "I want to write some simple javascript for this
-project, *and* I want to use Ecmascript 6 features". 
+Transpilation is no trivial task, so we need an external dependency for that.
 
-Though I think javascript is a beautiful language ([haters gonna hate](http://giphy.com/gifs/dancing-happy-new-girl-74Mdfuy08qylO/tile)) it
-hardly makes it easy to write modular code without polluting the global namespace.
-Also, unless you want your users to DDOS your server with HTTP
-requests it's a really good idea to combine all your javascript files into *one* 
-file (to rule them all).
+Additionally you want to *concatenate* your transpiled javascript into **one** file (to rule them all) 
+so your users don't DDOS your server with HTTP requests (it also takes way longer to load your website 
+since HTTP has a heavy overhead). HTTP/2 has ambitions to solve these problems, but
+that's still a ways off, so for now we need to stick with another external library for handling
+our concatenation and dependency injection.
 
-My first instinct was to do this all in ruby (because ruby is amazing). Now this
-isn't a problem if you're using plain old vanilla javascript, **but** if you've 
-fallen for the sweet allure of ecmascript 6 features like arrow functions et. al.
-(hard to resist, I know) then you're shit out of luck because you need 
-to transpile those bad boys.
+Finally I enjoy live transpilation of my code so that whenever I change one of my javascript 
+files they get automatically transpiled and concatenated. This isn't **strictly** a necessity, but
+it makes development life sooo much easier. 
 
-So after wondering "hey, how hard could it be to transpile ES6 to ES5 using ruby"
-(can't believe no one's thought of this yet) for about ten minutes I 
-realised that I'd have to create my own gem ([sprockets](https://github.com/rails/sprockets) is a bit big for such
-a small task) and that I'd be better off just using good ol' [babel]().
+So, we have **three** defined requirements:
+  1.  ecmascript 6 transpilation
+  2.  Concatenation
+  3.  Live transpilation/concatenation
 
-However, after transpilation another problem rears its ugly head: how can I 
-*concatenate* these transpiled files into one, so my clients' poor browsers only 
-have to make one HTTP request to get my delicious javascript?
+The go-to for ecmascript 6 (and why not [7 while you're at it](http://technologyadvice.github.io/es7-decorators-babel6/)) transpilation is [babel](https://babeljs.io),
+so we add that as the first entry to our list of dependencies. As for concatenation
+I've got plenty of experience with [browserify](https://browserify.org) so I'll go with that
+even though some people will probably say "omg wait webpack or cthulhu is much better". Fuck you. 
 
-Dependency injection is no joke, and there's no easy way around this. Thus I was
-forced to install an external dependency (*shudder*) to get the job done.
-I think [browserify]() is absolutely brilliant (and hassle free) so I chose that
-even though some people will probably say "omg wait webpack or cthulhu is 
-much better". Fuck you. 
+For live transpilation/concatenation the obvious option is [watchify](https://github.com/substack/watchify).
 
-Prefreably I'd have *no* build tool for dependencies at all (ah, the simplicity
-beckons) - but that's not really feasable at this point in time. Some glorious 
-day when [HTTP/2 arrives]() I'll pop the champagne.
+So we need to install three external dependencies, that can't be too much, right? Right?
 
-Now for the sad part: installing said dependencies. 
+Well, due to the incredible facination with micro-libraries[^2] our dependencies have a 
+number of their *own* dependencies - browserify alone has **47** - and they'll need to
+install those (which again have their own dependencies) until it all turns into a 
+ridiculous russian doll situation.
 
-As I stated initially I want to enforce the minimum amount of dependencies
-that allow me to **1**: write Emcascript 6 compliant code and **2**: concatenate said
-code to *one* javascript file. To do this I require `browserify`, `babelify` 
-(which is a [transform]() for browserify, allowing me to *transform* my 
-Ecmascript 6 code into Ecmascript 5), and `watchify` so it can be transpiled
-on the fly.
+![fine](/public/images/posts/fine.png)
 
-That last dependency isn't *strictly* necessary, but it makes life sooo much
-easier.
+Running `npm install browserify` will increase your precious project size by 12MB (distributed
+on it's **119** russian doll dependencies (henceforth referred to as *RDDs*). In contrast, 
+the first Pokemon game was 512KB[^3]. 
 
-So I run `npm install browserify babelify watchify` and watch my `node_modules`
-folder gorge itself like some starved tourist at an all-you-can-eat buffet. 
-Browserify alone has **47** dependencies, which in-turn have their own 
-dependencies until it all turns into a ridiculous russian doll situation.
+You know what, I'll use that as a reference point from now on. 
+So, browserify comes in at 24 Pokemon.
 
-Once the installation process is complete I have the worryingly lagre number of
-**247** directories within my `node_modules` folder, which now sits at an
-impressive size of 33MB. For reference the first Pokemon game was [372KB]().
+Interstingly [babelify](https://github.com/babel/babelify)[^4] almost exactly the same size at 11MB / 22 Pokemon, so with both of them
+installed our `node_modules` folder sits at 46 Pokemon total. 
 
+Finally we install watchify which comes in at a whopping 41 Pokemon. Now this large size is due
+to the fact that it actually has browserify as one of its dependencies, so it luckly only
+increases our project size by 9MB. I mean 18 Pokemon.
+
+So in total we have installed 32MB/64 Pokemon distributed on **212** external dependencies.
 And that's *without* a build system.
 
-After installing my 248 dependencices however, I am good to go!
+Anyway, after installing our 212 dependencices we're good to go!
 
-Now I can write fancy code like this (please ignore the fact that the 
+Now we can write fancy code like this (please ignore the fact that the 
 highlighting is a bit off, ecmascript 6 isn't really that well 
-supported by [pygments]() yet):
+supported by [pygments](http://pygments.org) yet):
 
 {% highlight javascript %}
 // Pokemon.js
@@ -110,26 +107,40 @@ myPokemon
   });
 {% endhighlight %}
 
-Babel will transpile it for me, while browserify concatenates all
-my javascript files into one. Watchify in turn re-transpiles on the fly
-using this simple command:
+Babel will transpile it into ecmascript 5 compliant code, browserify concatenates all
+my transpiled files into one, and watchify in turn ensures everything is being re-transpiled
+and concatenated on the fly with this simple command:
 
-`watchify app.js -t babelify -o public/bundle.js`
+`watchify app.js -t babelify -o public/bundle.js`[^5]
 
 `app.js` is the entry-point for the application, `babelify` is the
 only transformer I need, and `bundle.js` is the file I'll reference
 from the HTML.
 
-It might require 88 Pokemon Red games, but now I can write all the
-Ecmascript 6 code I want without having to define a single gulp task. 
+It might require 64 Pokemon, but now I can write all the
+ecmascript 6 code I want without having to define a single gulp task - **victory!**
 
-Victory!
+---
 
-**PS**: For giggles I installed gulp to see how many more dependencies
-that would include (without installing `gulp-browserify`, 
-`gulp-watchify`, `gulp-cthulhufy` etc. which I'd be forced to 
+It's night impossible to write modular javascript using ecmascript 6 
+features without having *some* external dependencies, and that's fine
+because thankfully there are [crazy effecient developers](https://github.com/substack) who create open source
+libraries we can use. However it's important to remember not to simply
+include a library because "that's what every body else is using" when 
+you can accomplish the same thing with your existing tools.
+
+In the ever-growing world of javascript libraries you must fight
+to retain your sanity, and simplicity is the spikiest mace in your armoire.
+
+**PS**: For giggles I installed gulp to see how many additional dependencies
+that would include (without installing gulp-browserify, 
+gulp-watchify, gulp-cthulhufy etc. which I'd be forced to 
 eventually) and that alone added **99** new dependencies. Jesus.
 
 ---
 
 [^1]: Of course there's already an [npm package](https://www.npmjs.com/package/cthulhu) named that.
+[^2]: This lovely [blog post](https://medium.com/@Rich_Harris/small-modules-it-s-not-quite-that-simple-3ca532d65de4#.ord2vv650) addresses the issue nicely.
+[^3]: [source](https://en.wikipedia.org/wiki/Game_Boy#Technical_specifications).
+[^4]: We have to use babelify instead of babel-core to make it play smoothly with browserify.
+[^5]: Which can be simplified even further using npm. By adding `"scripts": { "js": "watchify app.js -t babelify -o bundle.js" }` to your `package.json` file you can run the run the command like so: `npm run js`.
