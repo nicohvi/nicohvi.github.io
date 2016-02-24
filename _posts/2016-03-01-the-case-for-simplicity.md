@@ -61,7 +61,7 @@ For live transpilation/concatenation the obvious option is [watchify](https://gi
 
 ## Actually installing the dependencies
 
-So we need to install three external dependencies, that can't be too much, right? Right?
+So we need to install three external dependencies, that doesn't sound like too many? right? Right?
 
 Well, due to the incredible facination with micro-libraries[^2] our dependencies have a 
 number of their *own* dependencies - browserify alone has **47** - and they'll need to
