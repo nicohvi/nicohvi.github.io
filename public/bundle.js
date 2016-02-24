@@ -25,8 +25,8 @@ var Wrapper = function () {
     key: 'addClass',
     value: function addClass(className) {
       if (this.hasClass(className)) return;
-      this.node.className += ' ' + className;
-      this.node.className = this.node.className.trim();
+      var newName = this.node.className + ' ' + className;
+      this.node.className = newName.trim();
     }
   }, {
     key: 'removeClass',
@@ -131,75 +131,12 @@ var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getById(id, parent) {
-  return parent.getElementById(id);
-};
-
-function getByClass(className, parent) {
-  return parent.getElementsByClassName(className);
-}
-
-function getElement(selector, parent) {
-  return parent.getElementsByTagName(selector);
-}
-
-function get(selector, parent) {
-  var type = termType(selector);
-  var res = undefined;
-  switch (type) {
-    case 'id':
-      res = getById(selector.slice(1), parent);
-      break;
-    case 'class':
-      res = getByClass(selector.slice(1), parent);
-      break;
-    default:
-      res = getElement(selector, parent);
-  }
-  return [].slice.call(res);
-}
-
-function termType(term) {
-  return term.charAt(0) === '#' ? 'id' : term.charAt(0) === '.' ? 'class' : '';
-}
-
-function filterByTerm(node, term) {
-  var type = termType(term);
-
-  switch (type) {
-    case 'id':
-      return node.id === term.slice(1);
-    case 'class':
-      return node.className === term.slice(1);
-    default:
-      return node.tagName.toLowerCase() === term;
-  }
-}
-
-function filter(node, terms, i) {
-  // passed in root as context
-  if (i < 0) return true;
-  return node.parentElement ? filter(node.parentElement, terms, --i) : filterByTerm(node, terms[i]);
-}
-
 function wrap(node) {
   return new _Wrapper2.default(node);
 }
 
 function executeQuery(query) {
-  var terms = query.trim().split(' ');
-  var selector = terms[terms.length - 1];
-  if (terms.length === 1) return get(selector, document).map(wrap);
-
-  var context = terms.slice(0, terms.length - 1);
-
-  var i = context.length - 1;
-  var cands = get(context[i], document);
-  return cands.filter(function (cand) {
-    return filter(cand, terms, --i);
-  }).map(function (cand) {
-    return get(selector, cand);
-  }).flatten().map(wrap);
+  return [].slice.call(document.querySelectorAll(query)).map(wrap);
 }
 
 function $() {

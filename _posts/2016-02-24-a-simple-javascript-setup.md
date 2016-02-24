@@ -1,8 +1,8 @@
 ---
 layout: post
 title: A simple javascript setup
-draft: true
-date: 2016-02-01 +0100
+draft: false
+date: 2016-02-24 +0100
 ---
 
 Recently I wanted to add some javascript to a project of mine. 

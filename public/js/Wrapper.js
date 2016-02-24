@@ -10,8 +10,8 @@ export default class Wrapper {
 
   addClass (className) {
     if (this.hasClass(className)) return;
-    this.node.className += ` ${className}`;
-    this.node.className = this.node.className.trim();
+    const newName = `${this.node.className} ${className}`;
+    this.node.className = newName.trim();
   }
 
   removeClass (className) { 

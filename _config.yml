@@ -5,7 +5,7 @@ title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
 encoding: utf-8
 markdown: kramdown
-highlighter: rouge 
+highlighter: pygments
 kramdown:
   input: GFM
   hard_wrap: false
@@ -25,7 +25,7 @@ sass:
   style: compressed
 
 exclude: [
-          'sprockets.rb', 'node_modules', 'CNAME', 'publish.sh', 'package.json',
+          'haml.rb', 'node_modules', 'CNAME', 'publish.sh', 'package.json',
           'Gemfile', 'Gemfile.lock'
          ]
 
