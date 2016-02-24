@@ -40,14 +40,17 @@ since HTTP has a heavy overhead). HTTP/2 has ambitions to solve these problems, 
 that's still a ways off, so for now we need to stick with another external library for handling
 our concatenation and dependency injection.
 
-Finally I enjoy live transpilation of my code so that whenever I change one of my javascript 
-files they get automatically transpiled and concatenated. This isn't **strictly** a necessity, but
-it makes development life sooo much easier. 
+Finally I enjoy live transpilation and concatenation of my code whenever I make
+a change. This isn't **strictly** a necessity, but it makes development life 
+sooo much easier. 
 
 So, we have **three** defined requirements:
-  1.  ecmascript 6 transpilation
-  2.  Concatenation
-  3.  Live transpilation/concatenation
+
+1.  ecmascript 6 transpilation
+
+2.  Concatenation
+
+3.  Live transpilation/concatenation
 
 The go-to for ecmascript 6 (and why not [7 while you're at it](http://technologyadvice.github.io/es7-decorators-babel6/)) transpilation is [babel](https://babeljs.io),
 so we add that as the first entry to our list of dependencies. As for concatenation
