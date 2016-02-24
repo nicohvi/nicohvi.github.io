@@ -9,17 +9,18 @@ layout: master
   </p>
   <hr>
   <ul>
-    <li>
-      <a href='https://nplol-ballot.herokuapp.com' target='_blank'>
-        <h2>Ballot</h2>
+    {% for item in site.data.portfolio %}
+    <li class='project'>
+      <a href='{{ item.url }}'>
+        <h2>{{ item.title }}</h2>
       </a>
       <p>
-        Ever wanted to gauge someone's opinion on something?
-        Where should you guys head for lunch? Who should be
-        banned from the chat? When should you launch your dating
-        app for cats? <a href="https://nplol-ballot.herokuapp.com" target="_blank">Ballot</a> can
-        provide the answers to these essential questions.
+        {{ item.desc }}
+        <a class='github tooltip-link' data-tooltip='code' href="{{ 'https://github.com/nicohvi/' | append: item.repo }}">
+          <img src='/public/images/github.svg'>
+        </a>
       </p>
     </li>
+    {% endfor %}
   </ul>
 </section>

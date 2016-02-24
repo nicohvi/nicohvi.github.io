@@ -1,6 +1,7 @@
 'use strict';
 
 import './array';
+import Wrapper from './Wrapper';
 
 function getById (id, parent) {
   return parent.getElementById(id);
@@ -55,44 +56,27 @@ function filter (node, terms, i) {
     : filterByTerm(node, terms[i]);
 }
 
-class Wrapper {
-
-  constructor (node) {
-    this.node = node;
-  }
-
-  hasClass (className) {
-    return this.node.className.indexOf(className) > -1;
-  }
-
-  addClass (classes) {
-    console.log('implement');
-  }
-  
-  attr (name, val) {
-    this.node.setAttribute(name, val)
-  }
-
-}
-
 function wrap (node) {
   return new Wrapper(node);
 }
 
-export default function $ (query) {
+function executeQuery (query) {
   const terms = query.trim().split(' ');
   const selector = terms[terms.length-1];
-  if(terms.length === 1) return get(selector, document);
+  if(terms.length === 1) return get(selector, document).map(wrap);
  
   const context = terms.slice(0, terms.length-1);
     
   let i = context.length -1;
-  let cands = get(context[i], document);
-  
+  const cands = get(context[i], document);
   return cands
     .filter(cand => filter(cand, terms, --i) )
     .map(cand => get(selector, cand))
     .flatten()
     .map(wrap);
+}
+
+export default function $ () {
+  return [].slice.call(arguments).map(executeQuery).flatten();
 }
 

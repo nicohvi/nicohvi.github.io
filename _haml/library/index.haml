@@ -14,7 +14,7 @@ layout: master
   %ul
     \{% for item in site.data.library %}
     %li.book
-      %a(href="{{ item.link }}")
+      %a(href="{{ item.url }}")
         %h2 {{ item.title }}
       %p {{ item.desc }}
     \{% endfor %}

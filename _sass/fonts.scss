@@ -53,3 +53,8 @@
 @mixin code () {
   font-size: 14px;
 }
+
+@mixin tooltip () {
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -12,12 +12,12 @@ layout: master
   %hr
 
   %ul
-    %li
-      %a{href: "https://nplol-ballot.herokuapp.com", target: "_blank"}
-        %h2 Ballot
-      %p
-        Ever wanted to gauge someone's opinion on something?
-        Where should you guys head for lunch? Who should be
-        banned from the chat? When should you launch your dating
-        app for cats? <a href="https://nplol-ballot.herokuapp.com" target="_blank">Ballot</a> can
-        provide the answers to these essential questions.
+    \{% for item in site.data.portfolio %}
+    %li.project
+      %a{href: "{{ item.url }}"}
+        %h2 {{ item.title }}
+      %p 
+        {{ item.desc }}
+        %a{href: "{{ 'https://github.com/nicohvi/' | append: item.repo }}", class: 'github tooltip-link', data: { tooltip: 'code' } }
+          %img{src:"/public/images/github.svg"}
+    \{% endfor %} 
