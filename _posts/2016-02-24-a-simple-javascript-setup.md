@@ -51,7 +51,7 @@ After installing the dependencies I can add the following to my `package.json` f
 And I'm done!
 
 Now I can type `npm run js` into my console and I write amazing ecmascript 6 
-compliant code like this[^3]:
+compliant code like this[^4]:
  
 {% highlight javascript %}
 // Pokemon.js
@@ -88,7 +88,7 @@ libraries we can use.
 
 However, it's important to remember to not simply
 include a library because "that's what every body else is using" when 
-you can accomplish the same thing with your existing tools[^4], because they **come at a cost**. 
+you can accomplish the same thing with your existing tools[^5], because they **come at a cost**. 
 Both in terms of complexity and megabytes.
 
 In the ever-growing world of javascript libraries you must fight

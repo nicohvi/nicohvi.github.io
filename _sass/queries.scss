@@ -1,7 +1,5 @@
-@media (max-width: 700px) {
-  main section, main article { width: 100%; }
-}
-
-@media(max-width: 500px) {
-  body { font-size: 14px; }
+@media (max-device-width: 700px) , (max-width: 700px) {
+  header ul { margin-left: 0; }
+  header li:first-of-type { margin-left: 15px; }
+  header, main section, main article { width: 100%; }
 }
