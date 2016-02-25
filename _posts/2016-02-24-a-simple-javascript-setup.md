@@ -40,7 +40,7 @@ ecmascript 6. Adding something like `gulp` into the mix not only introduces anot
 layer of complexity, but it will also signifcantly increase[^3] the bytes used by our
 poor old `node_modules` folder.
 
-After installing the dependences I can add the following to my `package.json` file:
+After installing the dependencies I can add the following to my `package.json` file:
 
 {% highlight json %}
 "scripts": { 
@@ -83,7 +83,7 @@ and concatenated on-the-fly.
 
 It's night impossible to write modular javascript using ecmascript 6 
 features without having *some* external dependencies, and that's fine
-because thankfully there are [crazy effecient developers](https://github.com/substack) who create open source
+because thankfully there are [crazy efficient developers](https://github.com/substack) who create open source
 libraries we can use. 
 
 However, it's important to remember to not simply
