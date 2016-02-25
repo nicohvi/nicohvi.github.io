@@ -9,7 +9,7 @@ Recently I wanted to add some javascript to a project of mine.
 
 I've grown fond of using various ecmascript 6 features on other
 projects ([arrow functions](https://strongloop.com/strongblog/an-introduction-to-javascript-es6-arrow-functions/) and [modules](https://eviltrout.com/2014/05/03/getting-started-with-es6.html) especially), so transpilation
-of ecmascript 6 was necessary.
+of ecmascript 6 was something I really wanted.
 
 Additionally I wanted to concatenate my transpiled javascript into one file 
 (to rule them all) so my clients' browsers wouldn't have to 
