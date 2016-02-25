@@ -34,9 +34,11 @@ the ecmascript 6 modules aren't yet supported by browsers, and babel translates 
 CommonJS modules by default. Thus I need to resolve the dependencies introduced by these
 modules, which is **hard**. So we use a module loader instead!
 
-Though these three external dependencies came at the cost of **32MB**, I'm still
-doing pretty good on dependency management (I mean, they would've been a necessary part of my
-pipline anyway) as well as avoiding the extra layer of complexity introduced by a build tool.
+These three external dependencies come at the cost of **32MB**, but that's just
+something we'll have to live with these days if we want fancy transpiled 
+ecmascript 6. Adding something like `gulp` into the mix not only introduces another
+layer of complexity, but it will also signifcantly increase[^3] the bytes used by our
+poor old `node_modules` folder.
 
 After installing the dependences I can add the following to my `package.json` file:
 
@@ -60,6 +62,7 @@ export default const Pokemon = {
 }
 
 // app.js
+
 import Pokemon from './Pokemon';
 
 const myPokemon = Pokemon
@@ -95,5 +98,6 @@ to retain your sanity, and simplicity is the spikiest mace in your armoire.
 
 [^1]: Like [gulp](https://gulpjs.com), or [grunt](https://gruntjs.com).
 [^2]: Actually I need to use something called [babelify](https://github.com/babel/babelify) to make browserify and babel play together nicely. You also need to include some [presets](https://babeljs.io/docs/plugins/#presets) in babel 6.
-[^3]: Please ignore the fact that the syntax highlighting is a bit wonky, [pygments](https://pygments.org) doesn't support ecmascript 6 that well yet.
-[^4]: A colleague of mine wrote an [interesting blog post](https://open.bekk.no/scaling-frontend-build-steps-by-necessity) about this recently.
+[^3]: Gulp sits at about 5MB by itself, but it requires various [additional libraries](https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-transforms.md) to be of use in this context.
+[^4]: Please ignore the fact that the syntax highlighting is a bit wonky, [pygments](https://pygments.org) doesn't support ecmascript 6 that well yet.
+[^5]: A colleague of mine wrote an [interesting blog post](https://open.bekk.no/scaling-frontend-build-steps-by-necessity) about this recently.
