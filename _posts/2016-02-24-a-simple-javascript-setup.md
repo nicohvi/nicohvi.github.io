@@ -50,7 +50,7 @@ After installing the dependencies I can add the following to my `package.json` f
 
 And I'm done!
 
-Now I can type `npm run js` into my console and I write amazing ecmascript 6 
+Now I can type `npm run js` into my console and write amazing ecmascript 6 
 compliant code like this[^4]:
  
 {% highlight javascript %}
@@ -81,15 +81,13 @@ and concatenated on-the-fly.
 
 ## In summary
 
-It's night impossible to write modular javascript using ecmascript 6 
-features without having *some* external dependencies, and that's fine
-because thankfully there are [crazy efficient developers](https://github.com/substack) who create open source
-libraries we can use. 
+All you need to write modular javascript using ecmascript 6 features 
+are three external dependencies, npm can handle the rest. It's important
+to remember that you needen't introduce another layer of complexity just
+because "that's what everybody else is doing" when you can accomplish
+what you need with your existing tools[^5].
 
-However, it's important to remember to not simply
-include a library because "that's what every body else is using" when 
-you can accomplish the same thing with your existing tools[^5], because they **come at a cost**. 
-Both in terms of complexity and megabytes.
+Because external dependencies come at a cost, both in terms of complexity and megabytes.
 
 In the ever-growing world of javascript libraries you must fight
 to retain your sanity, and simplicity is the spikiest mace in your armoire.
