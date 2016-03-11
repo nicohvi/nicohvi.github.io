@@ -25,7 +25,8 @@ export default class Wrapper {
   }
   
   attr (name, val) {
-    val ? this.node.setAttribute(name, val) : this.node.getAttribute(val);
+    if(val) this.node.setAttribute(name, val);
+    return this.node.getAttribute(name);
   }
 
   data (name) {

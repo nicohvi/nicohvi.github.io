@@ -99,7 +99,8 @@ class Wrapper {
   }
 
   attr (name, val) {
-    val ? this.node.setAttribute(name, val) : this.node.getAttribute(val);
+    if(val) this.node.setAttribute(name, val);
+    return this.node.getAttribute(val);
   }
 }
 {% endhighlight %}
@@ -133,6 +134,18 @@ Ah, so amazing.
 
 Just like that I had all the features I needed (for now anyway), 
 and it came at the total cost of 61 LOC. Joy to the world etc.
+
+*UPDATE*
+
+I actually decided that I wanted to make *all* external links open
+in a new window, and this was easily accomplished like so:
+
+{% highlight javascript %}
+
+$('a')
+.filter(el => el.attr('href').indexOf('http') !== -1)
+.forEach(el => el.attr('target', 'blank'))
+{% endhighlight %}
 
 ---
 

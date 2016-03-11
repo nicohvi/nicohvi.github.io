@@ -41,7 +41,8 @@ var Wrapper = function () {
   }, {
     key: 'attr',
     value: function attr(name, val) {
-      val ? this.node.setAttribute(name, val) : this.node.getAttribute(val);
+      if (val) this.node.setAttribute(name, val);
+      return this.node.getAttribute(name);
     }
   }, {
     key: 'data',
@@ -94,8 +95,8 @@ var _query2 = _interopRequireDefault(_query);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _query2.default)('article a', '.now a', '.book a', '.project a', '.ext').filter(function (el) {
-  return !el.hasClass('footnote') && !el.hasClass('reverseFootnote');
+(0, _query2.default)('a').filter(function (el) {
+  return el.attr('href').indexOf('http') !== -1;
 }).forEach(function (el) {
   return el.attr('target', '_blank');
 });

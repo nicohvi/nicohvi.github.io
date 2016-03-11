@@ -1,7 +1,6 @@
 import $ from './query';
 
-$('article a', '.now a', '.book a', '.project a', '.ext')
-.filter(el => !el.hasClass('footnote') && !el.hasClass('reverseFootnote'))
+$('a').filter(el => el.attr('href').indexOf('http') !== -1)
 .forEach(el => el.attr('target', '_blank'))
 
 $('.github').forEach(el => el.tooltip())
