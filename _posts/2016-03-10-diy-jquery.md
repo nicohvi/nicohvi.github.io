@@ -18,19 +18,18 @@ cannons (to quote a favourite professor of mine) I decided that I
 wouldn't include **any** javascript libraries that I didn't strictly
 require.
 
-My first objective was to have a way to add `target="blank"` to links
+My first objective was to add `target="blank"` to links
 in my blog posts because, like a desperate mother whose children are
 about to move out, I didn't want any readers to leave my blog when
-they clicked on any external links.
+they clicked on an external link.
 
-Since my posts these are written using markdown[^2] I would 
-need to add the classes through inline HTML, which is a pain.
-Or, of course, I could write a liquid template - but that 
-seemed like overkill. So javascript seemed like the obvious solution.
+Since my posts are written using markdown[^2] I would 
+need to add the classes through inline HTML, which is a pain,
+or I could write a liquid template - but that 
+seemed like overkill. Thus javascript seemed like the obvious solution.
 
-In order to find the links I needed a way to query the DOM for
-elements, and jQuery was the obvious candidate. Then I
-stopped and thought for a moment.
+In order to access the link nodes in my HTML I needed a way to query the DOM,
+and jQuery was the obvious candidate. Then I stopped and thought for a moment.
 
 "Wait, do I really need 10 000 lines of javascript to find a 
 collection of DOM elements?"
@@ -49,7 +48,7 @@ export default function $ (query) {
 
 Pretty impressive, I know.
 
-You might wonder why I need the `[].slice.call` function call. It's due
+You might wonder why I need the `[].slice` function call. It's due
 to the fact that `querySelectorAll` returns a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) which is **not**
 the same as an array (learned that the hard way). So we need to 
 [slice](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) it into one.
@@ -82,9 +81,9 @@ $('article a')
 
 And now my footnotes were being filtered out of the result - success!
 
-Granted there's more to jQuery than finding DOM elements (granted, [a lot](http://api.jquery.com/) more), so I decided that I'd create a general wrapper class
-which would implement the most common jQuery methods (such as 
-`hasClass`, `data`, `attr`, `on` etc.) when I needed them.
+Granted there's more to jQuery than finding DOM elements (okay, [a lot](http://api.jquery.com/) more), 
+so I decided that I'd create a general wrapper class which would implement some of the most common jQuery 
+methods (such as `hasClass`, `data`, `attr`, `on` etc.) when I needed them.
 
 Turns out they were really simple.
 
@@ -106,8 +105,7 @@ class Wrapper {
 {% endhighlight %}
 
 Most of those implementations are one-liners, and that's because
-the DOM element API is actually really good (I had no idea). All I'm
-doing is renaming stuff, which makes me feel useful as well - win win!
+the DOM element API is actually really good (who knew, right?).
 
 To use this new wrapper class I can simply do this
 
@@ -135,10 +133,11 @@ Ah, so amazing.
 Just like that I had all the features I needed (for now anyway), 
 and it came at the total cost of 61 LOC. Joy to the world etc.
 
-*UPDATE*
+**UPDATE**
 
-I actually decided that I wanted to make *all* external links open
-in a new window, and this was easily accomplished like so:
+I eventually decided that I wanted to make *all* external links open
+in a new window (regardless if they were in a blog post or not), 
+and this was easily accomplished like so:
 
 {% highlight javascript %}
 
