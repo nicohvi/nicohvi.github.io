@@ -1,0 +1,20 @@
+\---
+layout: master
+\---
+
+%section
+  %h1 Now
+
+  %p
+    Inspired by <a href="https://sivers.org" class="ext">David Sivers</a> I decided to create
+    a <b>now</b> page to showcase what I'm currently working on.
+
+  %hr
+
+  %ul
+    \{% for item in site.data.now %}
+    %li.now
+      %h2  {{ item.title }}
+      %p {{ item.desc }}
+    \{% endfor %}
+

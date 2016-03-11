@@ -19,6 +19,8 @@ navigation:
     url:  /library/
   - text: Quotes
     url:  /quotes/
+  - text: Now
+    url:  /now/
 
 sass:
   sass_dir: _sass

@@ -39,7 +39,6 @@ test cases together, `it` specifies a particular test case, and `before` and
 
 Let's see how they all work together with an example.
 
-{% gist e4540243f7f9d9679619 server-api.test.js %}
 
 First we define a set of constants we'll be using throughout our test suite,
 then we define a simple `describe` closure to include our dummy test which
@@ -57,7 +56,6 @@ The first test case (denoted by the `it` function call) makes a HTTP GET call to
 and ensures that the recieved status code is 200 OK, which of course isn't the case yet. Let's
 fix that.
 
-{% gist e4540243f7f9d9679619 server.js %}
 
 As you can see the root route simply returns a static file called `index.html`.
 
@@ -73,7 +71,6 @@ socket.io connections and validating the responses from the server.
 In good TDD fashion ([if that's your cup of tea](https://medium.com/written-in-code/tdd-whatever-that-means-8b3932ddddd6))
 we write our tests before we implement the feature. 
 
-{% gist 536cff0d6760957889db server-api.test.js %}
 
 To properly use embrace the power of mocha we nest this second `describe` closure
 within the previously defined one, so that the `before` hook of the parent closure
@@ -87,7 +84,6 @@ able to run in any given order is a bad idea.
 This new test will fail if we run mocha again (or, times out to be specific), so let's 
 do something about that.
 
-{% gist 536cff0d6760957889db server.js %}
 
 All the realtime server does is broadcast the name of the newly joined user to all connected 
 sockets (within the **realtime** namespace[^3]), as well as the number of connected users[^4].
@@ -103,7 +99,6 @@ broadcast to all other clients.
 
 Again, we write our test.
 
-{% gist d3566d3356e9664a9470 server-api.test.js %}
 
 We connect several clients using the `socket.io-client` package (`client` is already connected in the `before`
 hook, in case you had forgotten) and once they have connected we register their name on the server.
@@ -115,7 +110,6 @@ receive the event and that the payload is as expected.
 
 Now for the actual implementation.
  
-{% gist d3566d3356e9664a9470 server.js %}
 
 And we're green again!
 

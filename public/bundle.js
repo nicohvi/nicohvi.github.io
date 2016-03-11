@@ -94,7 +94,7 @@ var _query2 = _interopRequireDefault(_query);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _query2.default)('article a', '.book a', '.project a').filter(function (el) {
+(0, _query2.default)('article a', '.now a', '.book a', '.project a', '.ext').filter(function (el) {
   return !el.hasClass('footnote') && !el.hasClass('reverseFootnote');
 }).forEach(function (el) {
   return el.attr('target', '_blank');

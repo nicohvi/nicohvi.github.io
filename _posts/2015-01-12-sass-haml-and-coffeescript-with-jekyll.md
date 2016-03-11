@@ -16,7 +16,6 @@ Luckily for elitist jerks such as ourselves there's a way to use these tools wit
 
 [Sass](https://sass-lang.org) is the easiest, since Jekyll already supports it out of the box. Simply specify the location of your **.scss** files in your configuration, add your **.scss** files to the specified directory and add a couple of triple dashes at the top of the file you want the resulting css to end up in (like **public/application.scss** for instance).
 
-{% gist bc6f53bb674a2f6471e1 %}
 
 To see an example of what the processed file looks like, [click here](/public/application.css).
 
@@ -28,7 +27,6 @@ Jekyll does support coffeescript out of the box as well, but not nearly as well 
 
 To remedy this problem we'll use our insane ruby skills.
 
-{% gist 7b39c221ec9861aed414 %}
 *Pictured: Insane skills.*
 
 What we have done here is simply define a manifest file (just like in the [sprockets](https://github.com/sstephenson/sprockets) gem) wherein we specify the order of the files to be compiled (and subsequently concatinated).
@@ -39,7 +37,6 @@ The contents of these files are finally stored in the file **public/application.
 
 We can easily do the same thing for haml.
 
-{% gist a8c36f1b9fd023cfaf65 %}
 
 A nice thing about these two methods is that they also log any errors to the console, so that you know when you've nested something illegally in haml.[^2]
 
@@ -49,7 +46,6 @@ I've also defined a `get_relative_path` method which specifies where your haml f
 
 To wrap everything up you can use the lovely [Listen](https://github.com/guard/listen) gem to have your pimpin' script generate your javascript and HTML on the fly.
 
-{% gist 2dc3a24c41ca8bf00568 %}
 *Helpful logging statements mandatory*
 
 Now whenever you change one of your coffeescript files the entire *application.js* will be recompiled, and once you edit a haml file the corresponding html file will be generated/updated.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: DIY jQuery
-draft: true
-date: 2016-02-24 +0100
+draft: false
+date: 2016-03-10 +0100
 ---
 
 I'm quite [fond of simplicity]({% post_url 2016-02-24-a-simple-javascript-setup %}). 
@@ -49,8 +49,8 @@ export default function $ (query) {
 
 Pretty impressive, I know.
 
-You might wonder why I need the `[].slice.call` function call. This
-is because `querySelectorAll` returns a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) which is **not**
+You might wonder why I need the `[].slice.call` function call. It's due
+to the fact that `querySelectorAll` returns a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) which is **not**
 the same as an array (learned that the hard way). So we need to 
 [slice]() it into one.
 

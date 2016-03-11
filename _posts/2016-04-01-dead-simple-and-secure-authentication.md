@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to create a google login for your next ruby web app
+title: Dead simple and secure authentication
 draft: true
-date: 2016-03-01 +0100
+date: 2016-01-24 +0100
 ---
 
 Say you've got a great idea for a new website. Maybe you and your 
@@ -17,33 +17,42 @@ between your domain objects on a sheet of paper and off you go.
 <!-- Crude drawing of domain objects -->
 <img>
 
-Then you run into the inevitable problem of *authentication*. You want to ensure
+Then you run into the inevitable problem of *authentication*[^1]. You want to ensure
 the posts made by your friends are actually made by *them*, and not some random
-person on the internet who wants in on your challenge. Fuck that guy, amirite?
+person on the internet who wants in on your challenge. 
+
+Fuck that guy, amirite?
 
 Well, this shouldn't be that much of a problem. 
-You just add a `password` field to your
+You simply add a `password` field to your
 user model, right? Hmm, and maybe a `password_confirmation`, because it just 
 seems sloppy to allow the user to type in his password *once* and then be
 done with it - what if that idiot spells it wrong? 
 
 But wait - you really, *really* shouldn't store your passwords as cleartext
-in your database (eh, [Sony](http://arstechnica.com/tech-policy/2011/06/sony-hacked-yet-again-plaintext-passwords-posted/)?). What you *should* do is to create
-a hash of your password using a good encryption algorithm. That way, if anyone
-out there in the vast sphere of cat gifts and pornography called the internet 
+in your database (eh, [Sony](http://arstechnica.com/tech-policy/2011/06/sony-hacked-yet-again-plaintext-passwords-posted/)?). 
+
+What you *should* do is to create a hash of your password using a good encryption algorithm. 
+That way, if anyone out there in the vast sphere of cat gifts and pornography called the internet 
 gets access to your database all he can see is a bunch of jibberish.
 
 <!-- Eminem jibberish -->
 <img>
 
-So how do you do this? 
+So, how do?
 
-I really like to use [bcrypt](), which you get out of the box if you're using
-Rails. Okay, that's the passwords taken care of - but, wait: what if the user has
-forgotten his password? He should have the option to reset it, right? That means
-you need to be able to send out emails and - *ugh*.
+Well, you need to find a way to use the algorithm (ruby has the lovely
+[bcrypt]() gem which you get out of the box if you're using rails).
 
-So, yeah - this is all kinda annoying, and can be a hassle to set up *properly*. But seeing as this is a **universal problem**, you'd think that someone has fixed
+Okay, that's the passwords taken care of. Right?
+
+Hold up, what if the user has forgotten her password? She should be
+able to reset it, right? That means you need to generate a temporary 
+token, and be able to send it by email - well, then you need to
+setup a mail server and... *ugh*.
+
+So, yeah - this is all kinda annoying, and can be a hassle to set up *properly*. 
+But seeing as this is a **universal problem**, you'd think that someone has fixed
 it already, right? Someone like Google or something.
 
 The good news is that they totally have. The bad news is that it's based on the
@@ -65,7 +74,7 @@ into three basic steps:
 This id token contains the user information you want.
 
 Notice how that last request used `HTTPS`? That's important. This is 
-because SSL (which is the security layer HTTPS uses) encrypts the channel
+because SSL (which is the security layer HTTPS uses on top of TCP/IP) encrypts the channel
 and thus doesn't allow any potential third party sniffers to see the 
 `authentication_code` or `id_token` in cleartext.
 
@@ -81,8 +90,10 @@ really simple to do yourself, and it's my opinion that if you can do something
 yourself (and learn from it) - then fucking do it yourself.
 
 The first step is the enable the Google+ API in your [google developer console](
-) and generate a `client_id` and `client_secret`, you need these for your calls
-to Google's servers. There's a very good and detailed description of all the
+) and generate a `client_id` and `client_secret` - you need these for your calls
+to Google's servers. 
+
+There's a very good and detailed description of all the
 setup you need [here]().
 
 Once your setup is complete, you simply implement the HTTP requests in
@@ -90,11 +101,11 @@ your web application.
 
 Here's an example using [sinatra](http://sinatrarb.com).
 
-{% gist 11b3bc9414180db6bbfc %}
-
 You can literally copy/paste that, enter your own `client_id` and `client_secret`
 , run it on your local computer, and go to `localhost:4567` to see a 
 working example. It's **that** easy.
 
 You're welcome.
 
+---
+[^1]: Which is [not the same as authorization]().
