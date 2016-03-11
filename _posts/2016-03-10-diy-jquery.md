@@ -10,7 +10,7 @@ I'm quite [fond of simplicity]({% post_url 2016-02-24-a-simple-javascript-setup 
 Some might think that sounds weird coming from someone who loves
 ruby on rails, but I'd argue that rails is all about simplicity[^1]. 
 Also ruby is probably the simplest language in the world, with the
-possible exception of [whitespace]().
+possible exception of [whitespace](https://en.wikipedia.org/wiki/Whitespace_(programming_language)).
 
 Anyway, I was tinkering with some simple javascript for this blog
 and since I'm a proclaimed proponent of not shooting sparrows with
@@ -25,11 +25,11 @@ they clicked on any external links.
 
 Since my posts these are written using markdown[^2] I would 
 need to add the classes through inline HTML, which is a pain.
-Or, of course, I could write a [liquid template]() - but that 
+Or, of course, I could write a liquid template - but that 
 seemed like overkill. So javascript seemed like the obvious solution.
 
 In order to find the links I needed a way to query the DOM for
-elements, and [jQuery]() was the obvious candidate. Then I
+elements, and jQuery was the obvious candidate. Then I
 stopped and thought for a moment.
 
 "Wait, do I really need 10 000 lines of javascript to find a 
@@ -52,7 +52,7 @@ Pretty impressive, I know.
 You might wonder why I need the `[].slice.call` function call. It's due
 to the fact that `querySelectorAll` returns a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) which is **not**
 the same as an array (learned that the hard way). So we need to 
-[slice]() it into one.
+[slice](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) it into one.
 
 I used my fake jQuery like this and felt like a total boss:
 
@@ -82,7 +82,7 @@ $('article a')
 
 And now my footnotes were being filtered out of the result - success!
 
-Granted there's more to jQuery than finding DOM elements (granted, [a lot]() more), so I decided that I'd create a general wrapper class
+Granted there's more to jQuery than finding DOM elements (granted, [a lot](http://api.jquery.com/) more), so I decided that I'd create a general wrapper class
 which would implement the most common jQuery methods (such as 
 `hasClass`, `data`, `attr`, `on` etc.) when I needed them.
 
