@@ -16,4 +16,15 @@ layout: master
     </li>
     {% endfor %}
   </ul>
+  <hr>
+  <h2>Things I've done/read</h2>
+  <ul>
+    {% for item in site.data.done %}
+    <li class='done'>
+      <p>
+        <a href='{{item.link}}'>{{ item.title }}</a>
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
 </section>

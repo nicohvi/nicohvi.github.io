@@ -18,3 +18,13 @@ layout: master
       %p {{ item.desc }}
     \{% endfor %}
 
+  %hr
+
+  %h2 Things I've done/read
+
+  %ul
+    \{% for item in site.data.done %}
+    %li.done
+      %p
+        %a(href="{{item.link}}") {{ item.title }}
+    \{% endfor %}
