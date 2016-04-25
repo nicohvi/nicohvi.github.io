@@ -1,8 +1,44 @@
-- title:  Building
-  desc:   Functional programming is cool, and I'm currently creating apps
-          using <a href="http://elm-lang.org">elm</a> to
-          test and document my new knowledge.
+- title:  Blog post about Goodreads recommendations
+  type:   blog
+  desc:   Writing a blog post about my experiences reading
+          <i>only</i> books recommended to me by Goodreads.
+  done:   false
 
-- title:  Reading
-  desc:   Currently reading <b>Martin Fowler</b>'s article on          <a href="http://martinfowler.com/articles/injection.html">inversion of control</a>.
+- title:  The Needle and the Damage Done
+  type:   guitar
+  link:   https://www.youtube.com/watch?v=k0t0EW6z8a0
+  desc:   I love this Neil Young song, and I'm trying my very best to
+          not fuck it up too much.
+  done:   false
 
+- title:  Elm
+  type:   code
+  link:   http://elm-lang.org
+  desc:   Currently building functional front-end applications using the
+          elm language.
+  done:   false
+
+- title:  Retribution Falls
+  type:   read
+  link:   https://www.goodreads.com/review/show/1602471193
+  done:   true
+
+- title:  Inversion of Control
+  type:   read
+  link:   http://martinfowler.com/articles/injection.html
+  done:   true
+
+- title:  Philosophy for Life 
+  type:   read
+  link:   https://www.goodreads.com/review/show/1567558869
+  done:   true
+
+- title:  Deep Work
+  type:   read
+  link:   https://www.goodreads.com/review/show/1565345532
+  done:   true
+
+- title:  The Girl Who Curcumnavigated Fairyland in a Ship of Her Own Making
+  type:   read
+  link:   https://www.goodreads.com/review/show/1573380693
+  done:   true

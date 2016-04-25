@@ -1,25 +1,30 @@
 ---
 layout: master
 ---
-<section>
+{% assign doing = site.data.now | where: "done", false %}
+{% assign done = site.data.now | where: "done", true %}
+<section class='now-section'>
   <h1>Now</h1>
   <p>
     Inspired by <a href="https://sivers.org" class="ext">Derek Sivers</a> I decided to create
     a <b>now</b> page to showcase what I'm currently working on.
   </p>
   <hr>
+  <h2>Things I'm currently doing</h2>
   <ul>
-    {% for item in site.data.now %}
+    {% for item in doing %}
     <li class='now'>
-      <h2>{{ item.title }}</h2>
+      <a href='{{item.link}}'>
+        <h3>{{ item.title }}</h3>
+      </a>
       <p>{{ item.desc }}</p>
     </li>
     {% endfor %}
   </ul>
   <hr>
-  <h2>Things I've done/read</h2>
+  <h2>Things I've completed</h2>
   <ul>
-    {% for item in site.data.done %}
+    {% for item in done %}
     <li class='done'>
       <p>
         <a href='{{item.link}}'>{{ item.title }}</a>

@@ -2,7 +2,10 @@
 layout: master
 \---
 
-%section
+{% assign doing = site.data.now | where: "done", false %}
+{% assign done = site.data.now | where: "done", true %}
+
+%section.now-section
   %h1 Now
 
   %p
@@ -11,19 +14,22 @@ layout: master
 
   %hr
 
+  %h2 Things I'm currently doing
+
   %ul
-    \{% for item in site.data.now %}
+    \{% for item in doing %}
     %li.now
-      %h2  {{ item.title }}
+      %a(href="{{item.link}}")
+        %h3 {{ item.title }}
       %p {{ item.desc }}
     \{% endfor %}
 
   %hr
 
-  %h2 Things I've done/read
+  %h2 Things I've completed
 
   %ul
-    \{% for item in site.data.done %}
+    \{% for item in done %}
     %li.done
       %p
         %a(href="{{item.link}}") {{ item.title }}
