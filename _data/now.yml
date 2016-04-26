@@ -14,8 +14,8 @@
 - title:  Elm
   type:   code
   link:   http://elm-lang.org
-  desc:   Currently building functional front-end applications using the
-          elm language.
+  desc:   Building front-end applications using functional reactive
+          paradigms, facilitated by the elm language.
   done:   false
 
 - title:  Retribution Falls
