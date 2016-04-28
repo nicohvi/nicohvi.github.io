@@ -19,8 +19,10 @@ layout: master
   %ul
     \{% for item in doing %}
     %li.now
-      %a(href="{{item.link}}")
-        %h3 {{ item.title }}
+      %section.link-container
+        %a(href="{{item.link}}")
+          %h3 {{ item.title }}
+        %i.tag(class="tag-{{item.type}}") {{ item.type }}
       %p {{ item.desc }}
     \{% endfor %}
 
@@ -31,6 +33,7 @@ layout: master
   %ul
     \{% for item in done %}
     %li.done
-      %p
+      %section.link-container
         %a(href="{{item.link}}") {{ item.title }}
+        %i.tag(class="tag-{{item.type}}") {{ item.type }}
     \{% endfor %}

@@ -1,0 +1,27 @@
+---
+layout: master
+---
+<section>
+  <h1>Books</h1>
+  <p>
+    I like reading things that smarter people have written
+    because then I can present them as my own ideas at parties. For a complete
+    list of all the books I've read and reviewed, you can check out my
+    <a href="https://www.goodreads.com/review/list/7071875-nicolay-hvidsten?shelf=read">Goodreads reviews</a>.
+  </p>
+  <p>
+    Below are my favourite books which I think absolutely everyone should read,
+    because my opinion on the matter is obviously infallible.
+  </p>
+  <hr>
+  <ul>
+    {% for item in site.data.books %}
+    <li class='book'>
+      <a href='https://www.goodreads.com/book/show/{{ item.id }}'>
+        <h2>{{ item.title }}</h2>
+      </a>
+      <p>{{ item.desc }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

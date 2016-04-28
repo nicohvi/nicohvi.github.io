@@ -1,1 +1,21 @@
 .now-section h3 { margin: 0; }
+
+.link-container { display: flex; }
+
+.tag {
+  font-size: 12px;
+  align-self: center;
+  border-radius: 3px;
+  padding: 0 5px;
+  color: #fff;
+  background: #333;
+  margin-left: 5px;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+
+.tag-guitar { background: #97c291; }
+.tag-blog { background: #cc7155; }
+.tag-code { background: #66acc7; }
+
+.done a { border-bottom: 1px solid transparent; }

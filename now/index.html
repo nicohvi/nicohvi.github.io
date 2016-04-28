@@ -14,9 +14,12 @@ layout: master
   <ul>
     {% for item in doing %}
     <li class='now'>
-      <a href='{{item.link}}'>
-        <h3>{{ item.title }}</h3>
-      </a>
+      <section class='link-container'>
+        <a href='{{item.link}}'>
+          <h3>{{ item.title }}</h3>
+        </a>
+        <i class='tag tag-{{item.type}}'>{{ item.type }}</i>
+      </section>
       <p>{{ item.desc }}</p>
     </li>
     {% endfor %}
@@ -26,9 +29,10 @@ layout: master
   <ul>
     {% for item in done %}
     <li class='done'>
-      <p>
+      <section class='link-container'>
         <a href='{{item.link}}'>{{ item.title }}</a>
-      </p>
+        <i class='tag tag-{{item.type}}'>{{ item.type }}</i>
+      </section>
     </li>
     {% endfor %}
   </ul>

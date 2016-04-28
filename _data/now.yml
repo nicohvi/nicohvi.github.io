@@ -1,7 +1,11 @@
-- title:  Blog post about Goodreads recommendations
+- title:  Goodreads recommendations
   type:   blog
-  desc:   Writing a blog post about my experiences reading
+  desc:   Post about my experiences reading
           <i>only</i> books recommended to me by Goodreads.
+  done:   false
+
+- title:  The Crown Tower
+  type:   read
   done:   false
 
 - title:  The Needle and the Damage Done
@@ -18,6 +22,21 @@
           paradigms, facilitated by the elm language.
   done:   false
 
+- title:  DIY jQuery
+  type:   blog
+  link:   /blog/2016/03/10/diy-jquery
+  done:   true
+
+- title:  Deep Work
+  type:   read
+  link:   https://www.goodreads.com/review/show/1565345532
+  done:   true
+
+- title:  The Girl Who Curcumnavigated Fairyland in a Ship of Her Own Making
+  type:   read
+  link:   https://www.goodreads.com/review/show/1573380693
+  done:   true
+
 - title:  Retribution Falls
   type:   read
   link:   https://www.goodreads.com/review/show/1602471193
@@ -33,12 +52,3 @@
   link:   https://www.goodreads.com/review/show/1567558869
   done:   true
 
-- title:  Deep Work
-  type:   read
-  link:   https://www.goodreads.com/review/show/1565345532
-  done:   true
-
-- title:  The Girl Who Curcumnavigated Fairyland in a Ship of Her Own Making
-  type:   read
-  link:   https://www.goodreads.com/review/show/1573380693
-  done:   true

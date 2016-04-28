@@ -15,8 +15,8 @@ navigation:
     url:  /blog/
   - text: Portfolio
     url:  /portfolio/
-  - text: Library
-    url:  /library/
+  - text: Books
+    url:  /books/
   - text: Quotes
     url:  /quotes/
   - text: Now
