@@ -3,7 +3,6 @@
 
 main {
   max-width: 900px;
-  min-width: 640px;
   margin: 0 auto;
   display: block; // Since IE has no user-agent stylesheet for this element
 }
@@ -33,7 +32,7 @@ hr {
 
 h1 {
   @include title();
-  margin: 30px 0 30px 0;
+  margin: 60px 0;
 }
 
 p a {
