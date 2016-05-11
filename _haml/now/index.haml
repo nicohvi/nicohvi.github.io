@@ -35,5 +35,8 @@ layout: master
     %li.done
       %section.link-container
         %a(href="{{item.link}}") {{ item.title }}
-        %i.tag(class="tag-{{item.type}}") {{ item.type }}
+        \{% assign  tags = item.type | split: ',' %}
+        \{% for tag in tags %}
+        %i.tag(class="tag-{{tag}}") {{ tag }}
+        \{% endfor %}
     \{% endfor %}

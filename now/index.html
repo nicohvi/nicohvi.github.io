@@ -31,7 +31,10 @@ layout: master
     <li class='done'>
       <section class='link-container'>
         <a href='{{item.link}}'>{{ item.title }}</a>
-        <i class='tag tag-{{item.type}}'>{{ item.type }}</i>
+        {% assign  tags = item.type | split: ',' %}
+        {% for tag in tags %}
+        <i class='tag tag-{{tag}}'>{{ tag }}</i>
+        {% endfor %}
       </section>
     </li>
     {% endfor %}

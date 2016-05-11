@@ -1,8 +1,18 @@
-- title:  Goodreads recommendations
+- title:  Ruby mixins
   type:   blog
+  desc:   Post about ruby mixins for immutability and
+          functional paradigms.
+  done:   false
+
+- title:  Hannah Hunt
+  type:   guitar
+  done:   false
+
+- title:  Goodreads recommendations
+  type:   blog,abandoned
   desc:   Post about my experiences reading
           <i>only</i> books recommended to me by Goodreads.
-  done:   false
+  done:   true
 
 - title:  The Shadow of the Torturer
   type:   read
@@ -13,7 +23,7 @@
   link:   https://www.youtube.com/watch?v=k0t0EW6z8a0
   desc:   I love this Neil Young song, and I'm trying my very best to
           not fuck it up too much.
-  done:   false
+  done:   true
 
 - title:  Elm
   type:   code

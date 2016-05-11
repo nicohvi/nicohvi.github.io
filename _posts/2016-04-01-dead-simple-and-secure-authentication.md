@@ -2,7 +2,7 @@
 layout: post
 title: Dead simple and secure authentication
 draft: true
-date: 2016-01-24 +0100
+date: 2016-07-01 +0100
 ---
 
 Say you've got a great idea for a new website. Maybe you and your 
