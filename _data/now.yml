@@ -1,8 +1,9 @@
-- title:  Ruby mixins
+- title:  Immutable ruby
   type:   blog
+  link:   /blog/2016/05/15/immutable-ruby
   desc:   Post about ruby mixins for immutability and
           functional paradigms.
-  done:   false
+  done:   true
 
 - title:  Hannah Hunt
   type:   guitar
@@ -14,7 +15,12 @@
           <i>only</i> books recommended to me by Goodreads.
   done:   true
 
-- title:  The Shadow of the Torturer
+- title:  Red Rising
+  type:   read
+  link:   https://www.goodreads.com/review/show/1178669033
+  done:   true 
+
+- title:  How to Bake Pi
   type:   read
   done:   false
 
