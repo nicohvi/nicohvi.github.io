@@ -24,6 +24,10 @@
   type:   read
   done:   false
 
+- title:  Understanding Cryptography
+  type:   read
+  done:   false
+
 - title:  The Needle and the Damage Done
   type:   guitar
   link:   https://www.youtube.com/watch?v=k0t0EW6z8a0
