@@ -1,3 +1,8 @@
+- title:  Elixir
+  type:   code
+  link:   http://elixir-lang.org
+  done:   false
+
 - title:  Immutable ruby
   type:   blog
   link:   /blog/2016/05/15/immutable-ruby
@@ -40,7 +45,7 @@
   link:   http://elm-lang.org
   desc:   Building front-end applications using functional reactive
           paradigms, facilitated by the elm language.
-  done:   false
+  done:   true
 
 - title:  DIY jQuery
   type:   blog
