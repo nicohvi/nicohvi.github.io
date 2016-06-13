@@ -1,3 +1,13 @@
+- title:  Everything That Remains
+  type:   read
+  link:   https://www.goodreads.com/review/show/1667136872
+  done:   true
+  
+- title:  Do the Work
+  type:   read
+  link:   https://www.goodreads.com/review/show/1656699032
+  done:   true
+
 - title:  Elixir
   type:   code
   link:   http://elixir-lang.org
