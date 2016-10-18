@@ -7,9 +7,8 @@ body {
   background: $white;
   margin: 0;
   padding: 30px;
-  min-width: 640px;
+  min-width: 300px;
   @include copy();
-
 }
 
 ul { 
