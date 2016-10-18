@@ -3,4 +3,4 @@
 
 User-agent: *
 Disallow: 
-Sitemap: {{ page.url }}/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml
