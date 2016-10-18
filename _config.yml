@@ -1,5 +1,6 @@
 gems:
   - jekyll-gist
+  - jekyll-sitemap
 
 title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
