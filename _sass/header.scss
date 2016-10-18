@@ -39,7 +39,7 @@ nav .active {
 @media (max-width: $mobile) {
   header ul {
     @include flex-wrap;
-    jusitfy-content: center;
+    justify-content: center;
   }
 }
 
