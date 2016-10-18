@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'variables';
 @import 'mixins';
 
 header { 
@@ -7,7 +8,9 @@ header {
 
   @extend .flex-center;
 
-  nav, a { @extend .inline-flex-center; }
+  nav, a { 
+    @extend .inline-flex-center; 
+  }
 }
 
 header ul { margin-left: 50px; }
@@ -31,5 +34,12 @@ header li a:hover {
 nav .active { 
   opacity: 1; 
   color: $blue;
+}
+
+@media (max-width: $mobile) {
+  header ul {
+    @include flex-wrap;
+    jusitfy-content: center;
+  }
 }
 
