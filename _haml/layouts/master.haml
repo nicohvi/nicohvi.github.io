@@ -1,13 +1,15 @@
 !!!
 {% assign random = site.time | date: "%s%N" | modulo: site.data.lols.size %}
+{% assign description = "Ramblings of Nicolay Hvidsten, developer" %}
 %html
   %head
     %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
     %meta(name="Nicolay Hvidsten" content="Nicolay Hvidsten, Programming Ruby")
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
+    %meta(name="description" content="{%if page.description %}{{page.description}}{% else %}{{ description }}{% endif %}")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     \{% include analytics.html %}
-    %title {%if page.title %} {{ page.title }} {% else %} {{site.data.lols[random].text }} {% endif %}
+    %title {%if page.title %}{{ page.title }}{% else %}{{site.data.lols[random].text }}{% endif %}
   
   %body
     %header
