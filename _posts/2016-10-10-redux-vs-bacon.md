@@ -2,6 +2,7 @@
 layout: post
 title: Why is javascript development so complicated?
 draft: true
+sitemap: false
 ---
 
 Is a question I've asked myself alot. There's been a lot of

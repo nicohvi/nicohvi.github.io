@@ -2,6 +2,7 @@
 layout: post
 title: Dead simple and secure authentication
 draft: true
+sitemap: false
 date: 2016-07-01 +0100
 ---
 

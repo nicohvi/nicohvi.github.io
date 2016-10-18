@@ -2,6 +2,7 @@
 layout: post
 title: You don't need a spa for that
 draft: true
+sitemap: false
 ---
 
 So if you're a developer and have been on the internet recently,
