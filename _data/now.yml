@@ -1,3 +1,7 @@
+- title: Scribe
+  type: code
+  done: false 
+
 - title:  Everything That Remains
   type:   read
   link:   https://www.goodreads.com/review/show/1667136872
@@ -11,7 +15,7 @@
 - title:  Elixir
   type:   code
   link:   http://elixir-lang.org
-  done:   false
+  done:   true 
 
 - title:  Immutable ruby
   type:   blog
@@ -40,8 +44,8 @@
   done:   false
 
 - title:  Understanding Cryptography
-  type:   read
-  done:   false
+  type:   read, abandoned
+  done:   true
 
 - title:  The Needle and the Damage Done
   type:   guitar
