@@ -8,6 +8,8 @@
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
     %meta(name="description" content="{%if page.description %}{{page.description}}{% else %}{{ description }}{% endif %}")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %meta(property="og:title" content="Nicolay Hvidsten, developer")
+    -#%meta(property="og:title" content="%if page.description %}{{page.description}}{% else %}{{ description }}{% endif %}")
     \{% include analytics.html %}
     %title {%if page.title %}{{ page.title }}{% else %}{{site.data.lols[random].text }}{% endif %}
   
