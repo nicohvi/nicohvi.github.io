@@ -13,15 +13,15 @@ code {
 }
 
 pre code {
+  @include code;
   background: $white;
   padding: 0;
-  @include code();
 }
 
 .c1 { color: $_gray; }
-.k  { color: $_purple; }
-.nf, .kt, .kr, .nc { color: $_blue; }
-.s, .s1, .s2  { color: $_green; }
+.k, .o  { color: $_red; }
+.nf, .kt, .kr, .nc, .si, .s, .s1, .s2  { color: $_blue; }
 .mi, .nx + .nx { color: $_red; }
-.o  { color: $_yellow; }
-.nt { color: $_brown; }
+.nt { color: $_green; }
+.na { color: $_purple; }
+.ss, .vi, .kp { color: $_ltBlue;}
