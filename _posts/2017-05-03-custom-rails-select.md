@@ -5,21 +5,21 @@ draft: false
 sitemap: true
 ---
 
-Did you know that styling `select` tags is [not really possible?](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms#Dealing_with_the_select_nightmare).
+Did you know that styling `select` tags [isn't really possible?](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms#Dealing_with_the_select_nightmare).
 
 It certainly came as a surprise to me, and while there are [workarounds](http://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-css-only-without-javascript), these are mostly hacked
-together solutions that hardly seem very maintainable or something you want to include in your CSS.
+together solutions that hardly seem maintainable or something you want to include in your CSS.
 Instead a common solution is to use an external library like [jQuery UI](http://jqueryui.com/), [bootstrap](http://getbootstrap.com/2.3.2/#forms), or to create
 your own `select` tag using `ul` and `li` tags.
 
 Including an external library might be worth your while, though they bring with them not only
-a learning curve, but also performance overheads. Also, you're using code written by someone else, which
-means that you need to go through their code in detail to truly understand the inner workings should
-something go awry.
+a learning curve, but also performance overheads since you're including a rather large code base to solve a relatively simple problem. Also, you're using code written by someone else, which means that you need to go through their code in detail to truly understand the inner workings should something go awry.
 
-I wanted to create a general select list that I'd be able to re-use across different components in my Rails web app that is used to create a select list based on associations. I decided that I didn't want to rely on a third-party solution for that as it affords me more freedom to suit the list to my needs.
+I stumbled upon this problem when I wanted to create a select list for a `belongs_to` association in a Rails app I'm creating, and while the form helpers you get out of the box with Rails are top notch you cannot get away from the styling issues. Thus I decided that I wanted to create my own custom helper to generate a select list based on an association, but also to make it generic enough that I could re-use to across the board.
 
-First off, I define a method in a helper.
+In the end what I made can be fitted to *any* web application really, though the code examples below will be Rails-specific.
+
+First off, I defined a helper method.
 
 ```ruby
 def select_list model, attribute, list, default = {}
@@ -69,7 +69,21 @@ Kitten.all
 
 mary
 # => <#Person, kitten: <#Kitten name: "Mittens" > >
+
 ```
+
+And create a view:
+
+```haml
+  - mittens = mary.kitten
+  = select_list(mary, 
+    :kitten_id, 
+    Kitten.all.map { |kitten| { text: kitten.name, value: kitten.id }},
+    { text: mittens.name, value: mittens.id }
+  )
+```
+
+Which gives us the following HTML[^1]:
 
 ```html
 <section class="select-list-container js-select-list">
@@ -104,3 +118,7 @@ $(document).asEventStream('click', '.js-select-list .item')
 
 For a complete demo of how a list like this might work (with CSS transitions) you can take
 a look at [this GitHub repository](https://github.com/nicohvi/select-demo).
+
+--- 
+
+[^1]: The fact that I used Rails to generate the HTML doesn't matter - the solution itself works independently of the rendering tools used. As long as you have the same HTML the select box will work.
