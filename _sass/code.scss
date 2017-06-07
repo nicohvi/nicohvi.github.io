@@ -18,7 +18,7 @@ pre code {
   padding: 0;
 }
 
-.c1 { color: $_gray; }
+.c, .c1 { color: $_gray; }
 .k, .o  { color: $_red; }
 .nf, .kt, .kr, .nc, .si, .s, .s1, .s2  { color: $_blue; }
 .mi, .nx + .nx { color: $_red; }
