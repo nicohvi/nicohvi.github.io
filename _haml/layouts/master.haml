@@ -9,6 +9,8 @@
     %meta(name="description" content="{%if page.description %}{{page.description}}{% else %}{{ description }}{% endif %}")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     %meta(property="og:title" content="Nicolay Hvidsten, developer")
+    %script(src="/public/bundle.js")
+    %link(rel="stylesheet" href="/public/application.css?v=1")
     -#%meta(property="og:title" content="%if page.description %}{{page.description}}{% else %}{{ description }}{% endif %}")
     \{% include analytics.html %}
     %title {%if page.title %}{{ page.title }}{% else %}{{site.data.lols[random].text }}{% endif %}
@@ -31,6 +33,4 @@
     %main
       {{ content }} 
 
-    %script(src="/public/bundle.js")
-    %link(rel="stylesheet" href="/public/application.css?v=1")
-      
+     
