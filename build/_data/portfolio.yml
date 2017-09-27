@@ -1,0 +1,19 @@
+- title:  Brevio
+  url:    https://www.brevio.com
+  desc:   Startup for the accounting business that automates the audit request 
+          / confirmation process. Built using Ruby on Rails, React, and Bacon.js.
+
+- title:  Ballot
+  url:    https://nplol-ballot.herokuapp.com
+  desc:   Ever wanted to gauge someone's opinion on something?
+          Where should you guys head for lunch? Who should be
+          banned from the chat? When should you launch your dating
+          app for cats? <a href="https://nplol-ballot.herokuapp.com">Ballot</a> 
+          can provide the answers to these essential questions.
+
+- title:  Filmpicker
+  url:    https://filmpicker.herokuapp.com
+  desc:   Ever wondered what movie you should watch next? Type in the name of a 
+          movie and let the internet do the work for you. Made using 
+          <a href="https://baconjs.github.io">bacon.js</a>, a functional 
+          reactive javascript library.

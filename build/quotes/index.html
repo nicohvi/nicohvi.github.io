@@ -1,0 +1,19 @@
+---
+layout: master
+title: Quotes
+---
+<section>
+<h1>Quotes</h1>
+<p>
+Smart people say smart things, even people you don't always agree with.
+</p>
+<hr>
+<ul>
+{% for quote in site.data.quotes %}
+<li class='quote'>
+<p>"{{ quote.quote }}"</p>
+<span>- {{ quote.author }}</span>
+</li>
+{% endfor %}
+</ul>
+</section>

@@ -1,7 +1,8 @@
 require 'listen'
 require 'haml'
+require 'fileutils'
 
-haml   = "#{Dir.pwd}/_haml"
+HAML = "#{Dir.pwd}/_haml"
 
 def compile_haml (file)
   file_name = "#{File.basename(file, '.haml')}.html"
@@ -16,23 +17,29 @@ def compile_haml (file)
 
   relative_path = get_relative(File.path(file))
   new_path  = if relative_path 
-  then "#{Dir.pwd}/#{relative_path}/#{file_name}" 
-  else "#{Dir.pwd}/#{file_name}" end
+  then "build/#{relative_path}/#{file_name}" 
+  else "build/#{file_name}" end
+
+  # ensure folder is created
+  folder = new_path.split('/').first(new_path.size - 1).join('/')
+  FileUtils.mkdir_p(File.dirname(folder))
+
   File.open(new_path, 'w') { |file| file.write(html) }
 
-  p "Wrote #{new_path}."
+  p "Wrote #{new_path}"
 end
 
 def get_relative(path)
-  match = path.match(/layouts|now|portfolio|books|quotes|blog|resume/)
+  match = path.match(/_layouts|portfolio|books|quotes|blog|resume/)
   if match 
-    match[0] == 'layouts' ? "_#{match[0]}" : match[0]
+    match[0]
+    # match[0] == 'layouts' ? "_#{match[0]}" : match[0]
   else
     nil
   end
 end
 
-haml_listener = Listen.to(haml) do |modified, added, removed|
+haml_listener = Listen.to(HAML) do |modified, added, removed|
   if modified
     p "#{modified[0]} modified, recompiling haml"
     compile_haml(modified[0])
@@ -42,5 +49,12 @@ haml_listener = Listen.to(haml) do |modified, added, removed|
   end
 end
 
+def compile_all 
+  Dir.glob("#{HAML}/**/*.haml") do |file|
+    compile_haml(file)
+  end
+end
+
+compile_all
 haml_listener.start
 sleep

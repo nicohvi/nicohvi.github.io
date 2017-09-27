@@ -21,15 +21,6 @@ navigation:
     url:  /books/
   - text: Quotes
     url:  /quotes/
-  - text: Now
-    url:  /now/
 
-sass:
-  sass_dir: _sass
-  style: compressed
-
-exclude: [
-          'haml.rb', 'node_modules', 'CNAME', 'publish.sh', 'package.json',
-          'Gemfile', 'Gemfile.lock'
-         ]
+source: build 
 

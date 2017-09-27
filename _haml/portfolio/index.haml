@@ -19,6 +19,4 @@ title: Portfolio
         %h2 {{ item.title }}
       %p 
         {{ item.desc }}
-        %a{href: "{{ 'https://github.com/nicohvi/' | append: item.repo }}", class: 'github tooltip-link', data: { tooltip: 'code' } }
-          %img{src:"/public/images/github.svg"}
     \{% endfor %} 

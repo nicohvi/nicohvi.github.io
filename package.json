@@ -1,19 +1,22 @@
 {
-  "name": "nicohvi.github.io",
+  "name": "nico.cool",
   "version": "1.0.0",
-  "description": "",
-  "dependencies": {},
-  "scripts": {
-    "js": "watchify public/js/app.js -t babelify -o public/bundle.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nicohvi/nicohvi.github.io.git"
-  },
+  "description": "a blog",
+  "repository": "git+https://github.com/nicohvi/nicohvi.github.io.git",
+  "author": "Nicolay Hvidsten <nicohvi@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
-    "babel-preset-es2015": "^6.5.0",
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "watchify": "^3.7.0"
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "gulp-imagemin": "^3.3.0",
+    "ramda": "^0.24.1"
   }
 }

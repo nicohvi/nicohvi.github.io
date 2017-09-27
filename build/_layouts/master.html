@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% assign title = "Nicolay Hvidsten" %}
+<html>
+<head>
+<meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+<meta content='Nicolay Hvidsten, Programming Ruby' name='Nicolay Hvidsten'>
+<meta content='Nicolay Hvidsten, ruby, rails, programming' name='robots'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<meta content='Nicolay Hvidsten, developer' property='og:title'>
+<script async src='/public/app.js'></script>
+<link async href='/public/style.css' rel='stylesheet'>
+<title>{%if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}</title>
+</head>
+<body>
+<header>
+<a href='/'>
+<img src='/public/images/avatar.svg'>
+</a>
+<nav>
+<ul>
+{% assign url = page.url|remove:'index.html' %}
+{% for link in site.navigation %}
+<li>
+{% if url contains link.url %}
+<a class='active' href='{{link.url}}'>{{ link.text }}</a>
+{% else %}
+<a href='{{link.url}}'>{{ link.text }}</a>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</nav>
+</header>
+<main>
+{{ content }}
+</main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+!!!
+\{% assign title = "Nicolay Hvidsten" %}
+%html
+  %head
+    %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+    %meta(name="Nicolay Hvidsten" content="Nicolay Hvidsten, Programming Ruby")
+    %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %meta(property="og:title" content="Nicolay Hvidsten, developer")
+    %script(src="/public/app.js" async)
+    %link(rel="stylesheet" href="/public/style.css" async)
+    %title {%if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}
+  
+  %body
+    %header
+      %a(href="/")
+        %img(src="/public/images/avatar.svg")
+      %nav
+        %ul
+          \{% assign url = page.url|remove:'index.html' %}
+          \{% for link in site.navigation %}
+          %li
+            \{% if url contains link.url %}
+            %a{href: "{{link.url}}", class: "active"} {{ link.text }}
+            \{% else %}
+            %a(href="{{link.url}}") {{ link.text }}
+            \{% endif %}
+          \{% endfor %}
+    %main
+      {{ content }} 
+
+     

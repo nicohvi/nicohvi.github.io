@@ -1,0 +1,24 @@
+---
+layout: master
+title: Portfolio
+---
+<section>
+<h1>Portfolio</h1>
+<p>
+These are the manifestations of ideas that popped into
+my head at one time or another.
+</p>
+<hr>
+<ul>
+{% for item in site.data.portfolio %}
+<li class='project'>
+<a href='{{ item.url }}'>
+<h2>{{ item.title }}</h2>
+</a>
+<p>
+{{ item.desc }}
+</p>
+</li>
+{% endfor %}
+</ul>
+</section>
