@@ -37,8 +37,31 @@ nav .active {
 
 @media (max-width: $mobile) {
   header ul {
-    @include flex-wrap;
-    justify-content: center;
+    @include flex-column;
+    max-height: 0;
+    transition: max-height .4s ease-in-out;
+    overflow: hidden;
   }
+
+  header nav:before {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    content: '\2193';
+    display: block;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+  }
+
+  nav.active ul { max-height: 500px; }
+
+  nav.active:before {
+    transform: rotateZ(180deg);
+  }
+
+  header li {
+    margin-left: 0;
+  }
+  
 }
 
