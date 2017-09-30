@@ -7,3 +7,4 @@ github_token
 .sass-cache/*
 .byebug_history
 **/public/**
+**/assets.json
