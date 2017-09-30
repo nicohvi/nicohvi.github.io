@@ -1,0 +1,24 @@
+---
+layout: master
+title: Talks
+---
+<div class='main-container'>
+<h1>Talks</h1>
+<p>
+At rare occasions I'm asked to talk about things before an audience,
+usually there's a badly timed joked invovled.
+</p>
+<hr>
+<ul>
+{% for talk in site.data.talks %}
+<li class='talk'>
+<a href='{{ talk.url }}'>
+<h2>{{ talk.title }}</h2>
+</a>
+<p>
+{{ talk.desc }}
+</p>
+</li>
+{% endfor %}
+</ul>
+</div>

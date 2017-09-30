@@ -30,10 +30,9 @@ def compile_haml (file)
 end
 
 def get_relative(path)
-  match = path.match(/_layouts|portfolio|books|quotes|blog|resume/)
+  match = path.match(/_layouts|portfolio|books|quotes|blog|talks/)
   if match 
     match[0]
-    # match[0] == 'layouts' ? "_#{match[0]}" : match[0]
   else
     nil
   end

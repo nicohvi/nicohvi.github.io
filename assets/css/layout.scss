@@ -8,7 +8,7 @@ main {
   display: block; // Since IE has no user-agent stylesheet for this element
 }
 
-main > section, main > article { 
+main > section, main > article, .main-container { 
   margin: 0 auto;
   width: 66.667%; 
 }
@@ -63,5 +63,5 @@ li p:first-of-type { margin: 0; }
 
 @media (max-width: $mobile) {
   h1 { margin: 20px 0; }
-  main > section, main > article { width: 100%; }
+  main > section, main > article, .main-container { width: 100%; }
 }

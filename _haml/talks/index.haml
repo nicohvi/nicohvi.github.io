@@ -1,0 +1,23 @@
+\---
+layout: master
+title: Talks
+\---
+
+%div.main-container 
+  %h1 Talks 
+
+  %p 
+    At rare occasions I'm asked to talk about things before an audience, 
+    usually there's a badly timed joked invovled.
+
+  %hr
+
+  %ul
+    \{% for talk in site.data.talks %}
+    %li.talk
+      %a(href="{{ talk.url }}")
+        %h2 {{ talk.title }}
+    
+      %p
+        {{ talk.desc }}
+    \{% endfor %}

@@ -1,4 +1,4 @@
-gems:
+plugins:
   - jekyll-gist
   - jekyll-sitemap
 
@@ -17,6 +17,8 @@ navigation:
     url:  /blog/
   - text: Portfolio
     url:  /portfolio/
+  - text: Talks
+    url:  /talks/
   - text: Books
     url:  /books/
   - text: Quotes
