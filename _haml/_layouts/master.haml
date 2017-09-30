@@ -7,8 +7,8 @@
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     %meta(property="og:title" content="Nicolay Hvidsten, developer")
-    %script(src="/public/app.js" async)
-    %link(rel="stylesheet" href="/public/style.css" async)
+    %script(src="/public/{{ site.data.assets.js }}" async)
+    %link(rel="stylesheet" href="/public/{{ site.data.assets.css }}" async)
     %title {%if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}
   
   %body
