@@ -117,5 +117,5 @@ gulp.task('css', css);
 gulp.task('js', js);
 
 // task flows
-gulp.task('build', ['css', 'js'], revision);
+gulp.task('build', ['assets', 'css', 'js'], revision);
 gulp.task('default', ['css', 'js']);
