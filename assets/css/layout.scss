@@ -63,4 +63,5 @@ li p:first-of-type { margin: 0; }
 
 @media (max-width: $mobile) {
   h1 { margin: 20px 0; }
+  main > section, main > article { width: 100%; }
 }

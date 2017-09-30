@@ -11,6 +11,9 @@ const del = require('del');
 const through = require('through2');
 const fs = require('fs');
 const vFile = require('vinyl-file');
+const sourcemaps = require('gulp-sourcemaps');
+
+const manifestPath = 'build/_data/assets.json';
 
 // util
 
@@ -24,7 +27,7 @@ function manifest (file, enc, cb) {
 
   const assetType = file.path.split('.').pop()
 
-  vFile.read('build/_data/assets.json')
+  vFile.read(manifestPath)
   .catch(err => log(err))
   .then(manifest => {
     try {
@@ -33,7 +36,7 @@ function manifest (file, enc, cb) {
     catch (err) { }
 
     const contents = Object.assign(old, { [assetType]: path.split('/').pop() });
-    fs.writeFileSync('build/_data/assets.json', JSON.stringify(contents));
+    fs.writeFileSync(manifestPath, JSON.stringify(contents));
     cb(null, file);
   });
 }
@@ -60,7 +63,9 @@ function css () {
     };
 
     return gulp.src('assets/css/style.scss')
+    .pipe(prod ? noop() : sourcemaps.init())
     .pipe(sass(opts).on('error', error))
+    .pipe(prod ? noop() : sourcemaps.write())
     .pipe(prod ? gulp.dest('build/assets') : gulp.dest('build/public'))
     .on('end', () => log("CSS done"));
   }
@@ -118,4 +123,13 @@ gulp.task('js', js);
 
 // task flows
 gulp.task('build', ['assets', 'css', 'js'], revision);
-gulp.task('default', ['css', 'js']);
+gulp.task('default', ['css', 'js'], () => {
+  try {
+    const devManifest = {
+      js: "app.js",
+      css: "style.css"
+    };
+    fs.writeFileSync(manifestPath, JSON.stringify(devManifest));
+  }
+  catch (err) {}
+});
