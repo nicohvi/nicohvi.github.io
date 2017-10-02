@@ -1,19 +1,23 @@
-.flex-center {
+@mixin flex-center($dir) {
   display: flex;
-  align-items: center;
-}
-
-.inline-flex-center {
-  display: inline-flex;
-  align-items: center;
-}
-
-@mixin flex-wrap () {
-  display: flex;
-  flex-wrap: wrap;
+  @if($dir == horizontal) {
+    justify-content: center;
+  }
+  @else if ($dir == vertical) {
+    align-items: center;
+  }
+  @else {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @mixin flex-column {
   display: flex;
   flex-direction: column;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
 }

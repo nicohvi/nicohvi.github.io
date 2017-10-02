@@ -13,19 +13,20 @@
   
   %body
     %header
-      %a(href="/")
-        %img(src="/public/images/avatar.svg")
-      %nav
-        %ul
-          \{% assign url = page.url|remove:'index.html' %}
-          \{% for link in site.navigation %}
-          %li
-            \{% if url contains link.url %}
-            %a{href: "{{link.url}}", class: "active"} {{ link.text }}
-            \{% else %}
-            %a(href="{{link.url}}") {{ link.text }}
-            \{% endif %}
-          \{% endfor %}
+      %div.header-content.flex-vertical
+        %a(href="/")
+          %img(src="/public/images/avatar.svg")
+        %nav
+          %ul
+            \{% assign url = page.url|remove:'index.html' %}
+            \{% for link in site.navigation %}
+            %li
+              \{% if url contains link.url %}
+              %a{href: "{{link.url}}", class: "active"} {{ link.text }}
+              \{% else %}
+              %a(href="{{link.url}}") {{ link.text }}
+              \{% endif %}
+            \{% endfor %}
     %main
       {{ content }} 
 

@@ -3,13 +3,14 @@
 @import 'mixins';
 
 header { 
-  margin: 0 auto; 
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  @extend .flex-center;
-
-  nav, a { 
-    @extend .inline-flex-center; 
-  }
+.header-content {
+  max-width: 66.7%;
+  margin: 0 auto;
 }
 
 header ul { margin-left: 50px; }
@@ -36,6 +37,10 @@ nav .active {
 }
 
 @media (max-width: $mobile) {
+  .header-content {
+    max-width: 100%;
+  }
+
   header ul {
     @include flex-column;
     max-height: 0;

@@ -1,0 +1,19 @@
+.flex { display: flex; }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.inline-flex-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+.flex-horizontal {
+  @include flex-center(horizontal);
+}
+
+.flex-vertical {
+  @include flex-center(vertical);
+}
