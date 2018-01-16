@@ -14,18 +14,17 @@ layout: master
     #disqus_thread
     :javascript  
       /* * * CONFIGURATION VARIABLES * * */
-      var disqus_shortname = 'nicohvi';
-      var disqus_config = function () {
-        this.page.url = "https://nico.cool"
-        this.page.identifier = "{{ page.title }}"
-      }
+
     
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function() {
         var d = document, s = d.createElement('script');
         s.src = 'https://nicohvi.disqus.com/embed.js'
         s.setAttribute('data-timestamp', +new Date());
-
         (d.head || d.body).appendChild(s);
       })();
+
+      var disqus_config = function () {
+        this.page.identifier = "{{ page.title | handleize }}"
+      }
 
