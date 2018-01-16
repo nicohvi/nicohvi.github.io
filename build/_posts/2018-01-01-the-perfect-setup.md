@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The perfect setup
-draft: false
-sitemap: true
+draft: true 
+sitemap: false
 ---
 
 The holy grail amongst developers is the perfect setup of new projects. Of course,

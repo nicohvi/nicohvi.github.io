@@ -6,5 +6,6 @@ github_token
 **/node_modules/**
 .sass-cache/*
 .byebug_history
+.vscode/
 **/public/**
 **/assets.json
