@@ -9,3 +9,4 @@ github_token
 .vscode/
 **/public/**
 **/assets.json
+build

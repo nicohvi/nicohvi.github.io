@@ -1,8 +1,9 @@
 #!/bin/sh
 
-gulp build --NODE_ENV=production
+yarn build
 
 jekyll build
+
 # removes the html extension
 for f in `ls _site/blog/**/**/**/*.html`; do mv $f "${f%%.*}"; done
 
