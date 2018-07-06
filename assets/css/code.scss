@@ -6,8 +6,8 @@ pre {
   line-height: 1.25;
 }
 
-code { 
-  background: $yellow; 
+code {
+  background: $yellow;
   font-size: 16px;
   padding: 2px 5px 4px 5px;
 }
@@ -18,10 +18,37 @@ pre code {
   padding: 0;
 }
 
-.c, .c1 { color: $_gray; }
-.k, .o  { color: $_red; }
-.nf, .kt, .kr, .nc, .si, .s, .s1, .s2  { color: $_blue; }
-.mi, .nx + .nx { color: $_red; }
-.nt { color: $_green; }
-.na { color: $_purple; }
-.ss, .vi, .kp { color: $_ltBlue;}
+.c,
+.c1 {
+  color: $_gray;
+}
+.k,
+.kd,
+.React o {
+  color: $_red;
+}
+.nf,
+.kt,
+.kr,
+.nc,
+.si,
+.s,
+.s1,
+.s2 {
+  color: $_blue;
+}
+.mi,
+.nx + .nx {
+  color: $_red;
+}
+.nt {
+  color: $_green;
+}
+.na {
+  color: $_purple;
+}
+.ss,
+.vi,
+.kp {
+  color: $_ltBlue;
+}
