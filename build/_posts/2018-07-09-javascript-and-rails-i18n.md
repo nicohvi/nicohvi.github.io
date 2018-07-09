@@ -40,7 +40,7 @@ The gulp script needs to find the various `.yml` files and convert them to JSON.
 ```javascript
 function translate() {
   const path = // ... path to your locales folder
-  const jsonPath = // ... path to your JSON-file for the JS app
+  const jsonPath = // ... path to your JSON-file that will be read by the JS app
   log('Merging all translations');
   glob(path, (err, files) => { // using the glob library to read all files.
     if(err) throw new Error(err);
