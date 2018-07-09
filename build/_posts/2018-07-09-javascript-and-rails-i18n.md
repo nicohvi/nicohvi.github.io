@@ -31,7 +31,7 @@ In order to do this we need to convert the `.yml` files Rails uses to JSON so th
 
 Two quick notes:
 
-1.  I'm using [gulpjs](https://gulpjs.org) as my task runner, but you can use whichever tool you're the most comfortable with[^2].
+1.  I'm using [gulpjs](https://gulpjs.org) as my task runner, but you can use whichever tool you're most comfortable with[^2].
 
 2.  I prefer to have [multiple i18n files](http://guides.rubyonrails.org/i18n.html#organization-of-locale-files) for my translations, since that reduces the mental load whenever I have to change/add a translation (i.e. if I need to add a translation for something user specific I'll look in `user.yml` instead of `nn.yml` and scan down all nested rows of translations - which can get daunting as your application grows).
 
