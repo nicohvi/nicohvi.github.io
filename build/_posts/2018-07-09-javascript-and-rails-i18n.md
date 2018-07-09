@@ -19,7 +19,7 @@ cat:
 ```
 
 Wouldn't it be nice to have the same powerful capabilities for our JavaScript/TypeScript code
-as well?[^1] That's exactly what we did for all our client-side applications at [Brevio](www.brevio.com).
+as well?[^1] That's exactly what we did for all our client-side applications at [Brevio](https://www.brevio.com).
 
 In order to do this we need to convert the `.yml` files Rails uses to JSON so they can be used by our TS code. First off, we off we add a task in our `package.json` file.
 
