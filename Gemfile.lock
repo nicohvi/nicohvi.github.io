@@ -54,8 +54,12 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     forwardable-extended (2.6.0)
+    gemoji (3.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    html-pipeline (2.8.4)
+      activesupport (>= 2)
+      nokogiri (>= 1.4)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -80,6 +84,10 @@ GEM
       jekyll (~> 3.3)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
+    jemoji (0.10.1)
+      gemoji (~> 3.0)
+      html-pipeline (~> 2.2)
+      jekyll (~> 3.0)
     kramdown (1.17.0)
     liquid (4.0.0)
     listen (3.1.5)
@@ -170,6 +178,7 @@ DEPENDENCIES
   jekyll
   jekyll-gist
   jekyll-sitemap
+  jemoji
   rogue
 
 BUNDLED WITH

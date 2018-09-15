@@ -1,6 +1,7 @@
 plugins:
   - jekyll-gist
   - jekyll-sitemap
+  - jemoji
 
 title: Nicolay Hvidsten
 permalink: /blog/:year/:month/:day/:title
@@ -14,15 +15,14 @@ kramdown:
 
 navigation:
   - text: Blog
-    url:  /blog/
+    url: /blog/
   - text: Portfolio
-    url:  /portfolio/
+    url: /portfolio/
   - text: Talks
-    url:  /talks/
+    url: /talks/
   - text: Books
-    url:  /books/
+    url: /books/
   - text: Quotes
-    url:  /quotes/
+    url: /quotes/
 
-source: build 
-
+source: build

@@ -1,49 +1,62 @@
 @import 'colors';
 @import 'fonts';
 
-.header { text-align: center; }
-
-.posts h2 { margin: 0; line-height: 1.5; }
-
-.post-title { 
-  text-align: center; 
-  margin-bottom: 15px; 
+.header {
+  text-align: center;
 }
 
-.date { 
+.posts h2 {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.post-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.date {
   margin: 0;
   color: $gray;
 }
 
-img +em, .gist + p > em {
-  color: $gray; 
+img + em,
+.gist + p > em {
+  color: $gray;
   text-align: center;
   display: block;
 }
 
-.gist + p > em { 
+.gist + p > em {
   margin: -15px 0;
 }
 
-.footnote { 
+.footnote {
   font-weight: 700;
   color: $blue;
   text-decoration: none;
 }
 
-.footnotes { margin: 30px 0 ;}
-.footnotes li { margin-bottom: 15px; }
-.footnotes li:last-of-type { margin-bottom: 0 }
-.footnotes li a:last-of-type { 
-  border-bottom: 0; 
-  &:hover { border-bottom: 0; }
+.footnotes {
+  margin: 30px 0;
+}
+.footnotes li {
+  margin-bottom: 15px;
+}
+.footnotes li:last-of-type {
+  margin-bottom: 0;
+}
+.footnotes li a:last-of-type {
+  border-bottom: 0;
+  &:hover {
+    border-bottom: 0;
+  }
 }
 
-.body { @include copy(); }
-
-.body img { 
-  max-width: 100%; 
-  display: block;
-  margin: 0 auto;
+.body {
+  @include copy;
 }
 
+.body img {
+  max-width: 100%;
+}
