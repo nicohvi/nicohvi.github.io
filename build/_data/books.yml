@@ -1,40 +1,63 @@
+- title: Animal Farm
+  id: 7613.Animal_Farm
+  desc: What if animals were communists?
 
-- title:  Animal Farm
-  id:     7613.Animal_Farm
-  desc:   What if animals were communists?
+- title: The Antidote
+  id: 13721709-the-antidote
+  desc: Greek and Eastern philosophy presented by a skillfull hand.
 
-- title:  The Antidote
-  id:     13721709-the-antidote
-  desc:   Greek and Eastern philosophy presented by a skillfull hand.
+- title: The Charisma Myth
+  id: 11910905-the-charisma-myth
+  desc: Techniques for fostering and developing your inner charisma, debunking
+    the all-too-common notion that you either "have it or you don't".
 
-- title:  Deep Work
-  id:     25744928-deep-work
-  desc:   Create valuable work in a distracted society.
+- title: City of Thieves
+  id: 1971304.City_of_Thieves
+  desc:
+    Amazing novel about World War II in Russia, containing one of the best characters
+    in all of fiction.
 
-- title:  East of Eden
-  id:     4406.East_of_Eden
-  desc:   An epic book in every sense of the word.
+- title: Cloud Atlas
+  id: 49628.Cloud_Atlas
+  desc: A modern classic - there's no other book like it.
 
-- title:  The Inner Game of Tennis
-  id:     905.The_Inner_Game_of_Tennis
-  desc:   Zen philosophy disguised as a book about Tennis.
+- title: Deep Work
+  id: 25744928-deep-work
+  desc: Create valuable work in a distracted society.
 
-- title:  Jonathan Strange & Mr. Norrell
-  id:     14201.Jonathan_Strange_Mr_Norrell
-  desc:   Magic exists, faeries are chaotic evil, and the king is mad.
+- title: Do the Work
+  id: 10645233-do-the-work
+  desc: <i>Trust the soup</i>.
 
-- title:  Philosophy for Life
-  id:     13629522-philosophy-for-life
-  desc:   Primer on greek philosophy with excellent narrative and applicable
-          approaches to incoroprate philosophy in your life.
+- title: East of Eden
+  id: 4406.East_of_Eden
+  desc: An epic book in every sense of the word.
 
-- title:  The Power of Now
-  id:     6708.The_Power_of_Now
-  desc:   Stoicism and Zen Buddhism wrapped in the meanderings of a seemingly
-          crazy but deeply wise German guy with a beard.
+- title: Extreme Ownership
+  id: 23848190-extreme-ownership
+  desc:
+    Mental strategies and practical examples of how Navy SEALs operate and create incredibly high
+    performing teams.
 
-- title:  Zen Shorts
-  id:     140181.Zen_Shorts
-  desc:   A book that isn't <i>read</i>, but experienced - I know that sounds
-          cheesy, but I don't care because it's true.
+- title: The Inner Game of Tennis
+  id: 905.The_Inner_Game_of_Tennis
+  desc: Zen philosophy disguised as a book about Tennis.
 
+- title: Jonathan Strange & Mr. Norrell
+  id: 14201.Jonathan_Strange_Mr_Norrell
+  desc: Magic exists, faeries are chaotic evil, and the king is mad.
+
+- title: Philosophy for Life
+  id: 13629522-philosophy-for-life
+  desc: Primer on greek philosophy with excellent narrative and applicable
+    approaches to incoroprate philosophy in your life.
+
+- title: The Power of Now
+  id: 6708.The_Power_of_Now
+  desc: Stoicism and Zen Buddhism wrapped in the meanderings of a seemingly
+    crazy but deeply wise German guy with a beard.
+
+- title: Zen Shorts
+  id: 140181.Zen_Shorts
+  desc: A book that isn't <i>read</i>, but experienced - I know that sounds
+    cheesy, but I don't care because it's true.

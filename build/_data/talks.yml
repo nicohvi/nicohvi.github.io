@@ -1,5 +1,14 @@
 - url: https://vimeo.com/233989418
-  title: "JavaScript in 2017: Shooting sparrows with cannons"
-  desc: 
-    A talk about how one shouldn't necessarily reach for a full-scale
+  title: 'JavaScript in 2017: Shooting sparrows with cannons'
+  desc: A talk about how one shouldn't necessarily reach for a full-scale
     SPA to solve a simple problem, but instead scale as necessary.
+
+- url: https://vimeo.com/208184341
+  title: 'Spurver og kanoner: JavaScript anno 2017 (Norwegian)'
+  desc: Basically the talk above except it's in Norwegian and contains an
+    epic burn.
+
+- url: https://shows.pippa.io/bekkopen/59cb6572c13d5a3274c55f58
+  title: 'Bekk Open podcast: JavaScript-arkitektur (Norweigan)'
+  desc: An interview about which patterns I utilise when I create new
+    JavaScript applications.
