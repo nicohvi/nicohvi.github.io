@@ -17,6 +17,7 @@ const manifestPath = 'build/_data/assets.json';
 // util
 
 function error(err) {
+  log(err);
   log(err.message);
 }
 

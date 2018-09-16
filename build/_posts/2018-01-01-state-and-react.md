@@ -40,10 +40,11 @@ important. The actions don't specify *how* the data is going to change, instead
 it describes *what* type of event occured.
 
 This:
-```ts
+```typescript
 {
   type: 'LEVEL_UP',
-  pokemon: 'Pikachu'
+  pokemon: 'Pikachu',
+  key: 'value'
 }
 ```
 

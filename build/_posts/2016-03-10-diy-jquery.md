@@ -40,11 +40,11 @@ it's called `querySelectorAll`.
 
 So, without further ado, meet my first jQuery replacement:
 
-{% highlight javascript %}
+```javascript
 export default function $ (query) {
   return [].slice.call(document.querySelectorAll(query));
 }
-{% endhighlight %}
+```
 
 Pretty impressive, I know.
 

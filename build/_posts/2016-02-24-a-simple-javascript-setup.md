@@ -22,7 +22,7 @@ use npm for my needs.
 
 I mean there's no need to build a mansion if an outhouse will do.
 
-![outhouse](/public/images/posts/outhouse.jpg)
+<img class="flex float-center" src="/public/images/posts/outhouse.jpg" />
 *It can even be a fancy outhouse with angel wings.*
 
 To solve my three direct requirements (ecmascript 6, concatenation, and on-the-fly 

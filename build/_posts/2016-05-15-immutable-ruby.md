@@ -27,14 +27,14 @@ returns this new enumerable](http://ruby-doc.org/core-2.2.0/Array.html#method-i-
 you really do return a **new** array, it gives no promises regarding the 
 mutability of the elements themselves.
 
-{% highlight ruby %}
+```ruby
 arr1 = [1, 2, 3]
-arr2 = arr1.map{ |n| n*2 }
+arr2 = arr1.map{ |n| n * 2 }
 p arr1
-# [1, 2, 3]
+# => [1, 2, 3]
 p arr2
-# [2, 4, 6]
-{% endhighlight %}
+# => [2, 4, 6]
+```
 
 Seems unproblematic right? Not quite.
 

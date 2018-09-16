@@ -12,7 +12,9 @@ is provide a key with the same name as the locale you set.
 
 ```ruby
 config.locale = :cat
+```
 
+```yaml
 # cat.yml
 cat:
   greeting: I don't greet humans

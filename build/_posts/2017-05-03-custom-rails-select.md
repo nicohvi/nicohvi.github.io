@@ -22,7 +22,7 @@ In the end what I made can be fitted to *any* web application really, though the
 First off, I defined a helper method.
 
 ```ruby
-def select_list model, attribute, list, default = {}
+def select_list(model, attribute, list, default = {})
   content_tag(:section, class: "select-list-contaienr js-select-list") do
     content_tag(:span, default[:text], class: "select-value") +
     content_tag(:ul, class: "list") do
@@ -69,11 +69,9 @@ Kitten.all
 
 mary
 # => <#Person, kitten: <#Kitten name: "Mittens" > >
-
 ```
 
 And create a view:
-
 ```haml
   - mittens = mary.kitten
   = select_list(mary, 

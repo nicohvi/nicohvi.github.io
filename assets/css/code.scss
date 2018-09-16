@@ -1,21 +1,11 @@
 @import 'colors';
 @import 'fonts';
 
-pre {
-  overflow-x: auto;
-  line-height: 1.25;
-}
-
-code {
+// code:not('.language-') {
+p > code {
   background: $yellow;
   font-size: 16px;
   padding: 2px 5px 4px 5px;
-}
-
-pre code {
-  @include code;
-  background: $white;
-  padding: 0;
 }
 
 .c,
