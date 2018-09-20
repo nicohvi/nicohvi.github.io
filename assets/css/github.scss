@@ -1,0 +1,32 @@
+.kd,
+.k,
+.o,
+.colon-key {
+  color: #d73a49;
+}
+
+.kd + .nx.func-def,
+.k + .nx,
+.nx {
+  color: #6f42c1;
+}
+
+.kc,
+.nx.func-invoke,
+.kd + .nx {
+  color: #005cc5;
+}
+
+.func-param,
+.s1,
+.nl,
+.nx + .o + .nx,
+.colon-key ~ .nx,
+.nx.clause,
+.nx.obj {
+  color: #032f62;
+}
+
+.cm {
+  color: #6a737d;
+}

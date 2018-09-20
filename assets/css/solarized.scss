@@ -1,0 +1,58 @@
+// solarized
+
+pre.highlight {
+  background: #fdf6e3;
+  color: #657b83;
+  margin-top: 30px;
+}
+
+.kd {
+  font-weight: 600;
+  color: #003333;
+}
+
+.k {
+  color: #669900;
+}
+
+.kc {
+  color: #996600;
+}
+
+.nx,
+.k + .k,
+.nf,
+.sr {
+  color: #0066cc;
+}
+
+.cm,
+.c {
+  color: #6a737d;
+}
+
+.si,
+.na {
+  color: #cc3300;
+}
+
+.s,
+.s1,
+.s2 {
+  color: #009999;
+}
+
+.ss {
+  color: #cc9900;
+}
+
+// custom
+
+.func-param,
+.nl,
+.nt,
+.nc,
+.p,
+.n {
+  color: #003333;
+}

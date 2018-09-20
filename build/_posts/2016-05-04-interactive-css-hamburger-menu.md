@@ -19,7 +19,7 @@ need javascript for is to add a class to the DOM element).
 To accomplish this we're going to use absolutely positioned elements inside a 
 relative container, like so:
 
-{% highlight html %}
+```html
 <header>
   <a>Logo</a>
   <aside>
@@ -28,9 +28,9 @@ relative container, like so:
     </figure>
   </aside>
 </header>
-{% endhighlight %}
+```
 
-{% highlight css %}
+```css
 header { background: #333; }
 .hamburger-menu { 
   position: relative; 
@@ -44,13 +44,13 @@ header { background: #333; }
   background: white;
   top: calc(50% - 3px); 
 }
-{% endhighlight %}
+```
 
 This places a horizontal line squarely in the middle of your figure container 
 (whose width you're free to decide for yourself). We create the last two lines
 using CSS [pseudo elements](https://developer.mozilla.org/en/docs/Web/CSS/Pseudo-elements), like this:
 
-{% highlight css %}
+```css
 i:before, i:after {
   position: absolute;
   width: 100%;
@@ -62,20 +62,20 @@ i:before, i:after {
 }
 
 i:after { top: 7px; }
-{% endhighlight %}
+```
 
 The lines above is shifted by `-7` pixels, and the one to appear below our
 centered line is shifted by `7` pixels. Thus, we've created our hamburger menu, 
 success! Now, let's make it fancy.
 
-{% highlight css %}
+```css
 .hamburger-menu:hover i:before{
   transform: translate3d(0, -2px, 0);
 }
 .hamburger-menu:hover i:after{
   transform: translate3d(0, 2px, 0);
 }
-{% endhighlight %}
+```
 
 Now the lines above and below are shifted slighty away from the center whenever
 the user hovers our menu, which is a good signal that the icon is indeed 
@@ -88,7 +88,7 @@ using the GPU, rather than the CPU](http://blog.teamtreehouse.com/increase-your-
 Anyway, we still need to transform our hamburger menu into an arrow whenever
 the user has clicked it. That's actually surprisingly easy.
 
-{% highlight css %}
+```css
 .hamburger-menu.active i {
   transform: rotate(-90deg) translateZ(0);
 }
@@ -98,7 +98,7 @@ the user has clicked it. That's actually surprisingly easy.
 .hamburger-menu.active i:after {
   transform: rotate(-45deg) scaleX(.75) translate3d(7px, 4px, 0);
 }
-{% endhighlight %}
+```
 
 The first statement flips *all* the three elements *negative* 90 degrees,
 meaning that the horizontal lines are now all vertical (a counter-clockwise 
@@ -116,13 +116,13 @@ But there's one small step remaining: you still need to add the `active` class
 to the hamburger menu when someone clicks it! This is easily done using
 either jQuery (why not [make your own]({% post_url 2016-03-10-diy-jquery %}) while you're at it?) or even the native DOM APIs.
 
-{% highlight javascript %}
+```js
 import $ from './fquery';
 
 $('.hamburger-menu').on('click', e => {
   $(e.currentTarget).toggleClass('active');
 });
-{% endhighlight %}
+```
 
 And just like that you're done, give yourself a pat on the back.
 

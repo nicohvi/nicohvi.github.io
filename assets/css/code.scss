@@ -1,44 +1,19 @@
 @import 'colors';
 @import 'fonts';
+// @import 'github';
+@import 'solarized';
 
-// code:not('.language-') {
 p > code {
   background: $yellow;
   font-size: 16px;
   padding: 2px 5px 4px 5px;
 }
 
-.c,
-.c1 {
-  color: $_gray;
+pre {
+  font-family: 'Consolas', 'Courier New', monospace;
 }
-.k,
-.kd,
-.React o {
-  color: $_red;
-}
-.nf,
-.kt,
-.kr,
-.nc,
-.si,
-.s,
-.s1,
-.s2 {
-  color: $_blue;
-}
-.mi,
-.nx + .nx {
-  color: $_red;
-}
-.nt {
-  color: $_green;
-}
-.na {
-  color: $_purple;
-}
-.ss,
-.vi,
-.kp {
-  color: $_ltBlue;
+
+pre.highlight {
+  overflow-x: auto;
+  padding: 10px;
 }

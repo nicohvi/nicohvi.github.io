@@ -1,6 +1,6 @@
 ---
 layout: post
-title : State and React
+title : State of React
 draft: true
 date: 2018-09-11
 ---
@@ -40,7 +40,7 @@ important. The actions don't specify *how* the data is going to change, instead
 it describes *what* type of event occured.
 
 This:
-```typescript
+```js
 {
   type: 'LEVEL_UP',
   pokemon: 'Pikachu',
@@ -49,7 +49,7 @@ This:
 ```
 
 Instead of this:
-```typescript
+```js
 {
   type: 'LEVEL_UP',
   action: 'set_level_pikachu_to_5'

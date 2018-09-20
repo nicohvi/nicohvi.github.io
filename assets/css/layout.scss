@@ -8,18 +8,20 @@ main {
   display: block; // Since IE has no user-agent stylesheet for this element
 }
 
-main > section, main > article, .main-container { 
+main > section,
+main > article,
+.main-container {
   margin: 0 auto;
-  width: 66.667%; 
+  width: 66.667%;
 }
 
-figure { 
+figure {
   margin: 30px 0;
   padding: 0;
 }
 
-figure img { 
-  max-width: 100%; 
+figure img {
+  max-width: 100%;
 }
 
 hr {
@@ -38,30 +40,58 @@ h1 {
 
 p a {
   border-bottom: 1px solid $faded_black;
-  transition: all .2s ease;
-  
-  &:hover { 
+  transition: all 0.2s ease;
+
+  &:hover {
     border-bottom: 1px solid $black;
   }
 
-  &.footnote { border-bottom: 0; }
+  &.footnote {
+    border-bottom: 0;
+  }
 }
 
-h2 + p { margin-top: 0; word-break: break-word; }
+h2 + p {
+  margin-top: 0;
+  word-break: break-word;
+}
 
-p { margin: 30px 0; }
+p {
+  margin: 30px 0;
+}
 
 /* ---- list styles ---- */
 
-main ul { margin: 30px 0; }
-main ul li { margin-bottom: 30px; }
-main ul li:last-of-type { margin-bottom: 0; }
-main ul h2 { margin: 15px 0 0 0; }
+main ul {
+  margin: 30px 0;
+}
+main ul li {
+  margin-bottom: 30px;
+}
+main ul li:last-of-type {
+  margin-bottom: 0;
+}
+main ul h2 {
+  margin: 15px 0 0 0;
+}
 
-li p:first-of-type { margin: 0; }
-
+li p:first-of-type {
+  margin: 0;
+}
 
 @media (max-width: $mobile) {
-  h1 { margin: 20px 0; }
-  main > section, main > article, .main-container { width: 100%; }
+  h1 {
+    margin: 20px 0;
+  }
+  main > section,
+  main > article,
+  .main-container {
+    width: 100%;
+  }
+}
+
+pre,
+figure {
+  padding: 0;
+  margin: 0;
 }

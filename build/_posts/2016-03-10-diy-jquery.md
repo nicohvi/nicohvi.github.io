@@ -55,12 +55,12 @@ the same as an array (learned that the hard way). So we need to
 
 I used my fake jQuery like this and felt like a total boss:
 
-{% highlight javascript %}
+```js
 import $ from './fquery'
 
 $('article a')
 .forEach(el => el.setAttribute('target', 'blank')
-{% endhighlight %}
+```
 
 It totally worked too.
 
@@ -73,11 +73,11 @@ Luckily for me my markdown processor[^4] adds a class
 to both the actual footnote reference and its accompanying note, so
 all I had to do was filter the links based on their class.
 
-{% highlight javascript %}
+```js
 $('article a')
 .filter(el => el.className.indexOf('footnote') === -1)
 .forEach(el => el.setAttribute('target', 'blank')
-{% endhighlight %}
+```
 
 And now my footnotes were being filtered out of the result - success!
 
@@ -87,7 +87,7 @@ methods (such as `hasClass`, `data`, `attr`, `on` etc.) when I needed them.
 
 Turns out they were really simple.
 
-{% highlight javascript %}
+```js
 class Wrapper {
   constructor (node) {
     this.node = node;
@@ -102,14 +102,14 @@ class Wrapper {
     return this.node.getAttribute(val);
   }
 }
-{% endhighlight %}
+```
 
 Most of those implementations are one-liners, and that's because
 the DOM element API is actually really good (who knew, right?).
 
 To use this new wrapper class I can simply do this
 
-{% highlight javascript %}
+```js
 // fquery.js
 import Wrapper from './Wrapper';
 
@@ -126,7 +126,7 @@ export default function $ (query) {
 $('article a')
 .filter(el => !el.hasClass('footnote'))
 .forEach(el => el.attr('target', 'blank'))
-{% endhighlight %}
+```
 
 Ah, so amazing. 
 
@@ -139,12 +139,11 @@ I eventually decided that I wanted to make *all* external links open
 in a new window (regardless if they were in a blog post or not), 
 and this was easily accomplished like so:
 
-{% highlight javascript %}
-
+```js
 $('a')
 .filter(el => el.attr('href').indexOf('http') !== -1)
 .forEach(el => el.attr('target', 'blank'))
-{% endhighlight %}
+```
 
 ---
 

@@ -42,18 +42,18 @@ poor old `node_modules` folder.
 
 After installing the dependencies I can add the following to my `package.json` file:
 
-{% highlight json %}
+```json
 "scripts": { 
   "js": "watchify app.js -t babelify -o bundle.js"
 }
-{% endhighlight %}
+```
 
 And I'm done!
 
 Now I can type `npm run js` into my console and write amazing ecmascript 6 
 compliant code like this[^4]:
- 
-{% highlight javascript %}
+
+```js 
 // Pokemon.js
 export default const Pokemon = {
   all () {
@@ -62,7 +62,6 @@ export default const Pokemon = {
 }
 
 // app.js
-
 import Pokemon from './Pokemon';
 
 const myPokemon = Pokemon
@@ -73,7 +72,7 @@ myPokemon
   .forEach(pokemon => {
     console.log(`name: ${pokemon.name} level: ${pokemon.level}`)
   });
-{% endhighlight %}
+```
 
 Babel will transpile it into ecmascript 5 compliant code, browserify concatenates all
 my transpiled files into one, and watchify in turn ensures everything is being re-transpiled

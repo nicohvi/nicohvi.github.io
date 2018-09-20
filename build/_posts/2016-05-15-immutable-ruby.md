@@ -42,7 +42,7 @@ Consider the following: you have a group of cats because you're sad and lonely,
 and they keep you company. In order to keep track of them you write a ruby
 program which tracks their names and ages.
 
-{% highlight ruby %}
+```ruby
 class Cat
   attr_accessor :name, :age
 
@@ -62,13 +62,13 @@ end
 
 p cats
 # <Cat @name="Frank" @age=1>, <Cat @name="Ted" @age=7>, ...
-{% endhighlight %}
+```
 
 All's well so far, but consider getting a new litter of kittens. You're not
 a very creative person, so instead of coming up with a whole host of new names,
 you simply add a "II" to the previous names - just like in Roman times!
 
-{% highlight ruby %}
+```ruby
 kittens = cats.map do |cat|
   cat.name = "#{cat.name} II"
   cat.age = 0
@@ -77,14 +77,14 @@ end
 
 p kittens
 # <Cat @name="Frank II", @age=0>, <Cat @name="Ted II" @age=0>, ...
-{% endhighlight %}
+```
 
 Totally works, right? Except, what happens to your old list of cats?
 
-{% highlight ruby %}
+```ruby
 p cats
 # <Cat @name="Frank II", @age=0>, <Cat @name="Ted II" @age=0>, ...
-{% endhighlight %}
+```
 
 Whops. 
 
@@ -102,7 +102,7 @@ we simply  (dun, dun, **dun**) mutate the old one.
 To fix this problem we can simply call `object.dup` which clones the object,
 giving it a new `object_id`.
 
-{% highlight ruby %}
+```ruby
 kittens = cats.map do |cat|
   kitten = cat.dup
   # ...
@@ -111,7 +111,7 @@ end
 
 p cats
 # <Cat @name="Frank" @age=1>, <Cat @name="Ted" @age=7>, ...
-{% endhighlight %}
+```
 
 Problem solved, right? *Right*? Well, no.
 
@@ -119,7 +119,7 @@ Consider now that you want each of your cats to have an appropriate hat, because
 as mentioned you're lonely and you want your cats to feel special so they don't
 run away from home.
 
-{% highlight ruby %}
+```ruby
 class Hat
   def initialize (color)
     @color = color
@@ -142,13 +142,13 @@ end
 p cats
 # <Cat @name="Frank" @age=1 @hat =<Hat @color="gold">>, 
 # <Cat @name="Ted" @age=7 @hat=<Hat @color="dark as night">>, ...
-{% endhighlight %}
+```
 
 However, you feel very strongly that kittens need to earn their place in your
 sad pack, and should be forced to wear **pink** hats until they've proven
 themselves.
 
-{% highlight ruby %}
+```ruby
 kittens = cats.map do |cat|
   kitten = cat.dup
   kitten.hat.color = "pink"
@@ -161,7 +161,7 @@ p kittens
 p cats
 # <Cat @name="Frank" @age=1 @hat =<Hat @color="pink">>, 
 # <Cat @name="Ted" @age=7 @hat=<Hat @color="pink">>, ...
-{% endhighlight %}
+```
 
 Wait, what? 
 
@@ -175,13 +175,13 @@ reference"[^1]. As you can see, this presents a problem.
 So, how do we solve this? You'd think ruby would provide some native method,
 but alas it doesn't. Luckily, we can do some magic and fix it ourself.
 
-{% highlight ruby %}
+```ruby
 module Immutable
   def deep_dup
     Marshal.load(Marshal.dump(self))
   end
 end
-{% endhighlight %}
+```
 
 Now, what strange magic is this? The `Marshal` class allows the 
 conversion of ruby objects into a byte stream, which lets them be stored
@@ -194,7 +194,7 @@ we see that it "serializes obj and all descendant objects". This is
 important, because this means that it actually converts **not only** the parent
 object (cats in our example), but also the children (i.e. the hats).
 
-{% highlight ruby %}
+```ruby
 module Immutable
   def deep_dup
     Marshal.load( Marshal.dump(self) )
@@ -216,7 +216,7 @@ p kittens
 p cats
 # <Cat @name="Frank" @age=1 @hat =<Hat @color="gold">>, 
 # <Cat @name="Ted" @age=7 @hat=<Hat @color="dark as night">>, ...
-{% endhighlight %}
+```
 
 Huzzah! 
 
@@ -224,14 +224,14 @@ That one line of code actually solves all our problems[^2], though we can actual
 take it one step further. Remember how `Marshal.dump` serializes all children? Well,
 we can use that to make the entire array immutable instead of only its contents.
 
-{% highlight ruby %}
+```ruby
 class Array
   include Immutable
 end
 
 kittens = cats.deep_dup.map do |cat|
 # ...
-{% endhighlight %}
+```
 
 And just like that we can iterate over our various collections without
 having fear of mutating the original contents. 
