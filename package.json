@@ -22,7 +22,10 @@
     "watchify": "^3.9.0"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-prismjs": "^1.0.2",
     "gulp-rev": "^8.0.0",
+    "prismjs": "^1.15.0",
     "ramda": "^0.24.1"
   },
   "scripts": {

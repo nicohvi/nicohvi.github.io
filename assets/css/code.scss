@@ -1,7 +1,6 @@
 @import 'colors';
 @import 'fonts';
-// @import 'github';
-@import 'solarized';
+@import 'stripe';
 
 p > code {
   background: $yellow;
@@ -16,4 +15,8 @@ pre {
 pre.highlight {
   overflow-x: auto;
   padding: 10px;
+  background: #f7f8f9;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 22px;
 }

@@ -1,5 +1,12 @@
 {
-  "presets": [
-    "es2015"
-  ]
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["javascript", "typescript", "css", "markup"],
+        "plugins": ["line-numbers"]
+      }
+    ]
+  ],
+  "presets": ["es2015"]
 }

@@ -1,4 +1,5 @@
 import $ from './query';
+import Prism from 'prismjs';
 
 $('a')
   .filter(el => el.attr('href').indexOf('http') !== -1)
@@ -14,50 +15,24 @@ $('nav')
       .toggleClass('active')
   );
 
-function addClassesBasedonSiblings(el) {
-  const [prev, next] = [
-    el.node.previousElementSibling,
-    el.node.nextElementSibling
-  ];
-  let result = [prev, next]
-    .filter(el => el)
-    .map(sibling => sibling.innerHTML)
-    .filter(
-      text =>
-        text === '(' ||
-        text === ')' ||
-        text === ',' ||
-        text === '.' ||
-        text === '()'
-    );
-  if (result.length === 0) return;
-  if (prev.innerHTML === 'function') return el.addClass('func-def');
-  // function calls
-  if (next.innerHTML === '(' && !prev.innerHTML === '.') return;
-  if (next.innerHTML === '.') return el.addClass('obj');
-  // function calls on objects
-  if (prev.innerHTML === '.') return el.addClass('func-invoke');
+Prism.hooks.add('after-tokenize', function(env) {
+  if (env.language !== 'ts') return;
 
-  return el.addClass('func-param');
-}
+  for (var i = 0; i < env.tokens.length; i++) {
+    var token = env.tokens[i];
 
-function isColon(el) {
-  return el.node.innerHTML === ':';
-}
+    if (token.type === 'string') continue;
+    if (token.type === 'operator' && /^[<]$/.test(token.content)) {
+      const keyword = env.tokens[i + 1];
+      if (keyword.type) continue;
+      env.tokens[i + 1] = new Prism.Token('constant', keyword);
+    }
+    if (token.type === 'punctuation' && token.content === ':') {
+      const keyword = env.tokens[i + 1];
+      if (keyword.type) continue;
+      env.tokens[i + 1] = new Prism.Token('constant', keyword);
+    }
+  }
+});
 
-function clauseTypeOf(el) {
-  return el.node.previousElementSibling.innerHTML === 'typeof';
-}
-
-// mute func params
-$('.highlight .nx').forEach(addClassesBasedonSiblings);
-
-// highlight object keys
-$('.highlight .p')
-  .filter(isColon)
-  .forEach(el => el.addClass('colon-key'));
-
-// remove highligh in typeof clause
-$('.highlight .nx')
-  .filter(clauseTypeOf)
-  .forEach(el => el.addClass('clause'));
+Prism.highlightAll();
