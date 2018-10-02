@@ -3,16 +3,9 @@
 @import 'colors';
 
 main {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
   display: block; // Since IE has no user-agent stylesheet for this element
-}
-
-main > section,
-main > article,
-.main-container {
-  margin: 0 auto;
-  width: 66.667%;
 }
 
 figure {

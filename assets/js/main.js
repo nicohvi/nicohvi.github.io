@@ -1,5 +1,9 @@
 import $ from './query';
-import Prism from 'prismjs';
+import * as R from 'ramda';
+$('pre > code').forEach(code => {
+  R.path(['node', 'parentNode'], code).classList.add('line-numbers');
+});
+import Prism from './vendor/prism';
 
 $('a')
   .filter(el => el.attr('href').indexOf('http') !== -1)
@@ -15,6 +19,7 @@ $('nav')
       .toggleClass('active')
   );
 
+// Prism hooks
 Prism.hooks.add('after-tokenize', function(env) {
   if (env.language !== 'ts') return;
 
