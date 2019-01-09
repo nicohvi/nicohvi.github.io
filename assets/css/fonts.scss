@@ -1,4 +1,4 @@
-@import 'colors';
+@import 'variables';
 @import 'variables';
 
 @font-face {
@@ -27,7 +27,7 @@
   font-style: italic;
 }
 
-@mixin copy () {
+@mixin copy() {
   color: $black;
   line-height: 1.75;
   text-rendering: optimizeLegibility;
@@ -36,30 +36,30 @@
   font-size: 18px;
 }
 
-@mixin title () {
+@mixin title() {
   color: $black;
   font-family: 'Source sans', sans-serif;
   font-weight: normal;
   font-size: 69px;
-  line-height: 1; 
+  line-height: 1;
   text-align: center;
-  
-  @media(max-width: $mobile) {
+
+  @media (max-width: $mobile) {
     font-size: 40px;
   }
 }
 
-@mixin quote () {
+@mixin quote() {
   color: $black;
   text-transform: uppercase;
   font-size: 14px;
 }
 
-@mixin code () {
+@mixin code() {
   font-size: 14px;
 }
 
-@mixin tooltip () {
+@mixin tooltip() {
   font-size: 12px;
   font-weight: bold;
 }

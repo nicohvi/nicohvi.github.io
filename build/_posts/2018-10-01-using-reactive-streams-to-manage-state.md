@@ -58,95 +58,57 @@ get value(): T {
 ```
 
 This means that whenever (for instance) a new component subscribes to an observable store,
-it will receive said store's latest updated values. Here's a demonstration:
+it will receive said store's latest updated values. Let's see how this works in practice.
 
 ```tsx
-class Trip extends Component<Props, State> {
+class Gym extends Component<Props, State> {
   state = {
-    id: null,
-    title: '',
-    arrivalTime: null,
-    date: null,
-    departureTime: null,
-    destination: null,
-    loading: true,
-    message: '',
-    name: '',
-    phoneNo: '',
-    previouslySubmitted: false,
-    price: 0,
-    showInput: false
+    trainers: [],
+    champions: []
   }
 
-  async componentDidMount() {
-    const { id, name, phoneNo } = this.props;
-    const { arrivalTime, day, destination } = await getTrip(id);
-    const { previouslySubmitted } = await hasPreviouslySubmitted(id, name)
-    const showInput = !phoneNo || !name; 
+  componentDidMount() {
+    const { name } = this.props; 
+    /*
+    * Whenever the store emits new a new state, update the component state.
+    */
+    store.onValue(newState => this.setState(newState));
 
-    this.setState({...{ loading: false }, 
-      ...{ id, arrivalTime, day, destination, previouslySubmitted, showInput }});
+    // Do some initialising logic.
+    api.init(name);
   }
 
   render() {
-    const { loading } = this.props;
-    if(loading) return <Spinner />;
-    return <div className="trip">
-      {/* Trip information */}
-    </div>
+    const { trainers, champions } = {...this.props, ...this.state };
+
+    return (<div className="gym-component">
+      <h3>Trainers</h3>
+      <ul>
+        {trainers.map((trainer, i) => <Trainer key={i} {...trainer} />)}
+      </ul>
+      <h3>Champions</h3>
+      <ul>
+        {champions.map((trainer, i) => <Trainer key={i} {...trainer} />)}
+      </ul>
+    </div>)
   }
 }
 ```
 
-For the purposes of this example the `Trip` component holds information for a
-trip to any given destination. There's a date for your departure, a departure time, and an arrival time, etc.
+This seems simple enough, and I'd usually not reach for RxJS for such a simple component,
+instead favouring using the component state for the root object as the main container for the
+entire application state. **However**, in real life the application domain gets real complicated 
+real fast, and 
+*in my experience components that grow past 100 lines of code become hard to keep a mental model of and reason about.*{:.hl.green}
 
-To make things a bit more complicated (i.e. realistic) imagine that if the
-user has already submitted an order for this trip then we need to set the
-`previouslySubmitted` flag, as well as disable the button for the form.
+Additionally I think it's a good idea to separate behaviour, presentation, and state when the situation
+calls far it. Using an external state container, such as reactive streams, with a declarative API for
+state manipulation makes components easier to reason about in my experience.
 
-Additonally, if the user **hasn't** submitted an order for this trip 
-previously, but there's no record for her phone number (or name) in our database,
-we need to set the `showInput` flag so that she can enter her name and number 
-so our application can send her an SMS verification[^1].
+On line `12` we perform the actual connection of the external state container to the component. Think
+of it as a very simple version of Redux's `connect` function. This LOC states that whenever the store
+receives a new state object, this should in turn update the component state[^1].
 
-As you might imagine, this component could get real complicated real fast.
-The initial state handling alone takes about 60 LOC, which is already 
-dangerously close to our limit of 100.
+---
 
-The rendering code alone is quite complicated:
-
-```tsx
-  // ...
-  render() {
-    const { loading, title } = this.props;
-    if(loading) return <Spinner />;
-
-    return <div className="trip">
-      <h1>{title}</h1>
-      <ul className="trip-info">
-        <li>
-          <span className="label">Date</span>
-          <span className="value">{date}</span>
-        </li>
-        <li>
-          <span className="label">Destination</span>
-          <span className="value">{destination}</span>
-        </li>
-        <li>
-          <span className="label">Departure</span>
-          <span className="value">{departureTime}</span>
-        </li>
-        <li>
-          <span className="label">Arrival</span>
-          <span className="value">{arrivalTime}</span>
-        </li>
-        <li>
-          <span className="label">Price</span>
-          <span className="value">{price}</span>
-        </li>
-      </ul>
-      <button disabled={previouslySubmitted} onClick={this.submit} />
-    </div>
-  }
-```
+[^1]: And since we're using TypeScript the `newState` object is guaranteed to adhere to the defined interface for the component.

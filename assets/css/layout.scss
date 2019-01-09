@@ -1,6 +1,5 @@
 @import 'fonts';
 @import 'variables';
-@import 'colors';
 
 main {
   max-width: 700px;
@@ -20,19 +19,19 @@ figure img {
 hr {
   width: 25%;
   height: 2px;
-  background: $lightGray;
+  background: $gray-light;
   border: 0;
 }
 
 /* ---- font styles ---- */
 
 h1 {
-  @include title();
+  @include title;
   margin: 60px 0;
 }
 
 p a {
-  border-bottom: 1px solid $faded_black;
+  border-bottom: 1px solid $black-faded;
   transition: all 0.2s ease;
 
   &:hover {
@@ -49,7 +48,8 @@ h2 + p {
   word-break: break-word;
 }
 
-p {
+p,
+h3 {
   margin: 30px 0;
 }
 

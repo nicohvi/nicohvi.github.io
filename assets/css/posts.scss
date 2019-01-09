@@ -1,4 +1,4 @@
-@import 'colors';
+@import 'variables';
 @import 'fonts';
 
 .header {
@@ -40,12 +40,15 @@ img + em,
 .footnotes {
   margin: 30px 0;
 }
+
 .footnotes li {
   margin-bottom: 15px;
 }
+
 .footnotes li:last-of-type {
   margin-bottom: 0;
 }
+
 .footnotes li a:last-of-type {
   border-bottom: 0;
   &:hover {

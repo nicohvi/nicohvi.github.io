@@ -1,8 +1,8 @@
-@import 'colors';
+@import 'variables';
 @import 'variables';
 @import 'mixins';
 
-header { 
+header {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -13,26 +13,32 @@ header {
   margin: 0 auto;
 }
 
-header ul { margin-left: 50px; }
+header ul {
+  margin-left: 50px;
+}
 
-header img { width: 30px; }
+header img {
+  width: 30px;
+}
 
-header li { 
+header li {
   margin-left: 15px;
   display: inline-block;
-  padding: 10px 0; 
-  opacity: .9;
-  transition: all .4s ease;
+  padding: 10px 0;
+  opacity: 0.9;
+  transition: all 0.4s ease;
 
-  &:first-of-type { margin-left: 0; }
+  &:first-of-type {
+    margin-left: 0;
+  }
 }
 
 header li a:hover {
   color: $blue;
 }
 
-nav .active { 
-  opacity: 1; 
+nav .active {
+  opacity: 1;
   color: $blue;
 }
 
@@ -44,7 +50,7 @@ nav .active {
   header ul {
     @include flex-column;
     max-height: 0;
-    transition: max-height .4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
     overflow: hidden;
   }
 
@@ -55,10 +61,12 @@ nav .active {
     content: '\2193';
     display: block;
     cursor: pointer;
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
   }
 
-  nav.active ul { max-height: 500px; }
+  nav.active ul {
+    max-height: 500px;
+  }
 
   nav.active:before {
     transform: rotateZ(180deg);
@@ -67,6 +75,4 @@ nav .active {
   header li {
     margin-left: 0;
   }
-  
 }
-

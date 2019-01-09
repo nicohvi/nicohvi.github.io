@@ -1,12 +1,10 @@
 @mixin flex-center($dir) {
   display: flex;
-  @if($dir == horizontal) {
+  @if ($dir == horizontal) {
     justify-content: center;
-  }
-  @else if ($dir == vertical) {
+  } @else if ($dir == vertical) {
     align-items: center;
-  }
-  @else {
+  } @else {
     justify-content: center;
     align-items: center;
   }
@@ -20,4 +18,12 @@
 @mixin flex-wrap {
   display: flex;
   flex-wrap: wrap;
+}
+
+@mixin list-margin-bottom($margin: 30px) {
+  margin-bottom: $margin;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
