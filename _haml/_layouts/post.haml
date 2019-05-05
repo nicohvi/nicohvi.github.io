@@ -3,27 +3,11 @@ layout: master
 \---
 
 %article
-  %section.header
+  %div.header
     %h1.post-title {{ page.title }}
     %p.date {{ page.date | date: "%A %d. %B %Y" }}
   
-  %section.body
+  %div.body
     {{ content }}
 
-  %section.comments
-    #disqus_thread
-    :javascript  
-      /* * * CONFIGURATION VARIABLES * * */
 
-    
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://nicohvi-1.disqus.com/embed.js'
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
-
-      var disqus_config = function () {
-        this.page.identifier = "{{ page.title | handleize }}"
-      }

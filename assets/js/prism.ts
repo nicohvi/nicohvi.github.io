@@ -1,28 +1,14 @@
-import $ from './query';
-import * as R from 'ramda';
-$('pre > code').forEach(code => {
-  R.path(['node', 'parentNode'], code).classList.add('line-numbers');
-});
-import Prism from './vendor/prism';
-
-$('a')
-  .filter(el => el.attr('href').indexOf('http') !== -1)
-  .forEach(el => el.attr('target', '_blank'));
-
-$('.github').forEach(el => el.tooltip());
-
-$('nav')
-  .pop()
-  .on('click', () =>
-    $('nav')
-      .pop()
-      .toggleClass('active')
-  );
+import Prism from 'prismjs';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-ruby';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 // Prism hooks
 Prism.hooks.add('after-tokenize', function(env) {
-  if (env.language !== 'ts') return;
-
   for (var i = 0; i < env.tokens.length; i++) {
     var token = env.tokens[i];
 

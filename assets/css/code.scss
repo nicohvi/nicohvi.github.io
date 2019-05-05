@@ -8,7 +8,8 @@ p > code {
   padding: 2px 5px;
 }
 
-pre {
+pre,
+code {
   font-family: 'Consolas', 'Courier New', monospace;
 }
 
@@ -17,6 +18,6 @@ pre.highlight {
   padding: 10px;
   background: #f7f8f9;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 22px;
 }

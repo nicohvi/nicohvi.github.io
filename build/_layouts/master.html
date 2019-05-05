@@ -7,7 +7,7 @@
 <meta content='Nicolay Hvidsten, ruby, rails, programming' name='robots'>
 <meta content='width=device-width, initial-scale=1' name='viewport'>
 <meta content='Nicolay Hvidsten, developer' property='og:title'>
-<link async href='/public/{{ site.data.assets.css }}' rel='stylesheet'>
+<link async href='{{ site.data.assets.css_url }}' rel='stylesheet'>
 <title>{%if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}</title>
 <link href='/public/images/avatar.svg' rel='shortcut icon' type='image/svg'>
 </head>
@@ -36,13 +36,7 @@
 <main>
 {{ content }}
 </main>
-<script async src='https://www.googletagmanager.com/gtag/js?id=UA-56526058-1'></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-56526058-1');
-</script>
-<script async src='/public/{{ site.data.assets.js }}'></script>
+<script src='{{ site.data.assets.vendor_js_url }}' type='text/javascript'></script>
+<script src='{{ site.data.assets.js_url }}' type='text/javascript'></script>
 </body>
 </html>

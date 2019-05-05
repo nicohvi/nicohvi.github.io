@@ -7,7 +7,7 @@
     %meta(name="robots" content="Nicolay Hvidsten, ruby, rails, programming")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     %meta(property="og:title" content="Nicolay Hvidsten, developer")
-    %link(rel="stylesheet" href="/public/{{ site.data.assets.css }}" async)
+    %link(rel="stylesheet" href="{{ site.data.assets.css_url }}" async)
     %title {%if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}
     %link(rel="shortcut icon" type="image/svg" href="/public/images/avatar.svg")
   
@@ -30,12 +30,10 @@
     %main
       {{ content }} 
 
-    %script(async src="https://www.googletagmanager.com/gtag/js?id=UA-56526058-1")
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-56526058-1');
+    %script(src="{{ site.data.assets.vendor_js_url }}" type="text/javascript")
+    %script(src="{{ site.data.assets.js_url }}" type="text/javascript")
+
+
+
     
-    %script(src="/public/{{ site.data.assets.js }}" async)
       

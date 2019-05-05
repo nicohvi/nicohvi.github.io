@@ -1,0 +1,3 @@
+css_url: https://localhost:8080/style.css
+js_url: https://localhost:8080/js/app.js
+vendor_js_url: https://localhost:8080/js/vendor.js

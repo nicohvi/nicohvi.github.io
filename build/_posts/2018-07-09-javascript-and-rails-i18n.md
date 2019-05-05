@@ -39,7 +39,7 @@ Two quick notes:
 
 The gulp script needs to find the various `.yml` files and convert them to JSON. This is done using [js-yaml](https://github.com/nodeca/js-yaml), which reads YAML files and produces a JSON object (using a function called `safeLoad`).
 
-```javascript
+```typescript
 function translate() {
   const path = // ... path to your locales folder
   const jsonPath = // ... path to your JSON-file that will be read by the JS app
@@ -59,7 +59,7 @@ function translate() {
 
 This task can easily be extended to be run on-the-fly like so:
 
-```javascript
+```typescript
 function translate(watch = false) {
   const path = // ... path to your locales folder
   const jsonPath = // ... path to your JSON-file for the JS app
@@ -95,14 +95,16 @@ export default function translate(key: string) {
 
 This way you can easily add i18n to any React (for instance) components using the following syntax:
 
-```typescript
+```tsx
 import t from '@t';
 
-const CatComponent = () => (
-  <div className="cat-greeting">
-    <h1>{t('cat.greeting')}</h1>
-  </div>
-);
+function CatComponent() {
+  return (
+    <div className="cat-greeting">
+      <h1>{t('cat.greeting')}</h1>
+    </div>
+  )
+};
 
 // <div class="cat-greeting"><h1>I don't greet humans</h1></div>
 ```

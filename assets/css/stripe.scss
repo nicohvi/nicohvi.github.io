@@ -10,6 +10,7 @@ code .token:not(.script) {
 }
 code .token.property {
   font-weight: 500;
+  color: #3297d3;
 }
 .language-php .token.operator,
 code .token.atrule,
@@ -116,23 +117,25 @@ pre.highlight.line-numbers {
 pre .line-numbers-rows {
   position: absolute;
   pointer-events: none;
-  top: 10px;
+  top: 7.5px;
   left: 0;
   width: 16px;
   counter-reset: linenumber;
   font-family: Source Code Pro, monospace;
 }
+
 pre .line-numbers-rows > span {
   pointer-events: none;
   display: block;
   counter-increment: linenumber;
 }
+
 pre .line-numbers-rows > span:before {
   content: counter(linenumber);
   color: #bec5ca;
   display: block;
-  font-size: 12px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 22px;
   text-align: right;
   -webkit-user-select: none;
   -moz-user-select: none;
